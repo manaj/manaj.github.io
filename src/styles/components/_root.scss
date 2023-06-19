@@ -1,0 +1,13 @@
+:root {
+    @each $item,$value in $colors {
+        --#{"color-"}#{$item}: #{$value};
+    }
+
+    @each $item, $value in $font {
+        --#{"font-"}#{$item}: #{$value};
+    }
+    
+    @each $item, $value in $spacers {
+        --#{"spacer-"}#{$item}: #{$value};
+    }
+}

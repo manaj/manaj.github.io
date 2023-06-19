@@ -1,0 +1,13 @@
+@mixin clearfix() {
+    &::after {
+        display: block;
+        clear: both;
+        content: "";
+    }
+}
+
+@mixin media($name, $breakpoints: $breakpoints) {
+    @media (min-width: map-get($breakpoints, $name)) {
+        @content;
+    }
+}

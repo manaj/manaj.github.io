@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+@import 
+"components/fonts",
+"components/variables",
+"components/mixins",
+"components/root",
+"components/type",
+"components/grid",
+"components/utility",
+"components/footer"
+;
+
+.cover {
+    background: linear-gradient(115.23deg, var(--color-yellow-dark) -32.83%, var(--color-yellow) 15.37%, var(--color-yellow-light) 69.24%, var(--color-yellow-lighter) 119.39%); 
+    height: 100vh;
+    transition: all 5000;
+
+    .logo {
+        position: absolute;
+        top: 45%;
+        width: 70vw;
+        right: 0;
+        transform: translateY(-50%);
+        transition: all;
+    }
+
+    &.fix {
+        background: var(--color-indigo);
+        
+    }
+}
+
+.homepage {
+    position: relative;
+    background-color: var(--color-indigo);
+
+    h2 {
+        width: 92%;
+    }
+
+    .hero, .experience, .recent-works {
+        margin-bottom: var(--spacer-three);
+    }
+
+    .experience p {
+        font-size: var(--spacer-one);
+        line-height: var(--spacer-oneandhalf);
+        width: 70%;
+        margin: 0;
+    }
+
+
+}

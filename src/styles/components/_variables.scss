@@ -1,0 +1,39 @@
+$font: (
+    "primary": "'DM Sans', SF Pro, Helvetica, Calibri, Arial, sans-serif;",
+    "secondary": "'Urbanist', Century Gothic, Helvetica, system-ui;",
+    "letter-spacing-4": "-0.04rem;",
+    "letter-spacing-3": "-0.03rem;"
+);
+
+$colors: (
+    "yellow-dark": "#FFD000;",
+    "yellow": "#FFE100;",
+    "yellow-lighter": "#FFE700;",
+    "yellow-light": "#FFF122;",
+    "indigo": "#E4F3F1;",
+    "black": "#171921;",
+    "white": "#ffffff;",
+    "turquoise": "#32E2C3;",
+    "blue": '#0057A8;'
+    ) !default;
+    
+$spacer: 1rem;
+$spacers: (
+    "zero" : 0,
+    "quarter": $spacer * .25,
+    "half": $spacer * .5,
+    "one": $spacer,
+    "oneandhalf": $spacer * 1.5,
+    "two": $spacer * 2,
+    "twoandquarter": $spacer * 2.25,
+    "three": $spacer * 3,
+    "four": $spacer * 4,
+    "five": $spacer * 5
+) !default;
+
+$breakpoints: (
+    small: 640px,
+    medium: 900px,
+    big: 1400px,
+    biggest: 1920px
+) !default;
