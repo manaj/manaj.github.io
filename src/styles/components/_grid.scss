@@ -1,0 +1,27 @@
+.grid {
+    display: grid;
+}
+
+.box {
+    background-color: var(--color-white);
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    @extend .grid;
+
+    .inner {
+        width: 90vw;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    @include media(medium) {
+        .inner {
+            width: 70vw;
+        }
+    }
+}
+
+img {
+    width: 90%;
+}
