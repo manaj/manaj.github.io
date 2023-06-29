@@ -4,3 +4,22 @@
     padding: var(--spacer-zero);
     margin: var(--spacer-zero);
 }
+
+.logo {
+    display: block;
+    width: var(--logo-width);
+}
+
+footer a {
+    padding: var(--spacer-quarter) var(--spacer-half);
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--color-blue);
+    box-shadow: inset 0 0 0 0 var(--color-yellow);
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    border-radius: var(--spacer-quarter);
+
+    &:hover {
+        box-shadow: inset 0 32px 0 0 var(--color-yellow);
+    }
+}

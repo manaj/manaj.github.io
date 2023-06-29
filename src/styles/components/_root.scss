@@ -10,4 +10,6 @@
     @each $item, $value in $spacers {
         --#{"spacer-"}#{$item}: #{$value};
     }
+
+    --logo-width: calc(100%/4.5);
 }
