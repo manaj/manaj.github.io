@@ -3,10 +3,9 @@
 }
 
 .box {
-    background-color: var(--color-white);
     margin-right: auto;
     margin-left: auto;
-    width: 100%;
+    box-sizing: border-box;
     @extend .grid;
 
     .inner {

@@ -1,5 +1,10 @@
 footer {
-    margin: var(--spacer-three) auto;
+    padding: var(--spacer-two) 0;
+    background-color: var(--color-white);
+
+    a {
+        padding: var(--spacer-quarter) var(--spacer-half);
+    }
 }
 
 .credits, .contact {
