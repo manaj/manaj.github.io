@@ -1,8 +1,11 @@
 $font: (
-    "primary": "'DM Sans', SF Pro, Helvetica, Calibri, Arial, sans-serif;",
+    "primary": "'DM Sans', Helvetica, Calibri, Arial, sans-serif;",
     "secondary": "'Urbanist', Century Gothic, Helvetica, system-ui;",
     "letter-spacing-4": "-0.04rem;",
-    "letter-spacing-3": "-0.03rem;"
+    "letter-spacing-3": "-0.03rem;",
+    "medium": "500",
+    "normal": "400",
+    "light": "300"
 );
 
 $colors: (
@@ -11,21 +14,26 @@ $colors: (
     "yellow-lighter": "#FFE700;",
     "yellow-light": "#FFF122;",
     "indigo": "#E4F3F1;",
+    "turquoise": "#32E2C3;",
+    "blue": '#0057A8;',
     "black": "#171921;",
     "white": "#ffffff;",
-    "turquoise": "#32E2C3;",
-    "blue": '#0057A8;'
-    ) !default;
+    "gray-100":'#F4F4F2;',
+    "gray-900":'#515151;',
+    )!default;
     
 $spacer: 1rem;
 $spacers: (
     "zero" : 0,
     "quarter": $spacer * .25,
     "half": $spacer * .5,
+    "threequarter": $spacer * .75,
     "one": $spacer,
+    "oneandquarter": $spacer * 1.25,
     "oneandhalf": $spacer * 1.5,
     "two": $spacer * 2,
     "twoandquarter": $spacer * 2.25,
+    "twoandhalf": $spacer * 2.5,
     "three": $spacer * 3,
     "four": $spacer * 4,
     "five": $spacer * 5

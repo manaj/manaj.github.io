@@ -55,7 +55,7 @@ function paralox (){
 
             });
 
-            if (speed > ((coverHeight - logoHeight) - 80)) {
+            if (speed > ((coverHeight - logoHeight) - 180)) {
                 $('.cover').addClass('fix');
             } else {
                 $('.cover').removeClass('fix');
