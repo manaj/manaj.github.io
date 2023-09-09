@@ -24,16 +24,24 @@ header {
     position: relative;
 
     section.inner {
-        display: grid;
-        grid: auto-flow / 1fr 3fr;
-        margin: var(--spacer-two) auto 0 auto;
+        
+        @include media(small) {
+            display: grid;
+            grid: auto-flow / 1fr 3fr;
+            margin: var(--spacer-two) auto 0 auto;
+        }
     }
 
     .article-navigation {
         @extend h5;
-        position: relative;
-        font-weight: 400;
-        margin-right: var(--spacer-oneandhalf);
+        display: none;
+
+        @include media(small) {
+            position: relative;
+            font-weight: 400;
+            margin-right: var(--spacer-oneandhalf);
+        }
+
         
         li {
             padding: var(--spacer-half) 0;
