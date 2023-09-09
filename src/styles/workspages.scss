@@ -14,8 +14,12 @@ body {
 }
 
 header {
-    margin: var(--spacer-three) 0 var(--spacer-two) 0;
+    margin: var(--spacer-oneandhalf) 0 var(--spacer-oneandhalf) 0;
     background-color: var(--color-gray-100);
+
+    @include media(small) { 
+        margin: var(--spacer-three) 0 var(--spacer-two) 0;
+    }
 }
 
 .workspage {
@@ -24,7 +28,7 @@ header {
     position: relative;
 
     section.inner {
-        
+
         @include media(small) {
             display: grid;
             grid: auto-flow / 1fr 3fr;
@@ -37,6 +41,7 @@ header {
         display: none;
 
         @include media(small) {
+            display: block;
             position: relative;
             font-weight: 400;
             margin-right: var(--spacer-oneandhalf);
