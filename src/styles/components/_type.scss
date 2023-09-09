@@ -9,10 +9,15 @@ h1, h3, h4, h5 {
 }
 
 h1 {
-  font-size: var(--spacer-three);
+  font-size: var(--spacer-two);
   line-height: var(--spacer-three);
   font-weight: 500;
-  margin: var(--spacer-one) 0 var(--spacer-twoandquarter) 0;
+  margin: var(--spacer-one) 0 0 0;
+  
+  @include media(small) {
+      font-size: var(--spacer-three);
+      margin: var(--spacer-one) 0 var(--spacer-twoandquarter) 0;
+    }
 }
 
 h2 {
@@ -94,11 +99,16 @@ a {
 
 article {
   .subheading {
-      font-size: var(--spacer-two);
+      
       font-weight: 300;
       line-height: var(--spacer-twoandhalf);
-      margin: var(--spacer-two) 0 var(--spacer-two) 0;
+      margin: var(--spacer-one) 0 ;
       color: var(--color-gray-900);
+
+      @include media(small) {
+          font-size: var(--spacer-two);
+          margin: var(--spacer-two) 0 var(--spacer-two) 0;
+        }
     }
 
     p {
@@ -114,7 +124,10 @@ article {
     }
 
     h3 {
-      margin-top: var(--spacer-four);
+      margin-bottom: 0;
+      @include media(small) {
+        margin-top: var(--spacer-four);
+      }
     }
 }
 
