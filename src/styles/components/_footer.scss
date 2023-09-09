@@ -9,8 +9,13 @@ footer {
 
 .credits, .contact {
     > .lists {
-        display: grid;
-        grid-template-columns: 50% 1fr;
+        div {
+            margin-bottom: var(--spacer-one);
+        }
+        @include media(small) {
+            display: grid;
+            grid-template-columns: 50% 1fr;
+        }
     }
 
     dl {
@@ -23,8 +28,11 @@ footer {
     }
 
     ul {
-        display: flex;
-        flex: revert-layer;;
+        display: block;
+        @include media(small) {
+            display: flex;
+            flex: revert-layer;
+        }
     }
 
     ul, dd {
@@ -51,5 +59,8 @@ footer {
 }
 
 .contact {
-    margin-bottom: var(--spacer-three);
+    
+    @include media(small) {
+            margin-bottom: var(--spacer-three);
+    }
 }

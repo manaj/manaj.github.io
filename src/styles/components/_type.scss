@@ -16,23 +16,39 @@ h1 {
 }
 
 h2 {
-  font-size: var(--spacer-twoandquarter);
-  line-height: var(--spacer-three);
-  font-weight: 400;
+  font-size: var(--spacer-oneandthreequarter);
+  line-height: var(--spacer-twoandhalf);
+  font-weight: 300;
   margin: var(--spacer-twoandquarter) 0 var(--spacer-twoandquarter) 0;
+
+  @include media(small) {
+      font-size: var(--spacer-twoandquarter);
+      line-height: var(--spacer-three);
+      font-weight: 400;
+    }
 }
 
+
+
 h3 {
-  font-size: var(--spacer-two);
-  margin: 0 0 var(--spacer-oneandhalf) 0;
-  letter-spacing: var(--fonts-letter-spacing-4);
+    font-size: var(--spacer-oneandhalf);
+    margin: 0 0 var(--spacer-oneandhalf) 0;
+    letter-spacing: var(--fonts-letter-spacing-4);
+
+  @include media(small) {
+    font-size: var(--spacer-two);
+  }
 }
 
 h4 {
   font-family: var(--font-primary);
-  font-size: var(--spacer-oneandhalf);
+  font-size: var(--spacer-oneandquarter);
   margin: var(--spacer-oneandhalf) 0 var(--spacer-one) 0;
   letter-spacing: var(--fonts-letter-spacing-3);
+
+  @include media(small) {
+      font-size: var(--spacer-oneandhalf);
+    }
 }
 
 h5 {

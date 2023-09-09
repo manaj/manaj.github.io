@@ -15,12 +15,14 @@ function paralox (){
         var currentLogoWidth = logoWidth - speed * difference;
         var marginRight = speed + speed * difference;
         var coverHeight = $(".cover").height();
-
+        
         // how long should we scroll to make things smaller? 
         // How can we make the height minus the height
         // how can we make the logo stick to bottom
         // how can we animate till the yellow part is done
 
+        console.log(speed);
+        console.log(innerToPageDistanceLeft);
 
         if (
             speed <= innerToPageDistanceLeft &&
@@ -66,8 +68,11 @@ function paralox (){
     });
 }
 
-$(document).ready(paralox());
-$(window).on('resize', function(){
-    location.reload();
-    paralox()
-});
+if (!window.matchMedia("(max-width: 767px)").matches) {
+    $(document).ready(paralox());
+    $(".cover-inner").removeClass("inner");
+    $(window).on('resize', function () {
+        location.reload();
+        paralox()
+    });   
+}
