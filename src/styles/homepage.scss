@@ -11,18 +11,24 @@
 "components/footer"
 ;
 
+// .inner {
+//     width: 90vw;
+//     margin: 0 auto;
+//     position: relative;
+// }
+
 .cover {
     background: linear-gradient(115.23deg, var(--color-yellow-dark) -32.83%, var(--color-yellow) 15.37%, var(--color-yellow-light) 69.24%, var(--color-yellow-lighter) 119.39%); 
-    height: 100vh;
+    height: 15vh;
+    min-height: var(--spacer-three);
     transition: all 5000;
 
     .logo {
         position: absolute;
-        top: 45%;
-        width: 70vw;
-        right: 0;
+        width: 50vw;
         transform: translateY(-50%);
-        transition: all;
+        top: 45%;
+        left: 0;
     }
 
     &.fix {
@@ -31,12 +37,31 @@
     }
 }
 
+@include media(medium) {
+    .cover {
+        height: 95vh;
+
+        .logo {
+            position: absolute;
+            top: 45%;
+            width: 70vw;
+            left: auto;
+            right: 0;
+            transform: translateY(-50%);
+            transition: all;
+        }
+    }
+}
+
 .homepage {
     position: relative;
     background-color: var(--color-indigo);
 
     h2 {
-        width: 92%;
+        width: 100%;
+        @include media(small) {
+                width: 92%;
+        }
     }
 
     .hero, .experience, .recent-works {
@@ -44,9 +69,12 @@
     }
 
     .experience p {
-        width: 80%;
         margin: 0;
         letter-spacing: normal;
+        width: 100%;
+        @include media(small) {
+            width: 80%;
+        }
     }
 
 

@@ -31,6 +31,7 @@ $spacers: (
     "one": $spacer,
     "oneandquarter": $spacer * 1.25,
     "oneandhalf": $spacer * 1.5,
+    "oneandthreequarter": $spacer * 1.75,
     "two": $spacer * 2,
     "twoandquarter": $spacer * 2.25,
     "twoandhalf": $spacer * 2.5,
@@ -40,7 +41,7 @@ $spacers: (
 ) !default;
 
 $breakpoints: (
-    small: 640px,
+    small: 767px,
     medium: 900px,
     big: 1400px,
     biggest: 1920px
