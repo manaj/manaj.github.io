@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "manaj.github.io",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -17,5 +17,10 @@
     "stylelint": "^15.6.2",
     "stylelint-config-recommended-scss": "^12.0.0",
     "stylelint-config-standard": "^33.0.0"
-  }
+  },
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
