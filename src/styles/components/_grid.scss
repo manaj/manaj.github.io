@@ -19,6 +19,23 @@
             width: 70vw;
         }
     }
+
+    .double {
+        ul {
+            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: var(--spacer-two);
+        }
+
+        li {
+            display: grid;
+            
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
 }
 
 img {
