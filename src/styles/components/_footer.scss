@@ -4,10 +4,11 @@ footer {
 
     a {
         padding: var(--spacer-quarter) var(--spacer-half);
+        display: block;
     }
 }
 
-.credits, .contact {
+.credits {
     > .lists {
         div {
             margin-bottom: var(--spacer-one);
@@ -56,11 +57,4 @@ footer {
         margin-bottom: var(--spacer-one);
     }
     
-}
-
-.contact {
-    
-    @include media(small) {
-            margin-bottom: var(--spacer-three);
-    }
 }
