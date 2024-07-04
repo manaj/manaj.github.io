@@ -15,6 +15,8 @@ $colors: (
     "yellow-light": "#FFF122;",
     "indigo": "#E4F3F1;",
     "turquoise": "#32E2C3;",
+    "turquoise-gray": "#A8BAB7;",
+    "turquoise-dark": "#0D7264;",
     "blue": '#0057A8;',
     "black": "#171921;",
     "white": "#ffffff;",
@@ -37,11 +39,16 @@ $spacers: (
     "two": $spacer * 2,
     "twoandquarter": $spacer * 2.25,
     "twoandhalf": $spacer * 2.5,
+    "twoandthreequarter": $spacer * 2.75,
     "three": $spacer * 3,
     "threeandhalf": $spacer * 3.5,
     "four": $spacer * 4,
     "five": $spacer * 5,
-    "ten": $spacer * 7
+    "six": $spacer * 6,
+    "seven": $spacer * 7,
+    "eight": $spacer * 8,
+    "nine": $spacer * 9,
+    "ten": $spacer * 10
 ) !default;
 
 $breakpoints: (
