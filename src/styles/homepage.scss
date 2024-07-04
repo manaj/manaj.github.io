@@ -15,7 +15,7 @@
 .header,
 .homepage {
     background-color: var(--color-indigo);
-    margin: 16px;
+    margin: var(--spacer-one);
 }
 
 .homepage {
@@ -30,13 +30,25 @@
         .hi {
             background-color: var(--color-gray-950);
             color: var(--color-yellow);
-            font-size: var(--spacer-ten);
+            font-size: var(--spacer-seven);
             border-radius: var(--spacer-oneandhalf);
             padding: var(--spacer-threeandhalf) 0 ;
             box-sizing: border-box;
             display: flex;
             align-items: center ;
             justify-content: center;
+
+            @include media(big) {
+                font-size: var(--spacer-eight);
+            }
+
+            @include media(bigger) {
+                font-size: var(--spacer-nine);
+            }
+
+            @include media(biggest) {
+                font-size: var(--spacer-ten);
+            }
         }
 
         h1 {
@@ -67,14 +79,14 @@
     }
 
     .hero, .recent-works {
-        margin-bottom: var(--spacer-four);
+        margin-bottom: var(--spacer-five);
     }
 
 
     .recent-works li {
-        padding-bottom: var(--spacer-oneandhalf);
-        border-bottom: 1px solid var(--color-turquoise);
-        margin-bottom: var(--spacer-two);
+        padding-bottom: var(--spacer-three);
+        border-bottom: 1px solid var(--color-turquoise-gray);
+        margin-bottom: var(--spacer-three);
 
         &:last-child {
             padding-bottom: 0;
@@ -86,7 +98,7 @@
     .single {
         @include media(small) {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: var(--spacer-two);
             direction: rtl;
         }

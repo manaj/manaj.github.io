@@ -25,7 +25,7 @@ h1 {
   }
 
   @include media(bigger) {
-    font-size: var(--spacer-three);
+    font-size: var(--spacer-twoandthreequarter);
   }
 
   @include media(biggest) {
@@ -39,15 +39,18 @@ h1 {
 
 h2 {
   font-size: var(--spacer-oneandthreequarter);
-  line-height: var(--spacer-twoandhalf);
+  line-height: 1.3;
   font-weight: 300;
   margin: var(--spacer-twoandquarter) 0 var(--spacer-twoandquarter) 0;
 
   @include media(small) {
-      font-size: var(--spacer-twoandquarter);
-      line-height: var(--spacer-three);
-      font-weight: 400;
-    }
+    font-size: var(--spacer-twoandquarter);
+    font-weight: 400;
+  }
+
+  @include media(big) {
+    font-size: var(--spacer-three);
+   }
 }
 
 h3 {
@@ -58,6 +61,10 @@ h3 {
   @include media(small) {
     font-size: var(--spacer-twoandhalf);
   }
+
+    @include media(big) {
+      font-size: var(--spacer-three);
+    }
 }
 
 h4 {
@@ -67,7 +74,7 @@ h4 {
   letter-spacing: var(--fonts-letter-spacing-3);
 
   @include media(small) {
-      font-size: var(--spacer-oneandhalf);
+      font-size: var(--spacer-two);
     }
 }
 
@@ -76,6 +83,14 @@ h5 {
   font-size: var(--spacer-oneandhalf);
   margin: var(--spacer-one) 0;
   font-weight: var(--font-medium);
+}
+
+h6 {
+  font-family: var(--font-primary);
+  font-size: var(--spacer-oneandquarter);
+  margin: var(--spacer-half) 0;
+  font-weight: var(--font-light);
+
 }
 
 ::selection {

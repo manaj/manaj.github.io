@@ -12,12 +12,7 @@
     }
     @include media(big) {
         .inner {
-            width: 70vw;
-        }
-    }
-    @include media(biggest) {
-        .inner {
-            width: 65vw;
+            width: 72vw;
         }
     }
     
