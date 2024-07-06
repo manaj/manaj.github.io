@@ -10,13 +10,17 @@ footer {
 
 .credits {
     > .lists {
+
+        @include media(small) {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr 1fr;
+            gap: var(--spacer-two);
+        }
+        
         div {
             margin-bottom: var(--spacer-one);
         }
-        @include media(small) {
-            display: grid;
-            grid-template-columns: 50% 1fr;
-        }
+        
     }
 
     dl {

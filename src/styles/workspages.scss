@@ -19,6 +19,10 @@ body {
     background-color: var(--color-gray-100);
     position: relative;
 
+    h1 {
+        font-family: var(--font-primary);
+    }
+
     section.inner {
 
         @include media(small) {

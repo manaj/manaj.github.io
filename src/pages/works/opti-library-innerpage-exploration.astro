@@ -1,0 +1,92 @@
+---
+import PageLayout from "../../layouts/default.astro";
+const title = "DAM inner page exploration - Portfolio of Manaj Chakrobarti";
+const bodyClass = "works";
+import "../../styles/workspages.scss";
+---
+
+<PageLayout title={title} bodyClass={bodyClass}>
+	<main class="box workspage">
+		<header class="inner section-header">
+			<img
+				src="/images/works/opti-library-innerpage-exploration/inner_page_design.png"
+				alt="Optimizely product recommendation redesign"
+			/>
+		</header>
+		<section class="inner">
+			<nav class="article-navigation">
+				<ul class="no-list">
+					<li><a href="#overview">Overview</a></li>
+
+					<li><a href="#current">Current Screenshot</a></li>
+					<li><a href="#some-images">Some Images</a></li>
+				</ul>
+			</nav>
+
+			<article class="article">
+				<h1>DAM inner page exploration</h1>
+				<h2 class="subheading">
+					Personal experiments to create a unified viewer for
+					individual assets.
+				</h2>
+				<h3 id="overview">Overview</h3>
+				<p>
+					Our library features a large preview for individual assets
+					and a separate area for updating asset versions. In this
+					personal project, I aimed to merge both functionalities into
+					a single, cohesive interface.
+				</p>
+				<h3 id="current">Current Situation</h3>
+				<figure>
+					<img
+						src="/images/works/opti-library-innerpage-exploration/current.png"
+						alt="Innerpage - Current Screenshot"
+					/>
+					<figcaption>Current Screenshot</figcaption>
+				</figure>
+
+				<figure>
+					<img
+						src="/images/works/opti-library-innerpage-exploration/versions_old.png"
+						alt="Innerpage - Current Screenshot"
+					/>
+					<figcaption>Version management and history is on different modal</figcaption>
+				</figure>
+
+				<h3 id="some-images">Some ideas from Design</h3>
+
+				<figure>
+					<img
+						src="/images/works/opti-library-innerpage-exploration/related.png"
+						alt="Innerpage - Related Assets"
+					/>
+					<figcaption>Related Assets</figcaption>
+				</figure>
+
+				<figure>
+					<img
+						src="/images/works/opti-library-innerpage-exploration/versions.png"
+						alt="Innerpage - Versions"
+					/>
+					<figcaption>Asset Versioning</figcaption>
+				</figure>
+
+				<figure>
+					<img
+						src="/images/works/opti-library-innerpage-exploration/analytics.png"
+						alt="Innerpage - Asset Analytics"
+					/>
+					<figcaption>Asset Analytics</figcaption>
+				</figure>
+
+				<figure>
+					<img
+						src="/images/works/opti-library-innerpage-exploration/comment.png"
+						alt="Innerpage - Asset Comments"
+					/>
+					<figcaption>Asset Comments</figcaption>
+				</figure>
+			</article>
+		</section>
+	</main>
+</PageLayout>" >
