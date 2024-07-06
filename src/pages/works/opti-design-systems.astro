@@ -1,0 +1,107 @@
+---
+import PageLayout from "../../layouts/default.astro";
+const title = "Optimizely Design System - Portfolio of Manaj Chakrobarti";
+const bodyClass = "works";
+import "../../styles/workspages.scss";
+---
+
+<PageLayout title={title} bodyClass={bodyClass}>
+	<main class="box workspage">
+		<header class="inner section-header">
+			<img
+				src="/images/works/opti-design-systems/design_system.png"
+				alt="Optimizely product recommendation redesign"
+			/>
+		</header>
+		<section class="inner">
+			<nav class="article-navigation">
+				<ul class="no-list">
+					<li><a href="#overview">Overview</a></li>
+					<li><a href="#roles-and-process">Role & process</a></li>
+					<li><a href="#badge">Badge Design</a></li>
+					<li><a href="#research">Research</a></li>
+					<li><a href="#test">Test</a></li>
+					<li><a href="#outcome">Outcome</a></li>
+				</ul>
+			</nav>
+
+			<article class="article">
+				<h1>Design system</h1>
+				<h2 class="subheading">
+					The challenge was to create a reference system for all
+					designers, featuring a set of reusable design elements.
+				</h2>
+				<h3 id="overview">Overview</h3>
+				<p>
+					NewsCred had an early version of a design system. Since
+					then, we have used three design systems and are now in the
+					process of merging them with the Optimizely Design System,
+					updating both to newer versions.
+				</p>
+
+				<h3 id="roles-and-process">Role and the Team</h3>
+				<p>
+					During the NewsCred and Welcome era, the design system
+					lacked a dedicated designer. Instead, three designers
+					collectively managed the design system, with anyone able to
+					propose new components or updates. After Welcome's merger
+					with Optimizely, we began integrating our design system with
+					theirs and are now creating a unified, updated version.
+				</p>
+
+				<h3 id="badge">Badge Design</h3>
+				<p>
+					Badges varied across products, leading to user confusion
+					when multiple designs were enabled. My goal was to
+					standardize badges to a singular design.
+				</p>
+
+				<h3 id="research">Research</h3>
+				<p>
+					To start with I started collecting all the types of badges
+					we use in different products across Optimizely. To get
+					inspiration from other products I’ve also collected and
+					reviewed major design systems. This helps me to form some
+					opinions on Badges.
+				</p>
+
+				<h3 id="test">Test</h3>
+				<p>
+					Then I designed several types of badges using accessible
+					colors (AA) and conducted a vote among all designers,
+					selecting three finalists for a user preference test.
+				</p>
+				<figure>
+					<img
+						src="/images/works/opti-design-systems/first.png"
+						alt="usability test among designers"
+					/>
+					<figcaption>Usability test among designers</figcaption>
+				</figure>
+
+				<figure>
+					<img
+						src="/images/works/opti-design-systems/shortlist.png"
+						alt="shortlisted badges"
+					/>
+					<figcaption>Shortlisted Candidates</figcaption>
+				</figure>
+
+				<figure>
+					<img
+						src="/images/works/opti-design-systems/gainsight_test.png"
+						alt="Screenshot of Gainsight tests"
+					/>
+					<figcaption>Screenshot of Gainsight tests</figcaption>
+				</figure>
+
+				<h3 id="Outcome">Outcome</h3>
+				<p>
+					Then I designed several types of badges using accessible
+					colors (AA) and conducted a vote among all designers,
+					selecting three finalists for a user preference test.
+				</p>
+			</article>
+		</section>
+	</main>
+</PageLayout>" >

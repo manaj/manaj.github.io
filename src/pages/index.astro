@@ -1,48 +1,186 @@
 ---
-import PageLayout from '../layouts/default.astro';
-const title = 'Portfolio of Manaj Chakrobarti';
+import PageLayout from "../layouts/default.astro";
+const title = "Portfolio of Manaj Chakrobarti";
+const bodyClass = "home";
 import "../styles/homepage.scss";
 ---
 
-<PageLayout title={title}>
-	<header class="cover box"> 
-		<div class="cover-inner inner">
-			<svg id="logo" class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 529.9 132"><path d="M51.65,132c-9.94,0-18.82-2.24-26.64-6.74-7.83-4.49-13.95-10.72-18.38-18.68-4.42-7.96-6.64-17.18-6.64-27.66s2.21-19.7,6.64-27.66c4.42-7.96,10.55-14.19,18.38-18.68,7.82-4.49,16.71-6.74,26.64-6.74,12.52,0,23.04,3.27,31.54,9.8,8.51,6.53,13.99,15.38,16.44,26.54h-22.66c-1.36-5.58-4.36-9.94-8.98-13.07-4.63-3.13-10.07-4.7-16.33-4.7-5.31,0-10.21,1.33-14.7,3.98s-8.1,6.53-10.82,11.64c-2.72,5.1-4.08,11.4-4.08,18.89s1.36,13.78,4.08,18.89c2.72,5.1,6.33,9.02,10.82,11.74,4.49,2.72,9.39,4.08,14.7,4.08,6.26,0,11.7-1.56,16.33-4.7,4.63-3.13,7.62-7.55,8.98-13.27h22.66c-2.32,10.89-7.76,19.67-16.33,26.34-8.57,6.67-19.12,10-31.64,10Zm50.34-2.45V0h21.64V44.62c3.4-5.85,8.13-10.45,14.19-13.78,6.05-3.33,12.76-5,20.11-5,12.11,0,21.64,3.81,28.58,11.43,6.94,7.62,10.41,18.99,10.41,34.09v58.19h-21.44v-55.94c0-19.6-7.83-29.4-23.48-29.4-8.17,0-14.94,2.86-20.31,8.57-5.38,5.72-8.06,13.88-8.06,24.5v52.27h-21.64Zm135.82,2.45c-8.57,0-15.65-1.43-21.23-4.29-5.58-2.86-9.73-6.63-12.45-11.33-2.72-4.7-4.08-9.83-4.08-15.41,0-9.8,3.81-17.56,11.43-23.27,7.62-5.72,18.51-8.57,32.67-8.57h26.54v-1.84c0-7.89-2.14-13.81-6.43-17.76-4.29-3.95-9.83-5.92-16.64-5.92-5.99,0-11.2,1.47-15.62,4.39-4.42,2.93-7.11,7.25-8.06,12.96h-21.64c.68-7.35,3.16-13.64,7.45-18.89,4.29-5.24,9.73-9.26,16.33-12.05,6.6-2.79,13.85-4.19,21.74-4.19,14.15,0,25.11,3.71,32.87,11.13,7.76,7.42,11.64,17.53,11.64,30.32v62.27h-18.78l-1.84-17.35c-2.86,5.58-7.01,10.28-12.45,14.09-5.44,3.81-12.59,5.72-21.44,5.72Zm4.29-17.56c5.85,0,10.79-1.39,14.8-4.19,4.01-2.79,7.15-6.5,9.39-11.13,2.25-4.63,3.64-9.73,4.19-15.31h-24.09c-8.57,0-14.67,1.5-18.27,4.49-3.61,3-5.41,6.74-5.41,11.23s1.73,8.27,5.21,10.92c3.47,2.65,8.2,3.98,14.19,3.98Zm58.79,15.11V0h21.64V70.14l38.79-41.85h25.93l-43.08,45.94,49.41,55.33h-27.36l-43.69-51.86v51.86h-21.64Zm94.86,0V28.29h19.39l1.84,19.19c3.54-6.67,8.47-11.94,14.8-15.82,6.33-3.88,13.98-5.82,22.97-5.82v22.66h-5.92c-5.99,0-11.33,.99-16.03,2.96-4.7,1.97-8.44,5.31-11.23,10-2.79,4.7-4.19,11.2-4.19,19.5v48.59h-21.64Zm116.38,0c-9.94,0-17.83-2.42-23.68-7.25-5.85-4.83-8.78-13.44-8.78-25.83V46.46h-17.35V28.29h17.35l2.65-27.91h18.99V28.29h28.58v18.17h-28.58v50.02c0,5.58,1.19,9.43,3.57,11.54,2.38,2.11,6.5,3.16,12.35,3.16h11.64v18.37h-16.74Z" fill="#010101"/></svg>
-		</div>
-	</header>
-	
-	<main class="box homepage" >
+<PageLayout title={title} bodyClass={bodyClass}>
+	<main class="box homepage">
 		<section class="inner">
-			<h2 class="hero">
-				Website of Manaj Chakrobarti, a product designer with 15 years of experience designing SASS products and others, in a startup, corporate and news outlet. 
-			</h2>
-
-			<div class="experience">
-				<h3>
-					Experience working with
-				</h3>
-				<p>
-					Figma, Figjam, Sketch, Photoshop, Illustrator, Design system, Prototyping software [e.g. Invision], Testing software [e.g. UsabilityHub], Agile methodologies, HTML5, CSS3, SCSS, CSS Frameworks (Bootstrap), JQuery,  React/Angular [template part], Node[installing  dependencies], Python/Django, Wordpress templating languages, Terminal, GIT, SSH etc 
-				</p>
+			<div class="hero">
+				<div class="hi">Hi</div>
+				<div class="intro">
+					<h1>
+						I am Manaj, a product designer with 10+ years of
+						experience designing b2b SaaS product.
+					</h1>
+					<p>
+						With the design thinking process in mind, using
+						usability to validate, I create accessible and
+						interactive prototypes for people to test. Then, I keep
+						repeating until it's perfect.
+					</p>
+				</div>
 			</div>
 
 			<div class="recent-works">
-				<h3>Recent Works</h3>
+				<h2>Recent Works</h2>
 				<ul class="no-list">
 					<li class="single">
-						<h4>DAM redesign</h4>
-						<a href="/works/home-page-redesign"><img src="images/home-page-redesign.png" alt="Project details - rendition"/></a>
-					</li>
-					<li>
-								<h4>Rendition Design</h4>
-								<a href="/works/rendition"><img src="images/rendition.png" alt="Project details - rendition"/></a>
-							</li>
+						<div class="image">
+							<a href="/works/opti-product-recommendation-suite"
+								><img
+									src="/images/works/opti-product-recommendation-suite/self_service_widget.png"
+									alt="Project details - rendition"
+								/></a
+							>
+						</div>
+						<div class="text">
+							<h4>Product Recommendation suite</h4>
+							<p>
+								The challenge was to modernize the outdated
+								Optimizely Recommendation software by improving
+								its UX and usability to transition it from a
+								managed solution to a self-service platform,
+								beginning with its widget management.
 
-					
+								<a
+									href="/works/opti-product-recommendation-suite"
+									>See more</a
+								>
+							</p>
+						</div>
+					</li>
+					<li class="single ">
+						<div class="image">
+							<a href="/works/opti-dam-home-page-redesign"
+								><img
+									src="/images/works/opti-dam-home-page-redesign/home-page-redesign.png"
+									alt="Homepage redesign"
+								/></a
+							>
+						</div>
+						<div class="text">
+							<h4>
+								Redesigning digital asset management home page
+							</h4>
+							<p>
+								A refreshed homepage for assets, addressing
+								longstanding issues and providing overdue
+								improvements.
+
+								<a href="/works/opti-dam-home-page-redesign"
+									>See more</a
+								>
+							</p>
+						</div>
+					</li>
+					<li class="single">
+						<div class="image">
+							<a href="/works/opti-design-systems">
+								<img
+									src="/images/works/opti-design-systems/design_system.png"
+									alt="Optimizely Design System"
+								/>
+							</a>
+						</div>
+						<div class="text">
+							<h4>Design System</h4>
+							<p>
+								The challenge was to create a reference system
+								for all designers, featuring a set of reusable
+								design elements.
+
+								<a href="/works/opti-design-systems">See more</a
+								>
+							</p>
+						</div>
+					</li>
+					<li class="single">
+						<div class="image">
+							<a href="/works/nc-dam-rendition"
+								><img
+									src="/images/works/nc-dam-rendition/final.png"
+									alt="Project details - rendition"
+								/></a
+							>
+						</div>
+						<div class="text">
+							<h4>Rendition Design</h4>
+							<p>
+								This is one of my favorite pieces of work.
+								Although it's a small interaction, I believe it
+								demonstrates how little things can influence
+								people's minds.
+
+								<a href="/works/nc-dam-rendition">See more</a>
+							</p>
+						</div>
+					</li>
+					<li class="single">
+						<div class="image">
+							<a href="/works/opti-dam-list-view"
+								><img
+									src="/images/works/opti-dam-list-view/opti-dam-list-view.png"
+									alt="Project details - List view asset library"
+								/></a
+							>
+						</div>
+						<div class="text">
+							<h4>Asset library List View</h4>
+							<p>
+								Enhanced the list view to display more content
+								and added new features.
+
+								<a href="/works/opti-dam-list-view">See more</a>
+							</p>
+						</div>
+					</li>
+
+					<li class="single ">
+						<div class="image">
+							<a href="/works/opti-library-innerpage-exploration"
+								><img
+									src="/images/works/opti-library-innerpage-exploration/inner_page_design.png"
+									alt="Opti Library inner page exploration"
+								/></a
+							>
+						</div>
+						<div class="text">
+							<h4>DAM inner page exploration</h4>
+							<p>
+								Personal experiments to create a unified viewer
+								for individual assets.
+
+								<a
+									href="/works/opti-library-innerpage-exploration"
+									>See more</a
+								>
+							</p>
+						</div>
+					</li>
+					<li class="single">
+						<div class="image">
+							<a href="/works/nc-dam-mobile-view"
+								><img
+									src="/images/works/nc-dam-mobile-view/mobile.png"
+									alt="NewsCred DAM Mobile Design"
+								/></a
+							>
+						</div>
+						<div class="text">
+							<h4>Mobile design for Library</h4>
+							<p>
+								Created a mobile version of NewsCred’s Library
+								as a personal project.
+
+								<a href="/works/nc-dam-mobile-view">See more</a>
+							</p>
+						</div>
+					</li>
 				</ul>
 			</div>
 		</section>
 	</main>
-	
-<script src="../scripts/homepage.js"></script>
 </PageLayout>

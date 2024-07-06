@@ -7,25 +7,21 @@
 "components/type",
 "components/grid",
 "components/utility",
+"components/header",
 "components/footer";
 
 body {
     background-color: var(--color-gray-100);
 }
 
-header {
-    margin: var(--spacer-oneandhalf) 0 var(--spacer-oneandhalf) 0;
-    background-color: var(--color-gray-100);
-
-    @include media(small) { 
-        margin: var(--spacer-three) 0 var(--spacer-two) 0;
-    }
-}
-
 .workspage {
     min-height: 20vw;
     background-color: var(--color-gray-100);
     position: relative;
+
+    h1 {
+        font-family: var(--font-primary);
+    }
 
     section.inner {
 
