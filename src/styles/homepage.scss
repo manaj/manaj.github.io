@@ -102,19 +102,25 @@
             gap: var(--spacer-two);
             direction: rtl;
         }
-        &.ltr {
+        
+        &:nth-child(even) {
             @include media(small) {
-                direction: ltr;
-            }
+                    direction: ltr;
+                }
         }
         
 
-    h4 {
-        @include media(small) {
-            margin-top: 0;
+        h4 {
+            @include media(small) {
+                margin-top: 0;
+            }
         }
-    }
+
+        
     }
 
-
+    .page-404 {
+        padding: var(--spacer-three) 0;
+        
+    }
 }

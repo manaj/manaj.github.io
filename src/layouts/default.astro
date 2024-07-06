@@ -8,7 +8,24 @@ const { title, bodyClass } = Astro.props;
 ---
 
 <html lang="en">
+	<!-- 
+Hi, Manaj again. I hope you're here to check out the code. I wrote the HTML5 and CSS3 myself. You can find the code at this GitHub link https://github.com/manaj/manaj.github.io. Feel free to use it however you want. Have a great day, and thank you!
+-->
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-E27V8CPNM0"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+
+			gtag("config", "G-E27V8CPNM0");
+		</script>
 		<BaseHead title={title} description={SITE_DESCRIPTION} />
 	</head>
 	<body class={bodyClass}>

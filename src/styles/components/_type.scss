@@ -48,7 +48,7 @@ h2 {
     font-weight: 400;
   }
 
-  @include media(big) {
+  @include media(biggest) {
     font-size: var(--spacer-three);
    }
 }
@@ -59,10 +59,10 @@ h3 {
     letter-spacing: var(--fonts-letter-spacing-4);
 
   @include media(small) {
-    font-size: var(--spacer-twoandhalf);
+    font-size: var(--spacer-two);
   }
 
-    @include media(big) {
+    @include media(biggest) {
       font-size: var(--spacer-three);
     }
 }
@@ -74,7 +74,7 @@ h4 {
   letter-spacing: var(--fonts-letter-spacing-3);
 
   @include media(small) {
-      font-size: var(--spacer-two);
+      font-size: var(--spacer-oneandthreequarter);
     }
 }
 
@@ -112,6 +112,7 @@ a {
    font-size: var(--spacer-one);
    font-family: var(--font-primary);
    font-weight: 300;
+   color: var(--color-gray-900);
  }
  
  p {
@@ -134,9 +135,8 @@ a {
 
 article {
   .subheading {
-      
       font-weight: 300;
-      line-height: var(--spacer-twoandhalf);
+      line-height: 1.5;
       margin: var(--spacer-one) 0 ;
       color: var(--color-gray-900);
 

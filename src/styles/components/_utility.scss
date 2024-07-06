@@ -12,6 +12,10 @@
 
 figure {
     margin: var(--spacer-two) 0 var(--spacer-two) 0;
+
+    video {
+        width: 100%;
+    }
 }
 
 .fancy {
