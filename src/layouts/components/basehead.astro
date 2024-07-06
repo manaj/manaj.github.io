@@ -22,20 +22,21 @@ import "../../styles/css/_reset.scss";
 <link
   rel="apple-touch-icon"
   sizes="180x180"
-  href="favicon_io/apple-touch-icon.png"
+  href="/favicon/apple-touch-icon.png"
 />
 <link
   rel="icon"
   type="image/png"
   sizes="32x32"
-  href="favicon_io/favicon-32x32.png"
+  href="/favicon/favicon-32x32.png"
 />
 <link
   rel="icon"
   type="image/png"
   sizes="16x16"
-  href="favicon_io/favicon-16x16.png"
+  href="/favicon/favicon-16x16.png"
 />
+<link rel="manifest" href="favicon/site.webmanifest" />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Canonical URL -->
@@ -64,12 +65,3 @@ import "../../styles/css/_reset.scss";
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
-
-<!-- Scripts -->
-<script
-  is:inline
-  src="https://code.jquery.com/jquery-3.7.1.min.js"
-  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-  crossorigin="anonymous"
-  "
-></script>

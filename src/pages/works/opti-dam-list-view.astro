@@ -1,0 +1,93 @@
+---
+import PageLayout from "../../layouts/default.astro";
+const title =
+	"List view design - Optimizely DAM - Portfolio of Manaj Chakrobarti";
+const bodyClass = "works";
+import "../../styles/workspages.scss";
+---
+
+<PageLayout title={title} bodyClass={bodyClass}>
+	<main class="box workspage">
+		<header class="inner section-header">
+			<img
+				src="/images/works/opti-dam-list-view/opti-dam-list-view.png"
+				alt="Optimizely DAM list view design"
+			/>
+		</header>
+		<section class="inner">
+			<nav class="article-navigation">
+				<ul class="no-list">
+					<li><a href="#overview">Overview</a></li>
+					<li><a href="#roles-and-process">Role & process</a></li>
+					<li><a href="#research">Research</a></li>
+					<li><a href="#design">Design & Testing</a></li>
+				</ul>
+			</nav>
+
+			<article class="article">
+				<h1>Optimizely DAM list view design</h1>
+				<h2 class="subheading">
+					Enhanced the list view to display more content and added new
+					features.
+				</h2>
+				<h3 id="overview">Overview</h3>
+				<p>
+					Our digital asset management system, Library, had a basic
+					list view with a table displaying assets, which hadn't been
+					updated in years. With our new design, we initially believed
+					users would prefer the redesigned category view. However,
+					some clients with extensive asset libraries preferred the
+					list view.
+				</p>
+
+				<figure>
+					<img
+						src="/images/works/opti-dam-list-view/nc-dam-list-view-old.png"
+						alt="Old design NewsCred DAM List view"
+					/>
+					<figcaption>Previous version of the list view</figcaption>
+				</figure>
+				<h3 id="roles-and-process">Roles & Process</h3>
+				<p>
+					Like previous work, I lead the design effort for the DAM
+					team. We are an agile team consisting of 4/5 developers, one
+					product manager, and one designer.
+				</p>
+				<p>
+					In our organization, all designers meet weekly to discuss
+					design problems. We have a couple of small teams for each
+					product area, all product manager and designer meet weekly
+					to discuss dependency or review of new features.
+				</p>
+				<h3 id="research">Research</h3>
+				<p>
+					We conducted competitor analysis and discovered that most
+					DAM solutions present assets similarly. Conversations with
+					clients revealed that those preferring the list view also
+					wanted to see the folder structure.
+				</p>
+
+				<h3 id="design">Design & Testing</h3>
+				<p>
+					When presenting the initial designs to developers, concerns
+					arose about the viewable folder structure, especially for
+					clients with thousands of files, which could impact
+					performance. I devised the following solution to address
+					this.
+				</p>
+				<p>
+					We haven't run any tests for this project yet, but we plan
+					to interview some of our users to gather feedback on their
+					experience.
+				</p>
+				<figure>
+					<img
+						src="/images/works/opti-dam-list-view/multiple-asset.png"
+						alt="Multile asset selected"
+					/>
+					<figcaption>Multiple asset selected state</figcaption>
+				</figure>
+			</article>
+		</section>
+	</main>
+</PageLayout>" >

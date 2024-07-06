@@ -12,6 +12,10 @@
 
 figure {
     margin: var(--spacer-two) 0 var(--spacer-two) 0;
+
+    video {
+        width: 100%;
+    }
 }
 
 .fancy {
@@ -21,6 +25,7 @@ figure {
     border-radius: var(--spacer-quarter);
 
     &:hover {
-        box-shadow: inset 0 32px 0 0 var(--color-yellow);
+        box-shadow: inset 0 48px 0 0 var(--color-yellow);
+
     }
 }

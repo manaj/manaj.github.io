@@ -3,22 +3,21 @@
 }
 
 .box {
-    margin-right: auto;
-    margin-left: auto;
-    box-sizing: border-box;
-    @extend .grid;
+     @extend .grid;
 
     .inner {
-        width: 90vw;
+        width: 85vw;
         margin: 0 auto;
         position: relative;
     }
-
-    @include media(medium) {
+    @include media(big) {
         .inner {
-            width: 70vw;
+            width: 72vw;
         }
     }
+    
+
+    
 
     // .double {
     //     ul {

@@ -1,0 +1,17 @@
+---
+import PageLayout from "../layouts/default.astro";
+const title = "Portfolio of Manaj Chakrobarti";
+const bodyClass = "404";
+import "../styles/homepage.scss";
+---
+
+<PageLayout title={title} bodyClass={bodyClass}>
+    <main class="box homepage">
+        <section class="inner">
+            <div class="page-404">
+                <h4>Sorry the page you are looking for is not available!</h4>
+                <p>Try going to <a href="/">home page</a></p>
+            </div>
+        </section>
+    </main>
+</PageLayout>

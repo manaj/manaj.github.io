@@ -1,21 +1,26 @@
 footer {
-    padding: var(--spacer-two) 0;
+    padding: var(--spacer-two) 0 var(--spacer-ten) ;
     background-color: var(--color-white);
 
     a {
         padding: var(--spacer-quarter) var(--spacer-half);
+        display: block;
     }
 }
 
-.credits, .contact {
+.credits {
     > .lists {
+
+        @include media(small) {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr 1fr;
+            gap: var(--spacer-two);
+        }
+        
         div {
             margin-bottom: var(--spacer-one);
         }
-        @include media(small) {
-            display: grid;
-            grid-template-columns: 50% 1fr;
-        }
+        
     }
 
     dl {
@@ -56,11 +61,4 @@ footer {
         margin-bottom: var(--spacer-one);
     }
     
-}
-
-.contact {
-    
-    @include media(small) {
-            margin-bottom: var(--spacer-three);
-    }
 }
