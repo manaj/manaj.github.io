@@ -79,14 +79,24 @@
     }
 
     .hero, .recent-works {
-        margin-bottom: var(--spacer-five);
+        margin-bottom: var(--spacer-two);
+
+        @include media(small) {
+            margin-bottom: var(--spacer-five);
+        }
     }
 
 
     .recent-works li {
-        padding-bottom: var(--spacer-three);
+        padding-bottom: var(--spacer-half);
         border-bottom: 1px solid var(--color-turquoise-gray);
-        margin-bottom: var(--spacer-three);
+        margin-bottom: var(--spacer-two);
+
+        @include media(small){
+            padding-bottom: var(--spacer-three);
+                border-bottom: 1px solid var(--color-turquoise-gray);
+                margin-bottom: var(--spacer-three);
+        }
 
         &:last-child {
             padding-bottom: 0;
