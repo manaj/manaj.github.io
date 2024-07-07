@@ -9,14 +9,12 @@ h2, h3, h4, h5 {
 }
 
 h1 {
-  font-size: var(--spacer-twoandhalf);
-  line-height: var(--spacer-threeandhalf);
+  font-size: var(--spacer-two);
+  line-height: 1.3;
   font-weight: 500;
   margin: var(--spacer-one) 0 0 0;
   
   @include media(small) {
-    font-size: var(--spacer-two);
-    line-height: 1.3;
     margin: var(--spacer-one) 0 var(--spacer-one) 0;
   }
 
@@ -72,6 +70,7 @@ h4 {
   font-size: var(--spacer-oneandhalf);
   margin: var(--spacer-oneandhalf) 0 var(--spacer-one) 0;
   letter-spacing: var(--fonts-letter-spacing-3);
+  line-height: 1.3;
 
   @include media(small) {
       font-size: var(--spacer-oneandthreequarter);
@@ -116,18 +115,16 @@ a {
  }
  
  p {
-  font-size: var(--spacer-oneandthreequarter);
+  font-size: var(--spacer-oneandquarter);
   line-height: 1.5;
   font-weight: var(--font-light);
   font-family: var(--font-secondary);
   margin: var(--spacer-one) 0 var(--spacer-one) 0;
   
-  @include media(small) {
-      font-size: var(--spacer-one);
+  @include media(medium) {
+      font-size: var(--spacer-oneandhalf);
   }
-  @include media(bigger) {
-    font-size: var(--spacer-oneandquarter);
-  }
+
   @include media(bigass) {
     font-size: var(--spacer-two);
   }
