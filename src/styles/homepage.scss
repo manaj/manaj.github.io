@@ -50,14 +50,28 @@
                 font-size: var(--spacer-ten);
             }
         }
-
+        
         h1 {
+            font-size: var(--spacer-two);
             @include media(small) {
                 margin-top: 0;
             }
 
             @include media(medium) {
+                font-size: var(--spacer-twoandhalf);
                 font-weight: 400;
+            }
+
+            @include media(bigger) {
+                font-size: var(--spacer-twoandthreequarter);
+            }
+
+            @include media(biggest) {
+                font-size: var(--spacer-threeandhalf);
+            }
+
+            @include media(bigass) {
+                font-size: var(--spacer-five);
             }
         }
 
