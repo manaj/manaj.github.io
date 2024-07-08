@@ -16,6 +16,7 @@ h1 {
   
   @include media(small) {
     margin: var(--spacer-one) 0 var(--spacer-one) 0;
+    font-size: var(--spacer-two);
   }
 
   @include media(medium) {
