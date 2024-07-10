@@ -61,9 +61,9 @@ h3 {
     font-size: var(--spacer-two);
   }
 
-    @include media(biggest) {
-      font-size: var(--spacer-three);
-    }
+  @include media(biggest) {
+    font-size: var(--spacer-three);
+  }
 }
 
 h4 {
@@ -75,7 +75,12 @@ h4 {
 
   @include media(small) {
       font-size: var(--spacer-oneandthreequarter);
-    }
+  }
+
+  @include media(biggest) {
+    font-size: var(--spacer-twoandhalf);
+  }
+
 }
 
 h5 {
