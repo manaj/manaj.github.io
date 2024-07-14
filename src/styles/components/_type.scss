@@ -159,6 +159,14 @@ article {
         margin-bottom: var(--spacer-five);
       }
     }
+    ul > li {
+      font-size: var(--spacer-oneandquarter);
+      line-height: var(--spacer-two);
+      font-weight: var(--font-light);
+      font-family: var(--font-primary);
+    }
+
+
 
     h3 {
       margin-bottom: 0;
