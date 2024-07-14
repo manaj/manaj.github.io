@@ -19,12 +19,21 @@
             gap: var(--spacer-two);
             align-items: start;
         }
+
+        a {
+            align-self: center;
+        }
+
+        h5 {
+            margin: 0;
+        }
     }
+
 
     #logo {
         width: 90%;
         display: block;
-
+        
         @include media(small) {
             width: var(--logo-width);
         }
@@ -36,7 +45,7 @@
         
         @include media(small) {
             flex-direction: row;
-            align-items: center;
+            align-items: baseline;
         }
         
         h5 {
