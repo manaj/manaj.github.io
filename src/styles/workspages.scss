@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+@import "css/reset";
 @import "components/fonts",
 "components/variables",
 "components/mixins",
@@ -33,14 +34,15 @@ body {
     }
 
     .article-navigation {
-        @extend h5;
+        @extend h6;
         display: none;
 
         @include media(small) {
             display: block;
             position: relative;
-            font-weight: 400;
+            font-weight: 500;
             margin-right: var(--spacer-oneandhalf);
+            margin-top: var(--spacer-one);
         }
 
         
@@ -52,5 +54,7 @@ body {
             position: sticky;
             top: var(--spacer-five);
         }
+        
+
     }   
 }

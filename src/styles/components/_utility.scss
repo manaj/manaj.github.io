@@ -5,6 +5,19 @@
     margin: var(--spacer-zero);
 }
 
+.horizontal-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    
+    > li {
+        width: 50%;
+        padding-right: var(--spacer-two);
+        box-sizing: border-box;
+    }
+}
+
 .logo {
     display: block;
     width: var(--logo-width);
@@ -28,4 +41,7 @@ figure {
         box-shadow: inset 0 48px 0 0 var(--color-yellow);
 
     }
+}
+.no-bottom-space {
+    margin-bottom: 0;
 }
