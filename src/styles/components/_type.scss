@@ -144,8 +144,8 @@ article {
       color: var(--color-gray-900);
 
       @include media(small) {
-          font-size: var(--spacer-two);
-          margin: var(--spacer-two) 0 var(--spacer-two) 0;
+          font-size: var(--spacer-oneandquarter);
+          margin: var(--spacer-one) 0 var(--spacer-two) 0;
         }
     }
 
@@ -155,7 +155,7 @@ article {
       font-weight: var(--font-light);
       font-family: var(--font-primary);
 
-      &:last-child {
+      &.last {
         margin-bottom: var(--spacer-five);
       }
     }
@@ -166,7 +166,32 @@ article {
       font-family: var(--font-primary);
     }
 
+    li > p, li li {
+      font-size: var(--spacer-one);
+      line-height: 1.7;
+      list-style-type:square;
+    }
 
+    li > figure {
+      margin-bottom: 0;
+    } 
+
+    dl {
+      margin: var(--spacer-two) 0 0 var(--spacer-two);
+      display: block
+    }
+
+    dl > dt{
+      @extend h6;
+      font-weight: 500;
+      margin: var(--spacer-half) 0 0 0;
+    }
+
+    dl > dd { 
+      @extend p;
+      margin-bottom: var(--spacer-two);
+      margin-top: var(--spacer-half);
+    }
 
     h3 {
       margin-bottom: 0;

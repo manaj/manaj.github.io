@@ -1,7 +1,6 @@
 ---
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, image = "/placeholder-social.jpg" } = Astro.props;
-import "../../styles/css/_reset.scss";
 ---
 
 <!-- Google tag (gtag.js) -->
@@ -36,7 +35,7 @@ import "../../styles/css/_reset.scss";
   sizes="16x16"
   href="/favicon/favicon-16x16.png"
 />
-<link rel="manifest" href="favicon/site.webmanifest" />
+
 <meta name="generator" content={Astro.generator} />
 
 <!-- Canonical URL -->
@@ -65,3 +64,4 @@ import "../../styles/css/_reset.scss";
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+<script src="../../scripts/homepage.js"></script>
