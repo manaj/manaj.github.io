@@ -13,6 +13,8 @@
         grid-template-columns: 1fr 1fr;
         gap: var(--spacer-two);
         align-items: start;
+        padding-bottom: var(--spacer-two);
+        border-bottom: 1px solid var(--color-black);
         
         @include media(small){
             grid-template-columns: 2fr 1fr;

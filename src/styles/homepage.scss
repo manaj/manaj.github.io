@@ -15,73 +15,16 @@
 
 .header,
 .homepage {
-    background-color: var(--color-indigo);
+    background-color: var(--color-white);
 }
 
 .homepage {
-    .hero {
-        display: grid;
-        
-        @include media(small) {
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacer-two);
-        }
-
-        .hi {
-            background-color: var(--color-gray-950);
-            color: var(--color-yellow);
-            font-size: var(--spacer-seven);
-            border-radius: var(--spacer-oneandhalf);
-            padding: var(--spacer-threeandhalf) 0 ;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center ;
-            justify-content: center;
-
-            @include media(big) {
-                font-size: var(--spacer-eight);
-            }
-
-            @include media(bigger) {
-                font-size: var(--spacer-nine);
-            }
-
-            @include media(biggest) {
-                font-size: var(--spacer-ten);
-            }
-        }
-        
-        h1 {
-            font-size: var(--spacer-two);
-            @include media(small) {
-                margin-top: 0;
-            }
-
-            @include media(medium) {
-                font-size: var(--spacer-twoandhalf);
-                font-weight: 400;
-            }
-
-            @include media(bigger) {
-                font-size: var(--spacer-twoandthreequarter);
-            }
-
-            @include media(biggest) {
-                font-size: var(--spacer-threeandhalf);
-            }
-
-            @include media(bigass) {
-                font-size: var(--spacer-five);
-            }
-        }
-
-        p {
-            @include media(small) {
-                margin-bottom: 0;
-            }
-        }
-    }
     
+    h1 {
+        font-size: var(--spacer-two);
+        font-weight: var(--font-light);
+    }
+
     &.box {
         margin-top: 0;
     }
@@ -90,6 +33,10 @@
         @include media(small) {
                 width: 92%;
         }
+    }
+
+    .hero {
+        display: grid;
     }
 
     .hero, .recent-works {
@@ -108,8 +55,8 @@
 
         @include media(small){
             padding-bottom: var(--spacer-three);
-                border-bottom: 1px solid var(--color-turquoise-gray);
-                margin-bottom: var(--spacer-three);
+            border-bottom: 1px solid var(--color-turquoise-gray);
+            margin-bottom: var(--spacer-three);
         }
 
         &:last-child {
@@ -129,6 +76,7 @@
             grid-template-columns: 1fr 1fr;
             gap: var(--spacer-two);
             direction: rtl;
+            text-align: left;
         }
         
         &:nth-child(even) {
