@@ -129,6 +129,7 @@
             grid-template-columns: 1fr 1fr;
             gap: var(--spacer-two);
             direction: rtl;
+            text-align: left;
         }
         
         &:nth-child(even) {
