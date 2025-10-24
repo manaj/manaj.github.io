@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+@import "css/reset";
+@import "components/fonts",
+"components/variables",
+"components/mixins",
+"components/root",
+"components/type",
+"components/grid",
+"components/utility",
+"components/header",
+"components/footer";
+
+body {
+    background-color: var(--color-white);
+}
+
+.workspage {
+    min-height: 20vw;
+    background-color: var(--color-white);
+    position: relative;
+    border-top: 1px solid var(--color-gray-100);
+
+    h1 {
+        font-family: var(--font-primary);
+        background-color: var(--color-yellow);
+    }
+
+    ::selection {
+        background-color: var(--color-indigo);
+    }
+
+    section.inner {
+
+        @include media(small) {
+            display: grid;
+            grid: auto-flow / 1fr 3fr;
+            margin: var(--spacer-two) auto 0 auto;
+        }
+    }
+
+    h3.first-overview {
+        margin-top: var(--spacer-two);
+    }
+
+    .article-navigation {
+        @extend h6;
+        display: none;
+
+        @include media(small) {
+            display: block;
+            position: relative;
+            font-weight: 500;
+            margin-right: var(--spacer-oneandhalf);
+            margin-top: var(--spacer-one);
+        }
+
+        
+        li {
+            padding: var(--spacer-half) 0;
+        }
+
+        ul {
+            position: sticky;
+            top: var(--spacer-five);
+        }
+        
+
+    }   
+}
