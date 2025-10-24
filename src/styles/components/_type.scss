@@ -146,8 +146,18 @@ article {
       @include media(small) {
           font-size: var(--spacer-oneandquarter);
           margin: var(--spacer-one) 0 var(--spacer-two) 0;
-        }
+      }
+
+      @include media(medium) {
+        font-size: var(--spacer-oneandthreequarter);
+        margin: var(--spacer-one) 0 0 0;
+      }
+
+      @include media(bigass) {
+        font-size: var(--spacer-two);
+      }
     }
+
 
     p {
       font-size: var(--spacer-oneandquarter);
