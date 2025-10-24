@@ -33,6 +33,10 @@ body {
         }
     }
 
+    h3.first-overview {
+        margin-top: var(--spacer-two);
+    }
+
     .article-navigation {
         @extend h6;
         display: none;
