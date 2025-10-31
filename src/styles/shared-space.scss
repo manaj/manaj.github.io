@@ -43,6 +43,18 @@ body {
         margin-top: var(--spacer-two);
     }
 
+    figcaption{
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        span, a {
+            display: block;
+            
+        }
+    }
+
     .article-navigation {
         @extend h6;
         display: none;
@@ -67,4 +79,5 @@ body {
         
 
     }   
+
 }
