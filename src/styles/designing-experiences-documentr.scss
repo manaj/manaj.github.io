@@ -100,6 +100,11 @@ h5 {
         @include media(bigass) {
             font-size: var(--spacer-five);
         }
+
+        ::selection {
+            background-color: var(--color-yellow);
+            color: var(--color-black);
+        }
     }
 }
 
@@ -109,21 +114,50 @@ h5 {
     position: relative;
     border-top: 1px solid var(--color-gray-100);
 
+
+    figcaption {
+        font-weight: 400;
+        color: var(--color-black);
+        font-size: 14px;
+    }
+
+
     h1 {
         font-family: var(--font-primary);
         background-color: var(--color-yellow);
     }
 
     ::selection {
-        background-color: var(--color-indigo);
+        background-color: var(--color-yellow);
+        color: var(--color-black);
     }
 
     section.inner {
-
         @include media(small) {
             display: grid;
-            grid: auto-flow / 1fr 3fr;
             margin: var(--spacer-two) auto 0 auto;
+            width: 84vw;
+        }
+    }
+
+    .special-attention {
+        background-color: var(--color-gray-100);
+        padding: var(--spacer-one);
+        font-size: var(--spacer-one);
+    }
+
+    article {
+        p, h1, h2, h3, h4, h5 {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+
+            @include media(small) {
+               
+                width: 45vw;
+                margin-left: 8vw;
+                margin-right: auto;
+            }
         }
     }
 
@@ -146,23 +180,34 @@ h5 {
     .article-navigation {
         @extend h6;
         display: none;
+        font-family: var(--font-tertiary);
 
         @include media(small) {
             display: block;
-            position: relative;
+            position: absolute;
             font-weight: 500;
-            margin-right: var(--spacer-oneandhalf);
-            margin-top: var(--spacer-one);
+            width: 250px;
+            height: 250px;
+            right: 0;
         }
-
         
         li {
-            padding: var(--spacer-half) 0;
+            padding: var(--spacer-half) var(--spacer-one);
+            font-size: 1rem;
+            font-weight: 300;
+
+            &.first {
+                padding-top: var(--spacer-one);
+            }
+            &.last {
+                padding-bottom: var(--spacer-one);
+            }
         }
 
         ul {
-            position: sticky;
-            top: var(--spacer-five);
+            position: fixed;
+            background-color: white;
+            border-radius: 2px;
         }
         
 
