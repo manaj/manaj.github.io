@@ -113,7 +113,7 @@ h5 {
     background-color: var(--color-white);
     position: relative;
     border-top: 1px solid var(--color-gray-100);
-
+    margin-bottom: 200px;
 
     figcaption {
         font-weight: 400;
@@ -153,10 +153,19 @@ h5 {
             margin-right: auto;
 
             @include media(small) {
-               
                 width: 45vw;
                 margin-left: 8vw;
                 margin-right: auto;
+            }
+        }
+
+        figure {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+
+            @include media(big) {
+                width: 84vw;
             }
         }
     }
