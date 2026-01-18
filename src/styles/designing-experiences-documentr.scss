@@ -51,7 +51,7 @@ h5 {
 
     .inner {
             background-color: #0E185F;
-            padding: 8vw;
+            padding: 5vw;
             display: block;
             grid-template-columns: 1fr;
             box-sizing: border-box;
@@ -135,7 +135,7 @@ h5 {
     section.inner {
         display: block;
         width: auto;
-        margin: 0 64px;
+        margin: 0 5vw;
 
         @include media(medium) {
             display: grid;
