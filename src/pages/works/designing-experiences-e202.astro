@@ -1,0 +1,163 @@
+---
+import PageLayout from "../../layouts/default-no-header.astro";
+const title =
+	"Shared Space in Halmstad University - Understanding and Provide Solutions - Portfolio of Manaj Chakrobarti";
+const bodyClass = "works";
+import "../../styles/designing-experiences-documentr.scss";
+---
+
+<PageLayout title={title} bodyClass={bodyClass}>
+	<header class="header box">
+		<section class="inner">
+			<figure>
+				<img
+					src="/images/works/documentr/hero.png"
+					alt="Picture of the showpiece prototype"
+				/>
+				<figcaption>
+					<span>Picture of the showpiece prototype</span>
+				</figcaption>
+			</figure>
+			<h1>
+				Group documentation management and publication system for the
+				current and future E202 Students
+			</h1>
+		</section>
+	</header>
+	<main class="box workspage" id="abstruct">
+		<section class="inner">
+			<nav class="article-navigation">
+				<ul class="no-list">
+					<li><a href="#">Back to top</a></li>
+					<li><a href="#ideation">Ideation</a></li>
+					<li><a href="#ia">Information Architecture</a></li>
+					<li><a href="#process">Process</a></li>
+					<li><a href="#solution">Solution</a></li>
+					<li><a href="#learning">Learning</a></li>
+				</ul>
+			</nav>
+
+			<article class="article">
+				<h2 class="subheading">
+					We designed a web application (Documentr) that allows
+					students to document their journey through university
+					projects as a group. They will also be able to create a
+					project web page for prospective employers to review their
+					work. Additionally, a physical display piece will be
+					displayed in room E202. We hope this will spark curiosity
+					and serve as a link to the project's web page, inspiring
+					future students.
+				</h2>
+
+				<h3 class="overview" id="ideation">Ideation</h3>
+				<p>
+					Our ideation began with a strong interest in leveraging
+					cutting-edge technology and a desire to merge information
+					environments across the digital and physical spaces. So we
+					fixated on creating a portfolio showcase within a VR world
+					that begins in our class, E202, and that users can journey
+					through, similar to “Alice in Wonderland”. In our research,
+					we found there are different types of experience. We chose
+					to walk through rooms of design artifacts from the class
+					using buttons that come with VR glasses.
+				</p>
+				<p>
+					We discard this idea because we discovered during the 3D
+					scanning of one artifact that this process is error-prone
+					and would add time and burden to students if they were to
+					use it.
+				</p><p>
+					Our aha moment came during a short residence sprint, based
+					on interviews with current E202 students, when we finally
+					skewed our idea using associative methods. We decided to
+					build a document management system for publishing student
+					projects rather than a VR world. To promote use, we designed
+					an easy-to-create 3D model that displays a QR code linking
+					to the webpage; however, students can still display any
+					models they produce with their own QR codes.
+				</p>
+
+				<h3 id="ia">Information Architecture</h3>
+				<p>
+					The system we designed has three parts. The first part
+					involves collecting data; the second, storing and displaying
+					it under a project name; and the final part, publishing and
+					sharing it.
+				</p>
+				<p>
+					Content type includes text, images, videos, and URLs. Using
+					the web app or phone app, users can write notes, upload
+					images and videos, and add a link to the thread.
+				</p>
+				<p>
+					These contents are tied to a project. The project home
+					displays data in reverse-chronological order. Additionally,
+					on this page, there are options to share an opinion for a
+					member of the group, and for users it has been shared with.
+					A calendar indicates the dates entries were made. These
+					inputs could also be used to create an “Exhibit”, which is a
+					portfolio entry posted and available on a website. The link
+					can be shared via social media, or a QR code can be printed
+					on a 3D-printed box or a paper box.
+				</p>
+
+				<h3 id="process">Process</h3>
+
+				<p>
+					To design our system, our goal was to help students showcase
+					their work to potential employers and to inspire future
+					students.
+				</p>
+
+				<p>
+					However, to reach our final product, we employed ideation
+					methods, changing the design based on heuristics similar to
+					the SCAMPER method. Where we substitute VR with a website.
+					We also conducted brainstorming sessions among team members
+					to generate and refine ideas.
+				</p><p>
+					When we have ideas, we research exciting solutions to see
+					what's available. We found a lack of product offerings to
+					help students manage their documentation. So we incorporated
+					that.
+				</p><p>
+					We also conducted interviews with students to identify their
+					pain points with other solutions. One person used a solution
+					at her previous institution, where she had to send all the
+					documents for the portfolio to a webmaster, who would then
+					publish it. To prevent that, we employed self-publishing.
+				</p><p>
+					Once we had all the information, we created a happy flow and
+					prototype using paper to get feedback from our peers. This
+					eliminates some features we were planning to include, for
+					example, comments in the portfolio, which students thought
+					might receive unnecessary reviews and could influence
+					employers' opinions.
+				</p><p>
+					Finally, once we were satisfied with the paper prototype, we
+					created our MVP version of the system in low-fidelity
+					wireframes and designed 3D-printed and paper showpieces for
+					the class showcase.
+				</p>
+
+				<h3 id="solution">Solution</h3>
+				<p>Some solution text here</p>
+
+				<h3 id="learning">Learning</h3>
+				<p>
+					During this process, I discovered that using design methods
+					makes it faster to come to a solution. I also learned it's
+					important to solve a problem with simple tools rather than
+					using cutting-edge technologies, which often makes the
+					problem worse. 
+				</p><p>
+					One thing we have yet to add is versioning in
+					our project page, so users can look back and use any asset
+					they have changed. Additionally, in our preliminary plan, we
+					considered developing a mobile application for asset
+					collection, but we paused to focus on building an MVP.
+				</p>
+			</article>
+		</section>
+	</main>
+</PageLayout>
