@@ -133,7 +133,11 @@ h5 {
     }
 
     section.inner {
-        @include media(small) {
+        display: block;
+        width: auto;
+        margin: 0 64px;
+
+        @include media(medium) {
             display: grid;
             margin: var(--spacer-two) auto 0 auto;
             width: 84vw;
@@ -144,6 +148,7 @@ h5 {
         background-color: var(--color-gray-100);
         padding: var(--spacer-one);
         font-size: var(--spacer-one);
+        box-sizing: border-box;
     }
 
     article {
@@ -152,7 +157,7 @@ h5 {
             margin-left: auto;
             margin-right: auto;
 
-            @include media(small) {
+            @include media(medium) {
                 width: 45vw;
                 margin-left: 8vw;
                 margin-right: auto;
@@ -191,7 +196,7 @@ h5 {
         display: none;
         font-family: var(--font-tertiary);
 
-        @include media(small) {
+        @include media(medium) {
             display: block;
             position: absolute;
             font-weight: 500;
