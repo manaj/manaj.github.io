@@ -162,6 +162,12 @@ h5 {
                 margin-left: 8vw;
                 margin-right: auto;
             }
+
+            @include media(bigger) {
+                width: 40vw;
+                margin-left: 16vw;
+                margin-right: auto;
+            }
         }
 
         figure {
@@ -169,9 +175,17 @@ h5 {
             margin-left: auto;
             margin-right: auto;
 
-            @include media(big) {
+            @include media(medium) {
                 width: 84vw;
             }
+
+            @include media(big) {
+                width: 75vw;
+            }
+            @include media(bigger) {
+                width: 60vw;
+            }
+
         }
     }
 
