@@ -1,0 +1,405 @@
+---
+import PageLayout from "../../layouts/default-no-header.astro";
+const title =
+	"Story walk: an immersive game designed to encourage students and staff at Halmstad University to go outdoors. - Portfolio of Manaj Chakrobarti";
+const bodyClass = "works";
+import Footer from "../../layouts/components/footer.astro";
+import "../../styles/prototyping-experiences.scss";
+---
+
+<PageLayout title={title} bodyClass={bodyClass}>
+	<main class="workspage">
+		<div class="page">
+			<header class="header">
+				<section class="inner">
+					<h1>
+						Story walk: an immersive game designed to encourage
+						students and staff at Halmstad University to go
+						outdoors.
+					</h1>
+
+					<div class="container">
+						<div class="heroimages">
+							<figure>
+								<img
+									src="/images/works/mobile-game/hero1.png"
+									alt="Story Walk game preview, tapping station"
+								/>
+								<figcaption>
+									<span
+										>Story Walk game preview, tapping
+										station
+									</span>
+								</figcaption>
+							</figure>
+						</div>
+
+						<h2 class="subheading">
+							We designed a playful mobile game concept for
+							students and staff to enjoy outside. Each game has 4
+							missions that take 7 to 10 minutes to complete. A
+							mission includes an audio narration of the
+							objective, turn-by-turn voice-guided walking
+							directions, and, upon completion, a congratulatory
+							message for the player. The mission completes when
+							the player taps their phone in an NFC tag installed
+							in a station. Upon completing all the missions, they
+							are offered a physical reward.
+						</h2>
+					</div>
+				</section>
+			</header>
+
+			<article>
+				<nav class="article-navigation">
+					<ul class="no-list">
+						<li class="first"><a href="#">Back to top</a></li>
+						<li><a href="#ideation">Ideation</a></li>
+						<li><a href="#ia">Information Architecture</a></li>
+						<li><a href="#process">Process</a></li>
+						<li><a href="#solution">Solution</a></li>
+						<li class="last"><a href="#learning">Learning</a></li>
+					</ul>
+				</nav>
+				
+				<section class="section-container" id="introduction">
+					<h3>Introduction</h3>
+
+					<figure class="introduction-image">
+						<img
+							src="/images/works/mobile-game/jenga.png"
+							alt="Drawing of the Jenga game and its placement on campus
+"
+						/>
+						<figcaption>
+							<span
+								>Drawing of the Jenga game and its placement on
+								campus
+							</span>
+						</figcaption>
+					</figure>
+					<div class="section-body collumn">
+						<p>
+							We started this project to encourage greater use of
+							outdoor spaces. From our first ideation session, we
+							focused on creating a playful experience by adapting
+							a traditional board game for outdoor use. We looked
+							into scaling up Jenga. However, the weight of the
+							pieces, storage, and transport to the designated
+							outdoor spot were challenging, and there was
+							uncertainty about whether it would be played outside
+							or inside. We considered Snakes and Ladders as well,
+							but we have very few available square spaces on
+							campus.
+						</p>
+
+						<p>
+							Through our research, we found that completing a
+							guided mindful walk can reduce anxiety and stress
+							while increasing mindfulness among university
+							students (Burdick & Camhi, 2024). Also, students
+							exhibit consistent preferences for areas on campus
+							with high levels of greenery, diverse trees and
+							flowers, and views of blue spaces, as well as for
+							peacefulness and quietness (Aghabozorgi et al.,
+							2025). These findings shaped our project
+							requirements. We needed a project that uses a campus
+							path, green and open space, suitable for an
+							individual or a small group of friends in any
+							season, and a game that requires walking.
+						</p>
+
+						<p>
+							We designed a game where someone can become the
+							characters. It starts with picking up a paper ticket
+							with the backstory and objectives written on it,
+							along with 5 missions and a map showing all the
+							locations. Each location is a point on campus where
+							we would install a box with a distinct-shaped
+							punching machine. The player must reach it on foot
+							and use the machine to punch a hole in the ticket.
+							After collecting all 5 holes, they are eligible for
+							a prize.
+						</p>
+						<p>
+							Nonetheless, while talking to stakeholders, we
+							realized it's not appealing to complete the walk
+							once you know the whole story in the ticket. And if
+							we want to provide part of the story at each station
+							at the beginning of the mission, it's not possible,
+							given the randomness of the story and map locations.
+						</p>
+						<p>
+							Finally, after a month into the design process, we
+							decided to make this a mobile game, which solved
+							issues like the start location and getting the next
+							part of the story, as well as the challenges of
+							paper management and fraud prevention. Since people
+							can start from any location, we reduced the mission
+							to 4.
+						</p>
+					</div>
+				</section>
+
+				<section class="section-container" id="prototype">
+					<h3>Prototyping</h3>
+					<figure class="introduction-image">
+						<img
+							src="/images/works/mobile-game/cardboard.png"
+							alt="Cardboard prototype and 3D printed map
+"
+						/>
+						<figcaption>
+							<span>Cardboard prototype and 3D printed map </span>
+						</figcaption>
+					</figure>
+					<div class="section-body">
+						<p>
+							While working on the project, we deployed different
+							prototyping techniques. As rough sketching is the
+							simplest form of prototyping (Lim et al., 2008), we
+							often use it to communicate design ideas.
+						</p>
+
+						<p>
+							When we worked on our story idea of physical
+							tickets, we used cardboard to model different
+							dimensions for the station design. We wanted to use
+							it to store our tickets and the punching machines.
+							To understand the campus area, we created a
+							3D-printed map highlighting the tall buildings and
+							walking pathways.
+						</p>
+
+						<p>
+							Then, upon deciding to use mobile games for our
+							project, we used Figma to create an early-stage
+							clickable prototype. Which we then used for
+							usability testing. We opted for a slightly
+							higher-fidelity design to help users understand the
+							game's graphics. Instead of creating the story and
+							character images ourselves, we used AI (ChatGPT) to
+							generate them more quickly.
+						</p>
+
+						<p>
+							Finally, we used 3D printers to print a series of
+							models of outdoor stations to test specific
+							usability, structurel and aesthetic hypotheses.
+						</p>
+					</div>
+				</section>
+
+				<section class="section-container" id="ia">
+					<h3>Information Architecture</h3>
+
+					<div class="prototyping-body">
+						<figure class="introduction-image">
+							<img
+								src="/images/works/mobile-game/mobile-screens.png"
+								alt="High-fidelity wireframe screens from the mobile game
+"
+							/>
+							<figcaption>
+								<span
+									>High-fidelity wireframe screens from the
+									mobile game
+								</span>
+							</figcaption>
+						</figure>
+
+						<div class="section-body">
+							<p>
+								The system we designed has two parts. The first
+								part is the mobile app, which involves listing
+								stories; each story has its own home screen. We
+								kept it small with only an action button to
+								start the game. However, to pause or go back, we
+								have a dedicated bar in the same place on all
+								screens.
+							</p>
+
+							<p>
+								The second part is stations around the campus;
+								we kept them simple and recognizable, with a
+								signboard and branding that match the app. We
+								kept the messaging simple and included a URL, so
+								if we change something in the app, we wouldn’t
+								need to update the signboards; we would only
+								update the link page.
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section class="section-container" id="process">
+					<h3>Design Process</h3>
+					<figure class="introduction-image">
+						<img
+							src="/images/works/mobile-game/drawing.png"
+							alt="Low-fidelity drawing of the story game
+"
+						/>
+						<figcaption>
+							<span>Low-fidelity drawing of the story game </span>
+						</figcaption>
+					</figure>
+					<div class="section-body">
+						<p>
+							Our mission revolved around walking and storytelling
+							from the early stage of the ideation process. We
+							often sketched to understand the game's flow. Made
+							prototypes to visualize objects to clear
+							understanding. Once our first mobile wireframes were
+							ready, we started working on the game's details.
+						</p>
+						<p>
+							We wrote some stories for our earlier version of the
+							game, but the mobile version also required narration
+							for each mission. We wrote the texts, the game
+							narration, and the turn-by-turn voice navigation.
+							For faster prototyping, we used Amazon Polly and
+							ElevenLabs to generate text-to-speech. Later, we
+							used Mixpad and GarageBand to add sound effects to
+							create the illusion of our story's timeline, which
+							is set in dystopian Sweden. We collected all the
+							required sounds from Pixabay.com.
+						</p>
+					</div>
+
+					<figure class="introduction-image">
+						<img
+							src="/images/works/mobile-game/blendar.png"
+							alt="Prototyping in Blender
+"
+						/>
+						<figcaption>
+							<span>Prototyping in Blender </span>
+						</figcaption>
+					</figure>
+					<div class="section-body">
+						<p>
+							We used Figma to prototype, but it lacked audio
+							support, so we had to convert the audio to video in
+							iMovie with a black screen. Then we used the video
+							files at a very low resolution to play audio.
+						</p>
+						<p>
+							For map information, since it's on the university
+							campus, all the paths and hallways weren't part of
+							Google Maps or OpenStreetMap. But then we realize we
+							already use Mazemap on our campus, which also has an
+							API. We decided to use it, but for the prototype, we
+							created SVG maps of the campus paths.
+						</p>
+						<p>
+							We tested with some students from the studio, but
+							due to different walking speeds, our audio didn’t
+							match during turn-by-turn directions. We fixed it
+							after several rounds of trial and error, at an
+							average speed.
+						</p>
+					</div>
+				</section>
+
+				<section class="section-container" id="solution">
+					<h3>Final Prototype</h3>
+					<figure class="introduction-image">
+						<img
+							src="/images/works/mobile-game/final.png"
+							alt="Some screens from the final prototype"
+						/>
+						<figcaption>
+							<span>Some screens from the final prototype </span>
+						</figcaption>
+					</figure>
+					<div class="section-body">
+						<p>
+							The final prototype consisted of a single game,
+							narrated from start to finish. Each game consists of
+							4 missions, which are chosen at random from 10
+							points around the campus. If any person is near any
+							station, that station would be avoided. So if the
+							player is playing for the second time or when 10
+							players start playing, not everyone will get the
+							same missions.
+						</p>
+					</div>
+				</section>
+
+				<section class="section-container" id="learning">
+					<h3>Learning</h3>
+
+					<div class="section-body collumn">
+						<p>
+							As a digital designer, I had worked with various
+							prototype dimensions, but all were for screens. In
+							this project, I worked with physical materials,
+							including cardboard, 3D printers, a UV printing
+							machine, and laser cutters. For 3D printers, I had
+							to learn 3D software like Blender, and for sound
+							effects, I had to learn sound editing and mixing.
+							These learnings made me a better designer by
+							teaching me to shape myself to project needs.
+						</p>
+
+						<p>
+							Also, for this project, we participated in two
+							design sprints and one design residence session.
+							Both helped me overcome my procrastination by
+							teaching me to start designing with some
+							restrictions, such as a time limit.
+						</p>
+
+						<p>
+							However, with high learning opportunities, there
+							were some areas where I could have improved. One
+							such thing is keeping the stations necessary for
+							taping the phone. It breaks the immersive flow and
+							burden player with cognitive load. Instead, we
+							could’ve used other technology, e.g., GPS, to track
+							mission completion.
+						</p>
+
+						<p>
+							Finally, the game was simple enough to make students
+							and staff walk to a known place with a different
+							identity in each story, which made it fun and a
+							topic to discuss among friends, and these walks also
+							helped them mentally. Also, with little change to
+							the system, we could create an accessible version of
+							the game.
+						</p>
+					</div>
+				</section>
+
+				<section class="section-container" id="references">
+					<h3>References</h3>
+					<div class="section-body fullsize">
+						<ol>
+							<li>
+								ASHLEY A V BURDICK, SARAH M CAMHI (2024). The
+								Effects of a Guided Mindful Walk on Mental
+								Health in University Students
+							</li>
+							<li>
+								Koorosh Aghabozorgi, Alexander van der Jagt,
+								Simon Bell, Harry Smith (2025). The role of
+								university campus landscape characteristics in
+								students’ mental health
+							</li>
+							<li>
+								Lim, Y.K., Stolterman, E., and Tenenberg, J.
+								(2008). The anatomy of prototypes: Prototypes as
+								filters, prototypes as manifestations of design
+								ideas.
+							</li>
+						</ol>
+					</div>
+				</section>
+			</article>
+
+			<Footer />
+		</div>
+	</main>
+</PageLayout>
