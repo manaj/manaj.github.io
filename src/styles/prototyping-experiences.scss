@@ -200,10 +200,10 @@ article {
 
     a {
         color: var(--color-yblack);
-        text-decoration: underline;
+        text-decoration: none;
 
         &:hover {
-            background-color: var(--color-yellow);
+            text-decoration: underline;
         }
     }
 
