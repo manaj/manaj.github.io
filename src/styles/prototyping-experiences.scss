@@ -198,6 +198,15 @@ article {
         }
     }
 
+    a {
+        color: var(--color-yblack);
+        text-decoration: underline;
+
+        &:hover {
+            background-color: var(--color-yellow);
+        }
+    }
+
     .section-container {
         width: 96%;
         margin: 0 auto;
