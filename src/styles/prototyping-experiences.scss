@@ -204,7 +204,7 @@ article {
 
         @include media(medium) {
             width: 72%;
-            padding-bottom: var(--spacer-two);
+            padding: var(--spacer-four) 0 var(--spacer-two) 0;
             border-bottom: 1px solid var(--color-yblack);
 
             &:last-of-type {
@@ -269,27 +269,32 @@ footer {
     display: none;
 
     @include media(medium) {
-        font-weight: 500;
-        width: 250px;
-        display: none;
-        position: fixed;
-        height: 300px;
+        display: block;
+        position: sticky;
         left: 0;
-        color: white;
+        top: 0;
+        height: auto;
+        width: 100%;
+        background-color: var(--color-white);
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
+    ul {
+        display: flex;
+            justify-content: space-evenly;
     }
 
     li {
-        padding: var(--spacer-half) var(--spacer-one);
+        padding: var(--spacer-one);
         font-size: 1rem;
         font-weight: 300;
+        text-overflow: ellipsis;
+    }
 
-        &.first {
-            padding-top: var(--spacer-one);
-        }
-
-        &.last {
-            padding-bottom: var(--spacer-one);
-        }
+    a {
+        color: var(--color-yblack);
+        font-family: var(--font-third-body);
     }
 
 }
