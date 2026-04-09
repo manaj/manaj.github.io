@@ -5,6 +5,7 @@ $font: (
     "second-title": "'Playfair Display', serif;",
     "third-title": "'Antic Didone', Century Gothic, Helvetica, system-ui;",
     "third-body": "'Questrial', serif;",
+    "letter-spacing-8": "-0.06rem;",
     "letter-spacing-4": "-0.04rem;",
     "letter-spacing-3": "-0.03rem;",
     "medium": "500",
@@ -13,24 +14,28 @@ $font: (
 );
 
 $colors: (
-    "yellow-dark": "#FFD000;",
-    "yellow": "#FFE100;",
-    "yellow-lighter": "#FFE700;",
-    "yellow-light": "#FFF122;",
-    "indigo": "#E4F3F1;",
-    "turquoise": "#32E2C3;",
-    "turquoise-gray": "#A8BAB7;",
-    "turquoise-dark": "#0D7264;",
-    "blue": '#0057A8;',
-    "black": "#171921;",
-    "brown":"#CFC8C4;",
-    "yblack":"#1D1B19;",
-    "white": "#ffffff;",
-    "gray-100":'#F4F4F2;',
-    "gray-200":'#909090;',
-    "gray-600":'#767575;',
-    "gray-900":'#515151;',
-    "gray-950":'#3A3636;',
+    "yellow-dark": "#FFD000",
+    "yellow": "#FFE100",
+    "yellow-lighter": "#FFE700",
+    "yellow-light": "#FFF122",
+    "indigo": "#E4F3F1",
+    "turquoise": "#32E2C3",
+    "turquoise-gray": "#A8BAB7",
+    "turquoise-dark": "#0D7264",
+    "blue": '#0057A8',
+    "black": "#171921",
+    "brown":"#CFC8C4",
+    "yblack":"#1D1B19",
+    "white": "#ffffff",
+    "gray-100":'#F4F4F2',
+    "gray-200":'#909090',
+    "gray-600":'#767575',
+    "gray-900":'#515151',
+    "gray-950":'#3A3636',
+    "lyellow": '#001D8F',
+    "orange": "#FF3C00",
+    "red": "#ED2939",
+    "flu-green": "#39F600"
     )!default;
     
 $spacer: 1rem;
@@ -57,7 +62,8 @@ $spacers: (
     "seven": $spacer * 7,
     "eight": $spacer * 8,
     "nine": $spacer * 9,
-    "ten": $spacer * 10
+    "ten": $spacer * 10,
+    "gridgap": $spacer * 3
 ) !default;
 
 $breakpoints: (

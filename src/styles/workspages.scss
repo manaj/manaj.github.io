@@ -11,14 +11,10 @@
 "components/header",
 "components/footer";
 
-body {
-    background-color: var(--color-gray-100);
-}
-
 .workspage {
     min-height: 20vw;
-    background-color: var(--color-gray-100);
     position: relative;
+    padding-top: var(--spacer-two);
 
     h1 {
         font-family: var(--font-primary);

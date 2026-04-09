@@ -13,87 +13,121 @@
 "components/footer"
 ;
 
-.header,
-.homepage {
-    background-color: var(--color-white);
-}
-
-.homepage {
-    
-    h1 {
-        font-size: var(--spacer-two);
-        font-weight: var(--font-light);
-    }
-
-    &.box {
-        margin-top: 0;
-    }
-    h2 {
-        width: 100%;
-        @include media(small) {
-                width: 92%;
-        }
-    }
-
+.home {
     .hero {
-        display: grid;
-    }
+        .intro {
+            grid-column: span 12;
+            padding: var(--spacer-four) 0;
 
-    .hero, .recent-works {
-        margin-bottom: var(--spacer-two);
+            @include media(medium) {
+                grid-column: 1 / 13;
+                justify-self: end;
+            }
 
-        @include media(small) {
-            margin-bottom: var(--spacer-five);
-        }
-    }
-
-
-    .recent-works li {
-        padding-bottom: var(--spacer-half);
-        border-bottom: 1px solid var(--color-turquoise-gray);
-        margin-bottom: var(--spacer-two);
-
-        @include media(small){
-            padding-bottom: var(--spacer-three);
-            border-bottom: 1px solid var(--color-turquoise-gray);
-            margin-bottom: var(--spacer-three);
-        }
-
-        &:last-child {
-            padding-bottom: 0;
-            border-bottom: 0;
-            margin-bottom: 0;
-        }
-
-        h4 > a {
-            color: var(--color-black) ;
-        }
-    }
-
-    .single {
-        @include media(small) {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacer-two);
-            direction: rtl;
-            text-align: left;
-        }
-        
-        &:nth-child(even) {
-            @include media(small) {
-                    direction: ltr;
-                }
-        }
-        
-
-        h4 {
-            @include media(small) {
-                margin-top: 0;
+            @include media(bigger) {
+                grid-column: 5 / 13;
+                justify-self: end;
             }
         }
 
+        h1 {
+            font-size: var(--spacer-twoandhalf);
+            font-family: var(--font-primary);
+            line-height: 1.38;
+            font-weight: var(--font-medium);
+            margin: 0;
+            color: var(--color-black);
+            letter-spacing: var(--font-letter-spacing-8);
+
+            @include media(medium) {
+                font-size: var(--spacer-twoandthreequarter);
+            }
+
+            @include media(bigger) {
+                font-size: var(--spacer-twoandthreequarter);
+            }
+
+            @include media(biggest) {
+                font-size: var(--spacer-three);
+            }
+
+            @include media(bigass) {
+                font-size: var(--spacer-three);
+            }
+        }
+    }
+
+    .recent-works {
+        h2 {
+            border-bottom: 2px solid var(--color-gray-200);
+            margin: 0;
+            padding-bottom: var(--spacer-half);
+            letter-spacing: var(--font-letter-spacing-8);
+            font-weight: var(--font-medium);
+            color: var(--color-gray-900);
+            
+        }
+
+        li {
+            padding: var(--spacer-two) 0;
+            border-bottom: 1px solid var(--color-gray-200);
+
+            &:last-child {
+                border: 0
+            }
+        }
+
+        .single {
+            @extend .grid-holder;
+        }
+
+        h4,
+        .text,
+        .image {
+            @extend .col-4;
+        }
+
+        h4,
+        p {
+            margin-top: 0;
+        }
+
+        h4 {
+            font-size: var(--spacer-oneandhalf);
+            letter-spacing: var(--font-letter-spacing-4);
+            line-height: var(--spacer-two);
+        }
+
+        h4>a {
+            color: var(--color-black);
+        }
+
+        p {
+            font-size: var(--spacer-one);
+            line-height: 2;
+            margin-top: 3px;
+        }
+
+        a:hover {
+            text-decoration: none;
+            h4 {
+                    text-decoration: underline;
+                }
+            p {
+                color: var(--color-black);
+            }
+        }
         
     }
+
+    .goto {
+        color: var(--color-flu-green);
+
+        img {
+            color: var(--color-flu-green)
+        }
+    }
+    
 
     .page-404 {
         padding: var(--spacer-three) 0;
