@@ -99,16 +99,18 @@ h6 {
 }
 
 ::selection {
-  background-color: var(--color-yellow);
+  background-color: var(--color-flu-green);
 }
 
 a {
+  color: inherit;
   text-decoration: none;
-  color: var(--color-blue);
 
   &:hover {
     text-decoration: underline;
   }
+
+  
 }
 
  figcaption {

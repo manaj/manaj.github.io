@@ -12,12 +12,9 @@
     }
     @include media(big) {
         .inner {
-            width: 72vw;
+            width: 76vw;
         }
     }
-    
-
-    
 
     // .double {
     //     ul {
@@ -40,4 +37,47 @@
 img {
     width: 100%;
     display: block;
+
+    &.inline {
+        display: inline;
+        width: auto;
+    }
+}
+
+.grid-holder {
+    @extend .grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--spacer-gridgap);
+}
+
+.col {
+    padding: 1rem;
+}
+
+.col-2 {
+    grid-column: span 2;
+}
+
+.col-3 {
+    grid-column: span 3;
+}
+
+.col-4 {
+    grid-column: span 4;
+}
+
+.col-6 {
+    grid-column: span 6;
+}
+
+.col-8 {
+    grid-column: span 8;
+}
+
+.col-9 {
+    grid-column: span 9;
+}
+
+.col-12 {
+    grid-column: span 12;
 }

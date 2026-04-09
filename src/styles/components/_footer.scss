@@ -1,6 +1,7 @@
 footer {
     padding: var(--spacer-two) 0 var(--spacer-ten) ;
     background-color: var(--color-white);
+    border-top: 1px solid var(--color-gray-200);
 
     a {
         padding: var(--spacer-quarter) var(--spacer-half);
@@ -9,11 +10,12 @@ footer {
 }
 
 .credits {
+    margin-top: var(--spacer-two);
     > .lists {
 
         @include media(small) {
             display: grid;
-            grid-template-columns: 2.5fr 1fr 1fr;
+            grid-template-columns: repeat(4, 1fr);
             gap: var(--spacer-two);
         }
         
@@ -59,6 +61,54 @@ footer {
 
     h4 {
         margin-bottom: var(--spacer-one);
+        margin-top: 0;
     }
     
+}
+
+.contact {
+    display: flex;
+    justify-content: start;
+    border-bottom: 1px solid var(--color-gray-100);
+    padding-bottom: var(--spacer-two);
+    
+    @include media(small) {
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: left;
+    }
+
+    h5 {
+        display: none;
+
+        @include media(small) {
+            display: block;
+            padding-right: var(--spacer-half);
+        }
+    }
+
+    ul {
+        display: inline-flex;
+    }
+
+    a {
+        display: block;
+        padding: var(--spacer-half) var(--spacer-one);
+        font-size: var(--spacer-two);
+        color: var(--color-turquoise-dark);
+
+        @include media(small) {
+            font-size: var(--spacer-oneandhalf);
+            padding: var(--spacer-half);
+        }
+    }
+
+    .fancy {
+        &:hover {
+            .fa {
+                color: var(--color-black);
+            }
+        }
+    }
+
 }
