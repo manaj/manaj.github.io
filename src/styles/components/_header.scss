@@ -16,6 +16,9 @@
             grid-template-columns: 2fr 1fr;
             gap: var(--spacer-two);
             align-items: start;
+            border-bottom: 2px solid var(--color-gray-950);
+            padding-bottom: var(--spacer-two);
+            
         }
 
         a {

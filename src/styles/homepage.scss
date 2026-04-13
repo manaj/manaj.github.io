@@ -17,7 +17,7 @@
     .hero {
         .intro {
             grid-column: span 12;
-            padding: var(--spacer-four) 0;
+            padding: var(--spacer-four) 0 var(--spacer-three) 0;
 
             @include media(medium) {
                 grid-column: 1 / 13;
@@ -59,7 +59,7 @@
 
     .recent-works {
         h2 {
-            border-bottom: 2px solid var(--color-gray-200);
+            border-bottom: 2px solid var(--color-gray-950);
             margin: 0;
             padding-bottom: var(--spacer-half);
             letter-spacing: var(--font-letter-spacing-8);
@@ -70,7 +70,7 @@
 
         li {
             padding: var(--spacer-two) 0;
-            border-bottom: 1px solid var(--color-gray-200);
+            border-bottom: 1px solid var(--color-gray-900);
 
             &:last-child {
                 border: 0

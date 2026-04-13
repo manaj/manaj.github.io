@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="theme-color" content="#0a0a0a"/>
+  <title>MuseAR — Field Guide</title>
+  <link rel="manifest" href="data:application/json,{}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --ink:#f5f0e8;
+      --ink-dim:#a09880;
+      --paper:#0d0b08;
+      --gold:#c9a84c;
+      --gold-light:#e8c97a;
+      --rust:#b85c38;
+      --teal:#2a7a6f;
+      --surface:rgba(13,11,8,0.82);
+      --border:rgba(201,168,76,0.25);
+      --ff-serif:'Cormorant Garamond',Georgia,serif;
+      --ff-mono:'JetBrains Mono',monospace;
+    }
+
+    html,body{
+      width:100%;height:100%;overflow:hidden;
+      background:#000;
+      font-family:var(--ff-serif);
+      color:var(--ink);
+      -webkit-font-smoothing:antialiased;
+      touch-action:none;
+    }
+
+    /* ── CAMERA ── */
+    #camera{
+      position:fixed;inset:0;
+      width:100%;height:100%;
+      object-fit:cover;
+      z-index:0;
+    }
+    #scanCanvas{display:none;}
+
+    /* ── GRAIN OVERLAY ── */
+    .grain{
+      position:fixed;inset:0;z-index:1;pointer-events:none;
+      opacity:0.04;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size:128px;
+    }
+
+    /* ── VIGNETTE ── */
+    .vignette{
+      position:fixed;inset:0;z-index:2;pointer-events:none;
+      background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,0.7) 100%);
+    }
+
+    /* ── SCAN RETICLE ── */
+    .reticle{
+      position:fixed;
+      top:50%;left:50%;
+      transform:translate(-50%,-60%);
+      width:220px;height:220px;
+      z-index:10;
+      pointer-events:none;
+    }
+    .reticle-corner{
+      position:absolute;width:28px;height:28px;
+      border-color:var(--gold);border-style:solid;border-width:0;
+    }
+    .reticle-corner.tl{top:0;left:0;border-top-width:2px;border-left-width:2px;}
+    .reticle-corner.tr{top:0;right:0;border-top-width:2px;border-right-width:2px;}
+    .reticle-corner.bl{bottom:0;left:0;border-bottom-width:2px;border-left-width:2px;}
+    .reticle-corner.br{bottom:0;right:0;border-bottom-width:2px;border-right-width:2px;}
+
+    .scan-line{
+      position:absolute;left:4px;right:4px;height:1px;
+      background:linear-gradient(90deg,transparent,var(--gold),transparent);
+      top:0;
+      animation:scanMove 2.4s ease-in-out infinite;
+      box-shadow:0 0 8px var(--gold);
+    }
+    @keyframes scanMove{
+      0%,100%{top:4px;opacity:0;}
+      10%{opacity:1;}
+      90%{opacity:1;}
+      50%{top:calc(100% - 4px);}
+    }
+
+    .reticle-label{
+      position:absolute;bottom:-26px;left:50%;
+      transform:translateX(-50%);
+      font-family:var(--ff-mono);
+      font-size:0.6rem;
+      letter-spacing:0.2em;
+      color:var(--gold);
+      opacity:0.7;
+      white-space:nowrap;
+      text-transform:uppercase;
+    }
+
+    /* ── HEADER ── */
+    .hud-top{
+      position:fixed;top:0;left:0;right:0;
+      z-index:20;
+      padding:env(safe-area-inset-top,12px) 20px 12px;
+      display:flex;align-items:center;justify-content:space-between;
+      background:linear-gradient(to bottom,rgba(0,0,0,0.6),transparent);
+    }
+    .app-name{
+      font-family:var(--ff-serif);
+      font-size:1.3rem;
+      font-weight:300;
+      letter-spacing:0.12em;
+      color:var(--gold-light);
+      font-style:italic;
+    }
+    .app-name span{font-style:normal;font-weight:600;}
+    .scan-count{
+      font-family:var(--ff-mono);
+      font-size:0.65rem;
+      color:var(--ink-dim);
+      letter-spacing:0.1em;
+    }
+
+    /* ── BOTTOM HUD ── */
+    .hud-bottom{
+      position:fixed;bottom:0;left:0;right:0;
+      z-index:20;
+      padding:12px 20px calc(env(safe-area-inset-bottom,12px) + 12px);
+      background:linear-gradient(to top,rgba(0,0,0,0.65),transparent);
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .torch-btn{
+      width:44px;height:44px;border-radius:50%;
+      background:rgba(13,11,8,0.6);
+      border:1px solid var(--border);
+      color:var(--ink-dim);font-size:1.2rem;
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;transition:all 0.2s;
+      backdrop-filter:blur(8px);
+    }
+    .torch-btn.on{border-color:var(--gold);color:var(--gold);box-shadow:0 0 16px rgba(201,168,76,0.3);}
+    .history-btn{
+      font-family:var(--ff-mono);
+      font-size:0.62rem;letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:var(--ink-dim);
+      background:rgba(13,11,8,0.6);
+      border:1px solid var(--border);
+      padding:8px 16px;border-radius:2px;
+      cursor:pointer;transition:all 0.2s;
+      backdrop-filter:blur(8px);
+    }
+    .history-btn:hover{color:var(--gold);border-color:var(--gold);}
+
+    /* ── AR CARD ── */
+    .ar-overlay{
+      position:fixed;
+      bottom:0;left:0;right:0;
+      z-index:30;
+      transform:translateY(100%);
+      transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .ar-overlay.visible{transform:translateY(0);}
+
+    .ar-card{
+      margin:0 12px 12px;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:4px;
+      backdrop-filter:blur(24px);
+      overflow:hidden;
+      position:relative;
+    }
+
+    /* Gold top bar */
+    .ar-card::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,transparent,var(--gold),var(--gold-light),var(--gold),transparent);
+    }
+
+    .ar-card-inner{padding:18px 20px 20px;}
+
+    .ar-meta{
+      display:flex;align-items:center;gap:10px;
+      margin-bottom:12px;
+    }
+    .ar-type-tag{
+      font-family:var(--ff-mono);
+      font-size:0.58rem;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:var(--paper);
+      background:var(--gold);
+      padding:2px 8px;border-radius:1px;
+    }
+    .ar-type-tag.artifact{background:var(--rust);}
+    .ar-type-tag.flora{background:var(--teal);}
+    .ar-type-tag.geology{background:#556b4f;}
+    .ar-type-tag.history{background:#5a4a6a;}
+
+    .ar-room{
+      font-family:var(--ff-mono);
+      font-size:0.6rem;
+      color:var(--ink-dim);
+      letter-spacing:0.1em;
+    }
+    .ar-dismiss{
+      margin-left:auto;
+      width:28px;height:28px;
+      background:none;border:1px solid var(--border);
+      color:var(--ink-dim);border-radius:50%;
+      font-size:0.8rem;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      transition:all 0.2s;flex-shrink:0;
+    }
+    .ar-dismiss:hover{border-color:var(--rust);color:var(--rust);}
+
+    .ar-title{
+      font-size:1.65rem;
+      font-weight:300;
+      line-height:1.2;
+      color:var(--ink);
+      margin-bottom:4px;
+    }
+    .ar-subtitle{
+      font-size:0.9rem;
+      font-style:italic;
+      color:var(--ink-dim);
+      margin-bottom:14px;
+    }
+
+    .ar-divider{
+      width:40px;height:1px;
+      background:var(--gold);
+      opacity:0.4;
+      margin-bottom:14px;
+    }
+
+    .ar-body{
+      font-size:0.95rem;
+      font-weight:300;
+      line-height:1.65;
+      color:#d4ccbc;
+      margin-bottom:16px;
+    }
+
+    .ar-facts{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      margin-bottom:16px;
+    }
+    .ar-fact{
+      background:rgba(201,168,76,0.06);
+      border:1px solid rgba(201,168,76,0.15);
+      border-radius:2px;
+      padding:8px 10px;
+    }
+    .ar-fact-label{
+      font-family:var(--ff-mono);
+      font-size:0.55rem;
+      letter-spacing:0.15em;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin-bottom:3px;
+    }
+    .ar-fact-value{
+      font-size:0.82rem;
+      font-weight:400;
+      color:var(--ink);
+    }
+
+    .ar-tags{
+      display:flex;flex-wrap:wrap;gap:6px;
+    }
+    .ar-tag{
+      font-family:var(--ff-mono);
+      font-size:0.58rem;
+      letter-spacing:0.1em;
+      color:var(--ink-dim);
+      border:1px solid rgba(255,255,255,0.1);
+      padding:3px 8px;border-radius:1px;
+    }
+
+    /* Scroll handle */
+    .scroll-handle{
+      width:36px;height:3px;
+      background:rgba(255,255,255,0.2);
+      border-radius:2px;
+      margin:10px auto 0;
+    }
+
+    /* ── HISTORY PANEL ── */
+    .history-panel{
+      position:fixed;inset:0;z-index:40;
+      background:rgba(8,6,4,0.96);
+      backdrop-filter:blur(20px);
+      transform:translateX(100%);
+      transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);
+      overflow-y:auto;
+      padding:env(safe-area-inset-top,20px) 0 env(safe-area-inset-bottom,20px);
+    }
+    .history-panel.open{transform:translateX(0);}
+
+    .history-header{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:20px 24px 16px;
+      border-bottom:1px solid var(--border);
+      position:sticky;top:0;
+      background:rgba(8,6,4,0.95);
+      backdrop-filter:blur(12px);
+      z-index:2;
+    }
+    .history-title{
+      font-size:1.3rem;font-weight:300;
+      font-style:italic;color:var(--gold-light);
+      letter-spacing:0.06em;
+    }
+    .close-btn{
+      width:36px;height:36px;border-radius:50%;
+      background:none;border:1px solid var(--border);
+      color:var(--ink-dim);font-size:1rem;
+      cursor:pointer;transition:all 0.2s;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .close-btn:hover{border-color:var(--rust);color:var(--rust);}
+
+    .history-empty{
+      text-align:center;padding:60px 24px;
+      color:var(--ink-dim);font-style:italic;font-size:1rem;
+    }
+    .history-list{padding:12px 16px;}
+    .h-item{
+      display:flex;gap:14px;align-items:flex-start;
+      padding:14px 12px;
+      border-bottom:1px solid rgba(201,168,76,0.08);
+      cursor:pointer;transition:background 0.15s;border-radius:2px;
+    }
+    .h-item:hover{background:rgba(201,168,76,0.04);}
+    .h-icon{
+      width:40px;height:40px;border-radius:2px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.2rem;flex-shrink:0;
+      background:rgba(201,168,76,0.08);
+      border:1px solid rgba(201,168,76,0.15);
+    }
+    .h-info{flex:1;min-width:0;}
+    .h-name{font-size:1rem;font-weight:400;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .h-sub{font-family:var(--ff-mono);font-size:0.6rem;color:var(--ink-dim);letter-spacing:0.08em;}
+
+    /* ── PERMISSION SCREEN ── */
+    .permission-screen{
+      position:fixed;inset:0;z-index:50;
+      background:var(--paper);
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      padding:40px 32px;text-align:center;
+      gap:20px;
+    }
+    .perm-icon{font-size:3rem;opacity:0.6;}
+    .perm-title{font-size:1.8rem;font-weight:300;font-style:italic;color:var(--gold-light);}
+    .perm-body{font-size:0.95rem;font-weight:300;color:var(--ink-dim);line-height:1.7;max-width:280px;}
+    .perm-btn{
+      font-family:var(--ff-mono);
+      font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;
+      background:var(--gold);color:var(--paper);
+      border:none;padding:14px 36px;border-radius:2px;
+      cursor:pointer;font-weight:500;
+      transition:all 0.2s;margin-top:8px;
+    }
+    .perm-btn:hover{background:var(--gold-light);}
+    .perm-demo{
+      font-family:var(--ff-mono);
+      font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;
+      color:var(--ink-dim);background:none;border:1px solid var(--border);
+      padding:10px 24px;border-radius:2px;cursor:pointer;
+      transition:all 0.2s;
+    }
+    .perm-demo:hover{color:var(--gold);border-color:var(--gold);}
+
+    /* ── TOAST ── */
+    .toast{
+      position:fixed;top:80px;left:50%;
+      transform:translateX(-50%) translateY(-20px);
+      background:rgba(201,168,76,0.15);
+      border:1px solid var(--gold);
+      color:var(--gold);
+      font-family:var(--ff-mono);
+      font-size:0.65rem;letter-spacing:0.1em;
+      padding:8px 18px;border-radius:2px;
+      z-index:60;white-space:nowrap;
+      opacity:0;transition:all 0.3s;
+      pointer-events:none;
+    }
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+    /* ── QR DEBUG (hidden) ── */
+    #debugBox{display:none;}
+
+    /* Pulse ring on detection */
+    .detect-ring{
+      position:fixed;top:50%;left:50%;
+      width:220px;height:220px;
+      transform:translate(-50%,-60%) scale(0.8);
+      border-radius:50%;
+      border:2px solid var(--gold);
+      opacity:0;pointer-events:none;z-index:11;
+      transition:none;
+    }
+    .detect-ring.fire{
+      animation:ringPulse 0.6s ease-out forwards;
+    }
+    @keyframes ringPulse{
+      0%{transform:translate(-50%,-60%) scale(0.9);opacity:0.8;}
+      100%{transform:translate(-50%,-60%) scale(1.6);opacity:0;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- Camera feed -->
+<video id="camera" autoplay playsinline muted></video>
+<canvas id="scanCanvas"></canvas>
+
+<!-- Visual layers -->
+<div class="grain"></div>
+<div class="vignette"></div>
+
+<!-- Detection ring -->
+<div class="detect-ring" id="detectRing"></div>
+
+<!-- Scan reticle -->
+<div class="reticle" id="reticle">
+  <div class="reticle-corner tl"></div>
+  <div class="reticle-corner tr"></div>
+  <div class="reticle-corner bl"></div>
+  <div class="reticle-corner br"></div>
+  <div class="scan-line"></div>
+  <div class="reticle-label">Point at exhibit QR code</div>
+</div>
+
+<!-- Top HUD -->
+<div class="hud-top">
+  <div class="app-name"><span>Muse</span>AR</div>
+  <div class="scan-count" id="scanCount">0 exhibits scanned</div>
+</div>
+
+<!-- Bottom HUD -->
+<div class="hud-bottom">
+  <button class="torch-btn" id="torchBtn" onclick="toggleTorch()" title="Torch">🔦</button>
+  <button class="history-btn" onclick="openHistory()">My Visits</button>
+</div>
+
+<!-- AR Overlay Card -->
+<div class="ar-overlay" id="arOverlay">
+  <div class="scroll-handle"></div>
+  <div class="ar-card">
+    <div class="ar-card-inner">
+      <div class="ar-meta">
+        <span class="ar-type-tag" id="cardTag">Artifact</span>
+        <span class="ar-room" id="cardRoom">Gallery I</span>
+        <button class="ar-dismiss" onclick="dismissCard()">✕</button>
+      </div>
+      <div class="ar-title" id="cardTitle">—</div>
+      <div class="ar-subtitle" id="cardSubtitle"></div>
+      <div class="ar-divider"></div>
+      <div class="ar-body" id="cardBody"></div>
+      <div class="ar-facts" id="cardFacts"></div>
+      <div class="ar-tags" id="cardTags"></div>
+    </div>
+  </div>
+</div>
+
+<!-- History Panel -->
+<div class="history-panel" id="historyPanel">
+  <div class="history-header">
+    <div class="history-title">Your Visits</div>
+    <button class="close-btn" onclick="closeHistory()">✕</button>
+  </div>
+  <div id="historyContent">
+    <div class="history-empty">No exhibits scanned yet.<br/>Point your camera at a QR code.</div>
+  </div>
+</div>
+
+<!-- Permission Screen -->
+<div class="permission-screen" id="permScreen">
+  <div class="perm-icon">📷</div>
+  <div class="perm-title">Camera Access</div>
+  <div class="perm-body">MuseAR needs your camera to scan exhibit QR codes and display the educational layer.</div>
+  <button class="perm-btn" onclick="startCamera()">Enable Camera</button>
+  <button class="perm-demo" onclick="startDemo()">Try Demo Mode</button>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- jsQR for QR code detection -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsqr/1.4.0/jsQR.js"></script>
+
+<script>
+/* ═══════════════════════════════════════════
+   EXHIBIT DATABASE
+   Add your own exhibits here. Each QR code
+   should encode the "id" string below.
+═══════════════════════════════════════════ */
+const EXHIBITS = {
+  "MUSEAR_001": {
+    type: "artifact",
+    room: "Gallery I · Ancient World",
+    title: "The Rosetta Stone",
+    subtitle: "Ptolemaic Egypt, 196 BCE",
+    body: "This granodiorite stele was the key to deciphering Egyptian hieroglyphics. Inscribed with a decree by Ptolemy V in three scripts — hieroglyphic, Demotic, and Ancient Greek — it allowed scholars to finally bridge two lost languages.",
+    facts: [
+      {label:"Material",value:"Granodiorite"},
+      {label:"Height",value:"112.3 cm"},
+      {label:"Weight",value:"760 kg"},
+      {label:"Discovered",value:"1799, Rosetta"},
+    ],
+    tags:["Ancient Egypt","Linguistics","Ptolemaic Period","UNESCO"],
+    icon:"🏛️"
+  },
+  "MUSEAR_002": {
+    type: "flora",
+    room: "Botanical Wing · Section B",
+    title: "Wollemi Pine",
+    subtitle: "Wollemia nobilis — Living Fossil",
+    body: "Thought extinct for 2 million years, this extraordinary conifer was rediscovered in 1994 in a remote Australian canyon. Fewer than 100 wild trees are known to exist. Its distinctive bubble-bark and feathery fronds make it unmistakable.",
+    facts: [
+      {label:"Age of Species",value:"~200M years"},
+      {label:"Wild Population",value:"< 100 trees"},
+      {label:"Height (max)",value:"40 metres"},
+      {label:"IUCN Status",value:"Critically Endangered"},
+    ],
+    tags:["Gymnosperms","Living Fossil","Australia","Conservation"],
+    icon:"🌿"
+  },
+  "MUSEAR_003": {
+    type: "geology",
+    room: "Earth Sciences · Hall C",
+    title: "Moldavite",
+    subtitle: "Tektite — Bohemian Massif",
+    body: "Formed approximately 15 million years ago when a meteorite impact in what is now southern Germany scattered superheated silica glass across central Europe. Its bottle-green translucency is caused by traces of iron and aluminium.",
+    facts: [
+      {label:"Origin",value:"Ries Crater"},
+      {label:"Age",value:"~15 Ma"},
+      {label:"Composition",value:"SiO₂ 80%"},
+      {label:"Found In",value:"Czech Republic"},
+    ],
+    tags:["Meteorite Impact","Tektite","Miocene","Mineralogy"],
+    icon:"💎"
+  },
+  "MUSEAR_004": {
+    type: "history",
+    room: "Maritime Gallery · Deck Level",
+    title: "Astrolabe of Süleyman",
+    subtitle: "Ottoman Empire, c. 1559",
+    body: "A masterpiece of Islamic scientific craftsmanship, this brass astrolabe allowed navigators to determine latitude by measuring the altitude of celestial bodies. Inscribed with 29 stars and latitude plates for cities from Cairo to Istanbul.",
+    facts: [
+      {label:"Diameter",value:"18.4 cm"},
+      {label:"Material",value:"Engraved Brass"},
+      {label:"Origin",value:"Constantinople"},
+      {label:"Accuracy",value:"±0.5°"},
+    ],
+    tags:["Navigation","Ottoman","Astronomy","Islamic Science"],
+    icon:"⚗️"
+  },
+  "MUSEAR_005": {
+    type: "artifact",
+    room: "Prehistory · Cave Room",
+    title: "Venus of Willendorf",
+    subtitle: "Upper Palaeolithic, ~25,000 BCE",
+    body: "One of humanity's oldest surviving sculptures, this 11 cm figurine was carved from oolitic limestone and coloured with red ochre. Her exaggerated features likely held deep ritual or symbolic significance for Ice Age communities across Europe.",
+    facts: [
+      {label:"Height",value:"11.1 cm"},
+      {label:"Material",value:"Oolitic Limestone"},
+      {label:"Age",value:"~25,000 BCE"},
+      {label:"Found",value:"1908, Austria"},
+    ],
+    tags:["Palaeolithic","Sculpture","Ritual","Ice Age"],
+    icon:"🗿"
+  },
+  // Demo trigger (for demo mode)
+  "MUSEAR_DEMO": {
+    type: "artifact",
+    room: "Demo Gallery",
+    title: "The Antikythera Mechanism",
+    subtitle: "Ancient Greece, c. 100 BCE",
+    body: "The world's oldest known analogue computer, recovered from a Roman-era shipwreck near the Greek island of Antikythera. This extraordinary bronze device tracked astronomical positions, predicted eclipses, and modelled the Metonic calendar cycle.",
+    facts: [
+      {label:"Origin",value:"Ancient Greece"},
+      {label:"Age",value:"~2,100 years"},
+      {label:"Gears",value:"37 bronze"},
+      {label:"Discovered",value:"1901"},
+    ],
+    tags:["Astronomy","Computing","Hellenistic","Shipwreck"],
+    icon:"⚙️"
+  }
+};
+
+/* ═══════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════ */
+let stream = null;
+let torchTrack = null;
+let torchOn = false;
+let scanning = true;
+let lastCode = null;
+let lastCodeTime = 0;
+let history = JSON.parse(localStorage.getItem('musear_history') || '[]');
+let scanCount = parseInt(localStorage.getItem('musear_count') || '0');
+let demoMode = false;
+let demoIdx = 0;
+const demoKeys = Object.keys(EXHIBITS);
+
+const video = document.getElementById('camera');
+const canvas = document.getElementById('scanCanvas');
+const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+updateScanCount();
+
+/* ═══════════════════════════════════════════
+   CAMERA
+═══════════════════════════════════════════ */
+async function startCamera() {
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({
+      video: {
+        facingMode: { ideal: 'environment' },
+        width: { ideal: 1280 },
+        height: { ideal: 720 }
+      },
+      audio: false
+    });
+    video.srcObject = stream;
+    video.play();
+    document.getElementById('permScreen').style.display = 'none';
+
+    // Try to get torch capability
+    const tracks = stream.getVideoTracks();
+    if (tracks.length) torchTrack = tracks[0];
+
+    video.addEventListener('loadedmetadata', () => {
+      canvas.width  = video.videoWidth;
+      canvas.height = video.videoHeight;
+      requestAnimationFrame(scanFrame);
+    });
+  } catch(e) {
+    showToast('Camera error: ' + e.message);
+    // Fall back gracefully
+    document.getElementById('permScreen').innerHTML = `
+      <div class="perm-icon">⚠️</div>
+      <div class="perm-title" style="font-size:1.3rem">Camera Unavailable</div>
+      <div class="perm-body">Could not access camera.<br/>Try demo mode instead.</div>
+      <button class="perm-demo" onclick="startDemo()">Try Demo Mode</button>
+    `;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   QR SCANNING LOOP
+═══════════════════════════════════════════ */
+function scanFrame() {
+  if (!scanning) { requestAnimationFrame(scanFrame); return; }
+  if (video.readyState === video.HAVE_ENOUGH_DATA) {
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const code = jsQR(imgData.data, imgData.width, imgData.height, {
+      inversionAttempts: 'dontInvert'
+    });
+    if (code) {
+      const now = Date.now();
+      // Debounce — same code within 4s is ignored
+      if (code.data !== lastCode || now - lastCodeTime > 4000) {
+        lastCode = code.data;
+        lastCodeTime = now;
+        handleQR(code.data);
+      }
+    }
+  }
+  requestAnimationFrame(scanFrame);
+}
+
+function handleQR(data) {
+  const exhibit = EXHIBITS[data];
+  if (!exhibit) {
+    showToast('Unknown QR code — not in exhibit database');
+    return;
+  }
+  fireDetection();
+  showCard(exhibit, data);
+  addToHistory(data, exhibit);
+}
+
+/* ═══════════════════════════════════════════
+   DEMO MODE
+═══════════════════════════════════════════ */
+function startDemo() {
+  demoMode = true;
+  document.getElementById('permScreen').style.display = 'none';
+  document.getElementById('reticle').style.display = 'none';
+
+  // Show a gradient background
+  video.style.display = 'none';
+  document.body.style.background = 'radial-gradient(ellipse at 30% 40%, #1a1208 0%, #0a0a0a 70%)';
+
+  // Show the demo exhibit cycling UI
+  const demoBar = document.createElement('div');
+  demoBar.style.cssText = `
+    position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+    text-align:center;z-index:15;pointer-events:all;
+  `;
+  demoBar.innerHTML = `
+    <div style="font-family:var(--ff-mono);font-size:0.6rem;color:var(--ink-dim);letter-spacing:0.2em;margin-bottom:16px;text-transform:uppercase">Demo Mode</div>
+    <button onclick="cycleDemo()" style="
+      font-family:var(--ff-serif);font-size:1rem;font-style:italic;
+      background:rgba(201,168,76,0.1);border:1px solid var(--gold);
+      color:var(--gold-light);padding:14px 32px;border-radius:2px;
+      cursor:pointer;letter-spacing:0.06em;
+    ">Scan Next Exhibit →</button>
+  `;
+  document.body.appendChild(demoBar);
+  showToast('Tap the button to cycle through exhibits');
+}
+
+function cycleDemo() {
+  const key = demoKeys[demoIdx % demoKeys.length];
+  demoIdx++;
+  handleQR(key);
+}
+
+/* ═══════════════════════════════════════════
+   AR CARD
+═══════════════════════════════════════════ */
+function showCard(exhibit, id) {
+  document.getElementById('cardTag').textContent   = exhibit.type.charAt(0).toUpperCase() + exhibit.type.slice(1);
+  document.getElementById('cardTag').className     = `ar-type-tag ${exhibit.type}`;
+  document.getElementById('cardRoom').textContent  = exhibit.room;
+  document.getElementById('cardTitle').textContent = exhibit.title;
+  document.getElementById('cardSubtitle').textContent = exhibit.subtitle;
+  document.getElementById('cardBody').textContent  = exhibit.body;
+
+  const factsEl = document.getElementById('cardFacts');
+  factsEl.innerHTML = exhibit.facts.map(f =>
+    `<div class="ar-fact">
+      <div class="ar-fact-label">${f.label}</div>
+      <div class="ar-fact-value">${f.value}</div>
+    </div>`
+  ).join('');
+
+  const tagsEl = document.getElementById('cardTags');
+  tagsEl.innerHTML = exhibit.tags.map(t => `<span class="ar-tag">${t}</span>`).join('');
+
+  document.getElementById('arOverlay').classList.add('visible');
+  scanning = false; // Pause scanning while card is shown
+}
+
+function dismissCard() {
+  document.getElementById('arOverlay').classList.remove('visible');
+  setTimeout(() => { scanning = true; lastCode = null; }, 600);
+}
+
+/* ═══════════════════════════════════════════
+   TORCH
+═══════════════════════════════════════════ */
+async function toggleTorch() {
+  if (!torchTrack) { showToast('Torch not available on this device'); return; }
+  try {
+    torchOn = !torchOn;
+    await torchTrack.applyConstraints({ advanced: [{ torch: torchOn }] });
+    const btn = document.getElementById('torchBtn');
+    btn.classList.toggle('on', torchOn);
+  } catch(e) {
+    showToast('Torch not supported');
+  }
+}
+
+/* ═══════════════════════════════════════════
+   HISTORY
+═══════════════════════════════════════════ */
+function addToHistory(id, exhibit) {
+  if (!history.find(h => h.id === id)) {
+    history.unshift({ id, title: exhibit.title, subtitle: exhibit.subtitle, icon: exhibit.icon, type: exhibit.type, ts: Date.now() });
+    localStorage.setItem('musear_history', JSON.stringify(history));
+    scanCount++;
+    localStorage.setItem('musear_count', scanCount);
+    updateScanCount();
+  }
+}
+
+function updateScanCount() {
+  const el = document.getElementById('scanCount');
+  el.textContent = scanCount === 0 ? '0 exhibits scanned'
+    : scanCount === 1 ? '1 exhibit scanned'
+    : `${scanCount} exhibits scanned`;
+}
+
+function openHistory() {
+  renderHistory();
+  document.getElementById('historyPanel').classList.add('open');
+}
+function closeHistory() {
+  document.getElementById('historyPanel').classList.remove('open');
+}
+
+function renderHistory() {
+  const el = document.getElementById('historyContent');
+  if (!history.length) {
+    el.innerHTML = '<div class="history-empty">No exhibits scanned yet.<br/>Point your camera at a QR code.</div>';
+    return;
+  }
+  el.innerHTML = `<div class="history-list">` + history.map(h => `
+    <div class="h-item" onclick="reopenExhibit('${h.id}')">
+      <div class="h-icon">${h.icon}</div>
+      <div class="h-info">
+        <div class="h-name">${h.title}</div>
+        <div class="h-sub">${h.subtitle}</div>
+      </div>
+    </div>
+  `).join('') + `</div>`;
+}
+
+function reopenExhibit(id) {
+  const exhibit = EXHIBITS[id];
+  if (!exhibit) return;
+  closeHistory();
+  setTimeout(() => showCard(exhibit, id), 350);
+}
+
+/* ═══════════════════════════════════════════
+   DETECTION ANIMATION
+═══════════════════════════════════════════ */
+function fireDetection() {
+  const ring = document.getElementById('detectRing');
+  ring.classList.remove('fire');
+  void ring.offsetWidth; // reflow
+  ring.classList.add('fire');
+  // Haptic
+  if (navigator.vibrate) navigator.vibrate([30, 20, 60]);
+}
+
+/* ═══════════════════════════════════════════
+   TOAST
+═══════════════════════════════════════════ */
+let toastTimer;
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2800);
+}
+
+/* ═══════════════════════════════════════════
+   QR CODE GENERATOR (for testing)
+   Open browser console and call:
+   generateTestQR('MUSEAR_001')
+═══════════════════════════════════════════ */
+window.generateTestQR = function(id) {
+  const url = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(id)}`;
+  window.open(url, '_blank');
+  console.log('QR code for:', id, '\nURL:', url);
+};
+
+window.listExhibits = function() {
+  console.table(Object.entries(EXHIBITS).map(([id, e]) => ({ id, title: e.title, type: e.type })));
+};
+
+console.log('%cMuseAR Debug Tools', 'color:#c9a84c;font-size:1.1rem;font-weight:bold');
+console.log('generateTestQR("MUSEAR_001") — open a QR code image for that exhibit');
+console.log('listExhibits() — see all exhibit IDs');
+</script>
+</body>
+</html>
