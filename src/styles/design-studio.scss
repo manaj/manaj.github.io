@@ -1,0 +1,308 @@
+@charset "utf-8";
+
+// ── Google Fonts ──
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Rubik:ital,wght@0,300;0,400;0,500;1,400&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap");
+
+// ── Editorial font variables ──
+:root {
+    --editorial-font-primary: 'DM Sans', Helvetica, Arial, sans-serif;
+    --editorial-font-secondary: 'Rubik', Helvetica, Arial, sans-serif;
+    --editorial-font-tertiary: 'Lora', Georgia, serif;
+}
+
+@import "css/reset";
+@import "components/fonts",
+"components/variables",
+"components/mixins",
+"components/root",
+"components/type",
+"components/grid",
+"components/utility",
+"components/header",
+"components/footer";
+
+// ─────────────────────────────────────────────
+// Editorial Page — named-line grid
+//
+// [full]  nav col + outer space — hero background spans this
+// [wide]  breathing room either side of text
+// [text]  640–680px reading column
+//
+// Mobile: single column with margin padding
+// ─────────────────────────────────────────────
+
+.editorial-page {
+    --gutter: clamp(1rem, 2.5vw, 2rem);
+
+    min-height: 100vh;
+
+    // ── Desktop: simple block, no grid needed ──
+    @include media(medium) {
+        display: block;
+    }
+
+    // ── Hero — full bleed, title / three-col body / video ──
+        .hero {
+            background-color: #05090f;
+    
+            .inner {
+                max-width: 1420px;
+                margin: 0 auto;
+                padding: var(--spacer-four) clamp(1rem, 5vw, var(--spacer-five));
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: var(--spacer-three);
+                align-items: center;
+    
+                @include media(medium) {
+                    grid-template-columns: 1fr 1fr;
+                    gap: var(--spacer-four);
+                }
+            }
+    
+            .hero-left {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+    
+            .hero-title {
+                font-family: var(--editorial-font-primary);
+                font-size: clamp(1.6rem, 3vw, 2.4rem);
+                font-weight: 700;
+                color: #ffffff;
+                line-height: 1.2;
+                letter-spacing: -0.02em;
+                margin: 0 0 var(--spacer-two) 0;
+            }
+    
+            .hero-body {
+                font-family: var(--editorial-font-secondary);
+                font-size: clamp(0.85rem, 1.2vw, 1.2rem);
+                line-height: 1.8;
+                color: rgba(255, 255, 255, 0.75);
+                margin: 0;
+            }
+    
+            .hero-right {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+    
+            .hero-label {
+                font-family: var(--editorial-font-primary);
+                font-size: 1rem;
+                font-weight: 400;
+                letter-spacing: 0.1em;
+                color: rgba(255, 255, 255, 0.35);
+                margin: var(--spacer-one) 0 var(--spacer-one) 0;
+            }
+    
+            video {
+                width: 100%;
+                display: block;
+                border-radius: 8px;
+                background: #000;
+            }
+        }
+
+    // ── Article — owns the grid ──
+    .article {
+        // Mobile: single column with gutter padding
+        display: grid;
+        grid-template-columns: var(--gutter) 1fr var(--gutter);
+
+        >* {
+            grid-column: 2;
+        }
+
+        // Desktop: named-line grid
+        @include media(medium) {
+            grid-template-columns: [full-start] 1fr [wide-start] 1fr [main] clamp(620px, 40vw, 680px) 1fr [wide-end] 1fr [full-end] ;
+            >* {
+                grid-column: main;
+            }
+        }
+
+        // ── Sidenav — fixed, fades in when hero leaves viewport ──
+        .article-navigation {
+            display: none;
+
+            @include media(medium) {
+                display: block;
+                position: fixed;
+                top: var(--spacer-three);
+                right: var(--spacer-two);
+                width: 10vw;
+                font-family: var(--editorial-font-primary);
+                font-size: var(--spacer-one);
+                font-weight: 500;
+                color: var(--color-gray-600);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s ease;
+
+                &.is-visible {
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            li {
+                padding: var(--spacer-quarter) var(--spacer-one);
+                font-size: inherit;
+            }
+
+            a {
+                text-decoration: none;
+                color: var(--color-gray-600);
+                transition: color 0.2s ease;
+                display: block;
+                line-height: 1.4;
+
+                &:hover {
+                    color: var(--color-black);
+                }
+            }
+        }
+
+        // ── Category tag ──
+        .category-tag {
+            font-family: var(--editorial-font-primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-turquoise-dark);
+            margin: var(--spacer-two) 0 var(--spacer-one) 0;
+        }
+
+        // ── Divider ──
+        .divider {
+            border: none;
+            border-top: 1px solid var(--color-gray-100);
+            margin: 0 0 var(--spacer-two) 0;
+        }
+
+        // ── Headings ──
+        h2 {
+            font-family: var(--editorial-font-primary);
+            font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+            margin: var(--spacer-two) 0 var(--spacer-one) 0;
+            color: var(--color-black);
+        }
+
+        h3 {
+            font-family: var(--editorial-font-primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: var(--spacer-twoandquarter) 0 var(--spacer-one) 0;
+            color: var(--color-black);
+            letter-spacing: -0.01em;
+        }
+
+        // ── Body copy ──
+        p {
+            font-family: var(--editorial-font-tertiary);
+            font-size: clamp(1rem, 1.5vw, var(--spacer-oneandquarter));
+            line-height: 1.8;
+            color: var(--color-gray-950);
+            margin: 0 0 var(--spacer-oneandhalf) 0;
+        }
+
+        p+ol {
+            margin-top: calc(var(--spacer-half) * -1);
+        }
+
+        ol {
+            li {
+                font-family: var(--editorial-font-secondary);
+                font-size: clamp(1rem, 1.5vw, 1.1rem);
+                line-height: 1.8;
+                color: var(--color-gray-950);
+                margin-bottom: var(--spacer-half);
+            }
+        }
+
+        // ── Pull quote — spans [wide] zone ──
+        blockquote {
+            @include media(medium) {
+                grid-column: wide-start / wide-end;
+            }
+
+            border-left: 3px solid var(--color-turquoise-dark);
+            margin: var(--spacer-two) 0;
+            padding: var(--spacer-one) var(--spacer-oneandhalf);
+            background: var(--color-indigo);
+            font-family: var(--editorial-font-tertiary);
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--color-gray-980);
+        }
+
+        // ── Standard figure ──
+        figure {
+            margin: var(--spacer-two) 0;
+
+            img {
+                width: 100%;
+                display: block;
+                border-radius: 2px;
+            }
+
+            figcaption {
+                font-family: var(--editorial-font-primary);
+                font-size: 0.8rem;
+                color: var(--color-gray-600);
+                margin-top: var(--spacer-half);
+                line-height: 1.5;
+            }
+        }
+
+        // ── Wide figure — spans [wide] zone ──
+        figure.wide {
+            @include media(medium) {
+                grid-column: wide-start / wide-end;
+            }
+        }
+
+        // ── Full-bleed figure — spans [full] zone ──
+        figure.full-bleed {
+            @include media(medium) {
+                grid-column: full-start / full-end;
+            }
+
+            figcaption {
+                padding: 0 var(--spacer-two);
+            }
+        }
+
+        // ── Two images side by side — spans [wide] zone ──
+        .image-pair {
+            @include media(medium) {
+                grid-column: wide-start / wide-end;
+            }
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacer-one);
+            margin-top: var(--spacer-two);
+            margin-bottom: var(--spacer-two);
+
+            figure {
+                margin: 0;
+            }
+        }
+    }
+}

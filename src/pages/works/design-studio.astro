@@ -1,0 +1,378 @@
+---
+import PageLayout from "../../layouts/default-no-header.astro";
+const title =
+	"Design Studio - Lilla Djurkikaren — Portfolio of Manaj Chakrobarti";
+const bodyClass = "works editorial";
+import "../../styles/design-studio.scss";
+---
+
+<PageLayout title={title} bodyClass={bodyClass}>
+	<main class="editorial-page">
+		<!-- Full bleed hero — dark left, video right -->
+		<div class="hero">
+			<div class="inner">
+				<div class="hero-left">
+					<h1 class="hero-title">
+						Lilla Djurkikaren - A concept to connect young audiences
+						with nature so they can discover it in a familiar,
+						playful, and accessible way through mixed reality.
+					</h1>
+					<p class="hero-body">
+						Hushållningssällskapet Halland owns a farm, Lilla
+						Böslid, near Halmstad. For their mission, they wanted to
+						connect a diverse young audience with Swedish nature. We
+						worked to create a blended experience so children can
+						"uncover the hidden" farm life through a common game of
+						hide-and-seek, embracing their curiosity. We chose this
+						game for its simplicity and for its ability to integrate
+						augmented reality through props that help them discover
+						animals. We believe this will connect them with farm
+						life in a fun way, and they might also learn something.
+					</p>
+					<p class="hero-label">
+						Here is a 2-minute video to explain the concept.
+					</p>
+				</div>
+				<div class="hero-right">
+					<video
+						controls
+						playsinline
+						preload="metadata"
+						poster="/images/works/design-studio/concept-poster.jpg"
+					>
+						<source
+							src="/images/works/design-studio/concept.mp4"
+							type="video/mp4"
+						/>
+						Your browser does not support the video tag.
+					</video>
+				</div>
+			</div>
+		</div>
+
+		<!-- Sticky sidenav — sits in left [wide] zone -->
+
+		<!-- Article content — sits in [main] zone -->
+		<article class="article">
+			<nav class="article-navigation">
+				<ul class="no-list">
+					<li><a href="#overview">Overview</a></li>
+					<li><a href="#process">Process</a></li>
+					<li><a href="#research">Research</a></li>
+					<li><a href="#solution">Solution</a></li>
+					<li><a href="#outcome">Outcome</a></li>
+				</ul>
+			</nav>
+
+			<h2 id="overview">The Problem</h2>
+			<p>
+				Hushållningssällskapet Halland is on a mission to welcome
+				everyone to the Swedish countryside. On the farm Lilla Böslid,
+				they want to share the invisible, tiniest natural marvels among
+				people from all walks of life. Because they believe that humans
+				find happiness in micro-interactions with nature. However, not
+				every visitor can experience these the same way due to their
+				limited abilities.
+			</p>
+			<p>
+				For this reason, they want us to design an integrated experience
+				primarily for children and others with different abilities,
+				using physical touch and digital magnification to make the
+				hidden details of the wetlands and farm exciting and accessible,
+				but not overwhelming
+			</p>
+
+			<h2 id="overview">The Team</h2>
+			<p>
+				This was a group project of three people, Alireza, Dylan, and
+				me, Manaj. We participated equally throughout ideation and
+				brainstorming sessions. Nonetheless, we leveraged our individual
+				strengths. For example, I worked with programming and graphic
+				design software; Alierza helped me with programming, and he also
+				worked in video direction; and Dylan worked on physical
+				prototypes.
+			</p>
+			<p>
+				Every brainstorming session led to our decision through
+				arguments. Since the beginning, we wanted to provide a solution
+				that is immersive and educational. But through debating ideas,
+				we could land on a fun and engaging solution.
+			</p>
+			<p>
+				Håkan was our contact person from the farm. We updated him with
+				our preliminary plans, and with his opinion, we shaped our
+				solution. We showed him three options, and we merged two based
+				on his preference.
+			</p>
+
+			<h2 id="overview">Research and Discovery</h2>
+			<p>
+				Our research started with a site visit. Lilla Böslid has several
+				buildings, a restaurant, ponds, grassy fields, and jungle areas.
+				It's a beautiful green space, and we took a lot of pictures.
+				From this visit, we found:
+			</p>
+			<ol>
+				<li>
+					The farm has sufficient space to host a big group of
+					children for activities
+				</li>
+				<li>It lacks animal</li>
+				<li>Finally, the landscape is very different in this space</li>
+			</ol>
+
+			<p>
+				After that, our next logical step was to find similar facilities
+				and potential competitors. We found “Naturum Getterön”, a
+				similar facility far from Halmstad, that offers extensive
+				bird-related activities, such as watching and playing in
+				structures shaped like birds. From their website, “We offer
+				guided tours, lectures, a shop and a café with a fantastic view
+				of the area. Downstairs we also have a family-friendly
+				exhibition about bird life …”. From this desk research, we came
+				to the conclusion that:
+			</p>
+			<ol>
+				<li>
+					They are more focused on education than on fun activities.
+				</li>
+				<li>They don't have any games around the activities.</li>
+			</ol>
+			<p>
+				We failed to secure interviews from both children and teachers
+				as “proxies for users” from the different schools around the
+				area. So we interview some children around the community
+				informally. Before that, we also looked into popular games and
+				AR-based experiences on mobile phones. We found an AR
+				application that can place an animal in the room with a tap on
+				the screen. We showed this to the children, and they were
+				excited to see it. From this session, we found:
+			</p>
+			<ol>
+				<li>Young children feel excited seeing animals</li>
+				<li>
+					They like being in social or group activities, because one
+					of the children was showing her sister's profile in the
+					Roblox app that we tested.
+				</li>
+				<li>
+					Finally, we also found that parents don't really like the
+					idea of their children using mobile phones. Almost all of
+					them have restrictions on phone use.
+				</li>
+			</ol>
+			<p>
+				From the research findings, it became increasingly clear to us
+				that we want a solution that's fun first, but we can’t give
+				mobile phones to the audience at any point because that
+				conflicts with the idea of visiting nature.
+			</p>
+
+			<h2 id="overview">The concept</h2>
+			<p>
+				From the inception of this project, we were brainstorming ideas
+				about using pseudoreality, like spyglass, to see seasonal
+				changes, augmentation, like placing animals in the void using
+				mobile phones, using sound to listen for the hidden life of the
+				pond, and educational concepts like teaching farming. But as our
+				research dictated, we decided to make a fun group activity. And
+				that has to include the one person who is behind the spyglass.
+				There is a simple, outdoor, fun, no-instructions-needed, and
+				familiar game like that: hide-and-seek.
+			</p>
+			<p>
+				We transformed a common game of hide-and-seek into a game of
+				hiding toy animals near a platform. The platform will have a
+				spyglass to locate the animal, and there will be speakers on the
+				platform that play sound clues to guide the animal's location.
+				Once the observer finds it, they can show it to other people.
+				And that way, each of them can take turns hiding and seeking it.
+			</p>
+
+			<h2 id="overview">Design Process</h2>
+			<h3>Ideation</h3>
+			<p>
+				Our ideation process involved long brainstorming sessions. These
+				sessions helped us think through the brief, research insights,
+				and generate ideas. We documented these sessions through writing
+				in the notebooks and maintaining Figma boards for each week.
+				Later, we also utilized storyboarding to detail each idea. This
+				helped us understand the user journey throughout the gameplay.
+			</p>
+
+			<h3>Prototyping & testing</h3>
+			<p>
+				We used prototypes at varying levels of fidelity to visualize
+				our ideas. Starting from sketching on paper to a lo-fi prototype
+				using cardboard. Each fidelity led us to the hi-fidelity
+				prototype we delivered, whether it was a digital mobile
+				application or a physical spyglass.
+			</p>
+
+			<p>
+				We tested our lo-fi physical prototype with our peers at the
+				beginning to see if it could deliver the feeling of seeing
+				augmented animals through the spyglass. We found that the
+				spyglass was hard to hold, so we changed its shape to a cone.
+				Additionally, we realized it's too heavy to hold in the hand,
+				even for us, so we introduced a tripod to support the spyglass.
+			</p>
+
+			<p>
+				Later, once we had our concept finalized and high-fidelity
+				props, we tested with a real user (an 8-year-old girl) to see
+				whether the whole concept works with the spyglass and mobile
+				application, and to guide her in a specific direction with an
+				animal sound. From this test, we found that the mobile app's
+				viewing area was way too wide, so we changed it to a zoomed-in
+				view of the scene to convey the feeling of looking through a
+				spyglass.
+			</p>
+
+			<h3>Iterations</h3>
+			<p>
+				We iterated on ideas, Spyglass, and mobile applications over
+				several rounds to arrive at our final concept. Our first concept
+				had a picture taken at the end of the animal's finding. We left
+				it because it didn’t include the person who is on the spyglass.
+				Also, this might be interesting for parents, but we noticed
+				during our testing session that kids do not look happy while
+				taking pictures
+			</p>
+			<p>
+				The hide-and-seek idea came to us later in the project during a
+				brainstorming session with our mentor Bertil, and we were in the
+				process of using sound as our beacon to find the animal. And
+				Bertil came up with the idea of using a hide-and-seek prop
+				during gameplay. Which we all welcomed and added to the
+				storyboard.
+			</p>
+			<p>
+				Another change we had to make in the physical prototype: the
+				first version showed much more than the device's screen, so it
+				did not convey the feeling of looking through the spyglass.
+				Also, the rest of the screen was visible, which didn't feel like
+				a spyglass, so Dylan made a version that blocks the view of the
+				rest of the screen on the mobile device. This one we used to
+				shoot our concept video; at the end, it broke, and the cover
+				that blocked the mobile's view felt too soft. So, in the last
+				version, he made it sturdier.
+			</p>
+			<h3>Final solutions</h3>
+			<p>
+				We created three parts of the experience: first, the spyglass;
+				second, the app; and, finally, the platform with a sound system
+				and toy animals to hide. They joined to provide a cohesive
+				experience for the children.
+			</p>
+
+			<h2>Reflection</h2>
+			<p>
+				We received praise from the client as a designer, and we
+				delivered on time. I learned a ton about editing software like
+				Davinci Resolve while editing and adding sound in a concept
+				video.
+			</p>
+			<p>
+				Another big achievement was to vibe-code for the first time and
+				build an iPhone application using Claude AI. And it changed the
+				philosophy I believed in. I used to think that when I take help
+				from someone or something, it loses its originality. Now I
+				learned not to look at it egoistically, but rather to look at
+				the quality of the final deliverables and the problem it solves.
+				Which I feel is great progress as a designer.
+			</p>
+			<p>
+				We also didn't want to use mobile phones, as we found that
+				parents don't like their kids using them. However, we ended up
+				using one since creating a square screen that's AI-enabled is
+				extremely expensive, and we don't have that technical ability.
+				This also forced us to compromise on the spyglass design; we
+				could make it look more like a real spyglass.
+			</p>
+			<p>
+				We assumed that we would be able to find children for testing,
+				but emailing and calling schools wasn’t fruitful. So we tested
+				with only one child. Which made me insecure about the concept.
+			</p>
+			<p>
+				Along with that, we only proposed a pathway to a platform
+				wheelchair-friendly, and the tripod supports vertical position
+				changes. Similarly, proposed headphones for the hearing-impaired
+				kids. But we haven’t done any work for visually impaired kids.
+			</p>
+			<p>
+				Finally, the concept feels weaker when using the children’s
+				parents' mobile phones, as it requires them to install a phone.
+				But during this period, they can’t use it, which weakens it.
+			</p>
+
+			<figure>
+				<img
+					src="/images/works/design-studio/concept-poster.jpg"
+					alt="The old design"
+				/>
+				<figcaption>
+					The old interface — cluttered and hard to navigate
+				</figcaption>
+			</figure>
+
+			<figure class="wide">
+				<img
+					src="/images/works/design-studio/concept-poster.jpg"
+					alt="Research findings"
+				/>
+				<figcaption>
+					Affinity map from user interview synthesis
+				</figcaption>
+			</figure>
+
+			<div class="image-pair">
+				<figure>
+					<img
+						src="/images/works/design-studio/concept-poster.jpg"
+						alt="Solution variant A"
+					/>
+					<figcaption>First direction explored</figcaption>
+				</figure>
+				<figure>
+					<img
+						src="/images/works/design-studio/concept-poster.jpg"
+						alt="Final shipped version"
+					/>
+					<figcaption>Final shipped version</figcaption>
+				</figure>
+			</div>
+
+			<figure class="full-bleed">
+				<img
+					src="/images/works/design-studio/concept-poster.jpg"
+					alt="Final design"
+				/>
+				<figcaption>
+					The final design — shipped to production in Q3 2024
+				</figcaption>
+			</figure>
+		</article>
+	</main>
+
+	<script>
+		const nav = document.querySelector(".article-navigation");
+		const hero = document.querySelector(".hero");
+
+		if (nav && hero) {
+			const observer = new IntersectionObserver(
+				([entry]) => {
+					if (!entry.isIntersecting) {
+						nav.classList.add("is-visible");
+					} else {
+						nav.classList.remove("is-visible");
+					}
+				},
+				{ threshold: 0 },
+			);
+
+			observer.observe(hero);
+		}
+	</script>
+</PageLayout>
