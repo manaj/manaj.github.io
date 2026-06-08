@@ -192,6 +192,14 @@
                 font-size: inherit;
             }
 
+            .no-top-space {
+                padding-top: 0;
+            }
+
+            .no-bottom-space {
+                padding-bottom: 0;
+            }
+
             a {
                 text-decoration: none;
                 color: var(--color-gray-600);
@@ -239,6 +247,10 @@
             line-height: 1.8;
             color: var(--color-gray-950);
             margin: 0 0 var(--spacer-oneandhalf) 0;
+        }
+
+        p > a {
+            text-decoration: underline;
         }
 
         p+ol {
