@@ -107,7 +107,9 @@ import "../../styles/design-studio.scss";
 					<li><a href="#research">Research & Discovery </a></li>
 					<li><a href="#concept">Concept Development </a></li>
 					<li><a href="#process">Design Process </a></li>
-					<li class="no-bottom-space"><a href="#reflection">Reflection </a></li>
+					<li class="no-bottom-space">
+						<a href="#reflection">Reflection </a>
+					</li>
 				</ul>
 			</nav>
 
@@ -133,7 +135,7 @@ import "../../styles/design-studio.scss";
 					src="/images/works/design-studio/lillaboslid-gmap.png"
 					alt="Google map image of Lilla Böslid Area"
 				/>
-				<figcaption>Lilla Böslid Area</figcaption>
+				<figcaption>Lilla Böslid Area from Google Maps</figcaption>
 			</figure>
 
 			<h2 id="teams">Team & Responsibilities</h2>
@@ -221,6 +223,32 @@ import "../../styles/design-studio.scss";
 				</li>
 				<li>They don't have any games and a few activities.</li>
 			</ol>
+			<p>
+				We wanted to learn more about mixed reality projects, so we
+				visited the IKEA Museum to check it out. We were surprised to
+				see that while there are so many things, like you can push a
+				boulder in the screen using a lever, a group of children were
+				playing some sort of tag and running and screaming. We
+				understood that:
+			</p>
+			<ol>
+				<li>
+					Playing is more important for this group than experiencing
+					something new. Although this was a very small sample.
+				</li>
+				<li>
+					They prefer playing together when there is more than one
+					person.
+				</li>
+			</ol>
+			<figure>
+				<img
+					src="/images/works/design-studio/ikea.jpg"
+					alt=" Ikea Musuem, Älmhult"
+				/>
+				<figcaption>Ikea Musuem, Älmhult</figcaption>
+			</figure>
+
 			<p>
 				We failed to secure interviews with both children and teachers,
 				acting as “proxies for users” from the different schools in the
@@ -480,6 +508,7 @@ import "../../styles/design-studio.scss";
 				which is speculating but I feel that if everyone uses technology
 				to teach about animals, we won't need zoos that trap them.
 			</p>
+			<hr class="divider">
 		</article>
 	</main>
 
@@ -501,5 +530,22 @@ import "../../styles/design-studio.scss";
 
 			observer.observe(hero);
 		}
+	</script>
+	<script>
+		const figures = document.querySelectorAll(".article figure");
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("is-visible");
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.1 },
+		);
+
+		figures.forEach((el) => observer.observe(el));
 	</script>
 </PageLayout>

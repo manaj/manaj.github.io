@@ -31,6 +31,17 @@
 // Mobile: single column with margin padding
 // ─────────────────────────────────────────────
 
+  figure img {
+      opacity: 0;
+      transform: scale(1.03);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  figure.is-visible img {
+      opacity: 1;
+      transform: scale(1);
+  }
+
 .editorial-page {
     --gutter: clamp(1rem, 2.5vw, 2rem);
 
@@ -44,6 +55,25 @@
     // ── Hero — full bleed, title / three-col body / video ──
                 .hero {
                     background-color: #05090f;
+                    background: linear-gradient(135deg, #05090f 0%, #131416 100%);
+                    position: relative;
+                
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        inset: 0;
+                        background-image: repeating-linear-gradient(45deg,
+                                rgba(255, 255, 255, 0.02) 0px,
+                                rgba(255, 255, 255, 0.02) 1px,
+                                transparent 1px,
+                                transparent 28px);
+                        pointer-events: none;
+                    }
+                        .inner {
+                            position: relative; // keeps content above the ::before layer
+                            z-index: 1;
+                        }
+                            
 
                     ::selection {
                         color: #000;
