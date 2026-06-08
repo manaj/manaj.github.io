@@ -167,10 +167,7 @@
                         background: #000;
                     }
                 }
-
-    // ── Article — owns the grid ──
     .article {
-        // Mobile: single column with gutter padding
         display: grid;
         grid-template-columns: var(--gutter) 1fr var(--gutter);
 
@@ -179,7 +176,8 @@
         }
 
         // Desktop: named-line grid
-        @include media(medium) {
+        @include media(small) {
+            padding: var(--spacer-two) 0 0 0;
             grid-template-columns: [full-start] 1fr [wide-start] 1fr [main] clamp(620px, 40vw, 720px) 1fr [wide-end] 1fr [full-end] ;
             >* {
                 grid-column: main;
