@@ -1,12 +1,14 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&family=Questrial&display=swap');
-@import "css/reset";
-@import "components/variables",
-"components/mixins",
-"components/root",
-"components/type",
-"components/utility",
-"components/footer";
+@use "css/reset";
+@use "components/fonts";
+@use "components/variables";
+@use "components/mixins" as *;
+@use "components/root";
+@use "components/type";
+@use "components/grid";
+@use "components/utility";
+@use "components/header";
+@use "components/footer";
 
 
 

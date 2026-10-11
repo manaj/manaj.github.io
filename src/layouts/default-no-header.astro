@@ -2,7 +2,7 @@
 import BaseHead from "./components/basehead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
-const { title, bodyClass } = Astro.props;
+const { title, bodyClass, fontURL } = Astro.props;
 ---
 
 <html lang="en">
@@ -25,12 +25,12 @@ Hi, Manaj again. I hope you're here to check out the code. I wrote the HTML5 and
 			gtag("config", "G-E27V8CPNM0");
 		</script>
 		<BaseHead title={title} description={SITE_DESCRIPTION} />
+		<link rel="stylesheet" class="montu" href={fontURL}>
 	</head>
 	<body class={bodyClass}>
 		<slot />
 		<script
 			src="https://kit.fontawesome.com/f16f97d717.js"
-			crossorigin="anonymous"
-		></script>
+			crossorigin="anonymous"></script>
 	</body>
 </html>

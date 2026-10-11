@@ -3,10 +3,12 @@ import PageLayout from "../../layouts/default-no-header.astro";
 const title =
 	"Design Studio - Lilla Djurkikaren — Portfolio of Manaj Chakrobarti";
 const bodyClass = "works editorial";
+const fontURL =
+	"https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Rubik:ital,wght@0,300;0,400;0,500;1,400&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap";
 import "../../styles/design-studio.scss";
 ---
 
-<PageLayout title={title} bodyClass={bodyClass}>
+<PageLayout title={title} bodyClass={bodyClass} fontURL={fontURL}>
 	<main class="editorial-page">
 		<!-- Full bleed hero — dark left, video right -->
 		<div class="hero">

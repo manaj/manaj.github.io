@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 body, p, h1 {
   font-family: var(--font-secondary);
   color: var(--color-black);

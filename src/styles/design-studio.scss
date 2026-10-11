@@ -1,7 +1,14 @@
 @charset "utf-8";
-
-// ── Google Fonts ──
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Rubik:ital,wght@0,300;0,400;0,500;1,400&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap");
+@use "css/reset";
+@use "components/fonts";
+@use "components/variables";
+@use "components/mixins" as *;
+@use "components/root";
+@use "components/type";
+@use "components/grid";
+@use "components/utility";
+@use "components/header";
+@use "components/footer";
 
 // ── Editorial font variables ──
 :root {
@@ -9,17 +16,6 @@
     --editorial-font-secondary: 'Rubik', Helvetica, Arial, sans-serif;
     --editorial-font-tertiary: 'Lora', Georgia, serif;
 }
-
-@import "css/reset";
-@import "components/fonts",
-"components/variables",
-"components/mixins",
-"components/root",
-"components/type",
-"components/grid",
-"components/utility",
-"components/header",
-"components/footer";
 
 // ─────────────────────────────────────────────
 // Editorial Page — named-line grid
