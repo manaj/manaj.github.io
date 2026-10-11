@@ -10,18 +10,16 @@ $font: (
 );
 
 $colors: (
-    "yellow-dark": "#FFD000",
-    "yellow": "#FFE100",
-    "yellow-lighter": "#FFE700",
-    "yellow-light": "#FFF122",
-    "indigo": "#E4F3F1",
-    "turquoise": "#32E2C3",
-    "turquoise-gray": "#A8BAB7",
-    "turquoise-dark": "#0D7264",
-    "blue": '#0057A8',
+    "yellow-700": "#FFD000",
+    "yellow-450": "#FFE100",
+    "yellow-100": "#FFE700",
+    "yellow-200": "#FFF122",
+    "mint-100": "#E4F3F1",
+    "mint-450": "#32E2C3",
+    "mint-700": "#0D7264",
     "black": "#171921",
-    "brown":"#CFC8C4",
-    "yblack":"#1D1B19",
+    "brown-200":"#CFC8C4",
+    "brown-800":"#1D1B19",
     "white": "#ffffff",
     "gray-100":'#F4F4F2',
     "gray-120": '#F7F9FC',
@@ -30,10 +28,7 @@ $colors: (
     "gray-900":'#515151',
     "gray-950":'#3A3636',
     "gray-980":'#171717',
-    "lyellow": '#001D8F',
-    "orange": "#FF3C00",
-    "red": "#ED2939",
-    "flu-green": "#39F600"
+    "green-300": "#39F600"
     )!default;
     
 $spacer: 1rem;

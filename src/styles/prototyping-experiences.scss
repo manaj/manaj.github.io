@@ -34,14 +34,14 @@ img {
 }
 
 body {
-    background-color: var(--color-brown);
+    background-color: var(--color-brown-200);
 }
 
 figure {
     figcaption {
-        color: var(--color-brown);
+        color: var(--color-brown-200);
         display: block;
-        background-color: var(--color-yblack);
+        background-color: var(--color-brown-800);
         padding: var(--spacer-one);
         line-height: 1;
         margin: 0;
@@ -50,7 +50,7 @@ figure {
 }
 
 header {
-    background-color: var(--color-yblack);
+    background-color: var(--color-brown-800);
     box-sizing: border-box;
     margin: 0;
     padding: var(--spacer-oneandhalf);
@@ -205,7 +205,7 @@ article {
     }
 
     a {
-        color: var(--color-yblack);
+        color: var(--color-brown-800);
         text-decoration: none;
 
         &:hover {
@@ -220,7 +220,7 @@ article {
         @include media(medium) {
             width: 72%;
             padding: var(--spacer-four) 0 var(--spacer-two) 0;
-            border-bottom: 1px solid var(--color-yblack);
+            border-bottom: 1px solid var(--color-brown-800);
 
             &:last-of-type {
                 border: 0;
@@ -308,7 +308,7 @@ footer {
     }
 
     a {
-        color: var(--color-yblack);
+        color: var(--color-brown-800);
         font-family: var(--pe-body);
     }
 
