@@ -1,8 +1,7 @@
 @charset "utf-8";
-
+@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&family=Questrial&display=swap');
 @import "css/reset";
-@import "components/fonts3",
-"components/variables",
+@import "components/variables",
 "components/mixins",
 "components/root",
 "components/type",
@@ -10,15 +9,22 @@
 "components/footer";
 
 
+
+:root {
+    --pe-title: 'Antic Didone', Century Gothic, Helvetica, system-ui;
+    --pe-body: 'Questrial', serif;
+}
+
+
 body,p, article p, figcaption, li
  {
-    font-family: var(--font-third-body);
+    font-family: var(--pe-body);
     color: var(--color-black);
     font-weight: 400;
     letter-spacing: 0;
 }
 h1,h3,h4,h5 {
-    font-family: var(--font-third-title);
+    font-family: var(--pe-title);
     font-weight: 500;
 }
 
@@ -113,7 +119,7 @@ header {
     }
 
     h2 {
-        font-family: var(--font-third-body);
+        font-family: var(--pe-body);
         font-size: var(--spacer-oneandquarter);
         font-weight: 300;
         line-height: 1.5;
@@ -303,7 +309,7 @@ footer {
 
     a {
         color: var(--color-yblack);
-        font-family: var(--font-third-body);
+        font-family: var(--pe-body);
     }
 
 }
