@@ -1,28 +1,28 @@
 @use "mixins" as *;
 
 footer {
-    padding: var(--spacer-two) 0 var(--spacer-ten) ;
+    padding: var(--sp-8) 0 var(--sp-40) ;
     background-color: var(--color-white);
     border-top: 2px solid var(--color-gray-900);
 
     a {
-        padding: var(--spacer-quarter) var(--spacer-half);
+        padding: var(--sp-1) var(--sp-2);
         display: block;
     }
 }
 
 .credits {
-    margin-top: var(--spacer-two);
+    margin-top: var(--sp-8);
     > .lists {
 
         @include media(small) {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: var(--spacer-two);
+            gap: var(--sp-8);
         }
         
         div {
-            margin-bottom: var(--spacer-one);
+            margin-bottom: var(--sp-4);
         }
         
     }
@@ -45,7 +45,7 @@ footer {
     }
 
     ul, dd {
-        margin-left: calc( var(--spacer-half) * -1);
+        margin-left: calc( var(--sp-2) * -1);
 
         ul {
             margin-left: var(--spacer-zero);
@@ -53,7 +53,7 @@ footer {
     }
         
     h5 {
-        margin-bottom: var(--spacer-half);
+        margin-bottom: var(--sp-2);
         margin-top: var(--spacer-zero);
     }
 
@@ -62,7 +62,7 @@ footer {
     }
 
     h4 {
-        margin-bottom: var(--spacer-one);
+        margin-bottom: var(--sp-4);
         margin-top: 0;
     }
     
@@ -72,7 +72,7 @@ footer {
     display: flex;
     justify-content: start;
     border-bottom: 1px solid var(--color-gray-100);
-    padding-bottom: var(--spacer-two);
+    padding-bottom: var(--sp-8);
     
     @include media(small) {
         flex-direction: row;
@@ -85,7 +85,7 @@ footer {
 
         @include media(small) {
             display: block;
-            padding-right: var(--spacer-half);
+            padding-right: var(--sp-2);
         }
     }
 
@@ -95,13 +95,13 @@ footer {
 
     a {
         display: block;
-        padding: var(--spacer-half) var(--spacer-one);
-        font-size: var(--spacer-two);
+        padding: var(--sp-2) var(--sp-4);
+        font-size: var(--sp-8);
         color: var(--color-mint-700);
 
         @include media(small) {
-            font-size: var(--spacer-oneandhalf);
-            padding: var(--spacer-half);
+            font-size: var(--sp-6);
+            padding: var(--sp-2);
         }
     }
 

@@ -78,7 +78,7 @@
                     .inner {
                         max-width: 1440px;
                         margin: 0 auto;
-                        padding: clamp(var(--spacer-three), 8vw, var(--spacer-five)) clamp(var(--spacer-two), 9vw, var(--spacer-nine));
+                        padding: clamp(var(--sp-12), 8vw, var(--sp-20)) clamp(var(--sp-8), 9vw, var(--sp-36));
                         display: flex;
                         flex-direction: column;
                     }
@@ -96,11 +96,11 @@
                     .hero-meta {
                         display: grid;
                         grid-template-columns: 1fr;
-                        gap: var(--spacer-three);
-                        padding-top: clamp(var(--spacer-oneandhalf), 2vw, var(--spacer-two));
+                        gap: var(--sp-12);
+                        padding-top: clamp(var(--sp-6), 2vw, var(--sp-8));
                         
                         @include media(medium) {
-                            gap: var(--spacer-six);
+                            gap: var(--sp-24);
                             grid-template-columns: 1fr 1fr;
                             align-items: start;
                         }
@@ -123,14 +123,14 @@
                     .hero-data {
                         display: grid;
                         grid-template-columns: 1fr 1fr;
-                        gap: var(--spacer-oneandhalf) var(--spacer-two);
+                        gap: var(--sp-6) var(--sp-8);
                         align-content: start;
                     }
         
                     .hero-data-item {
                         display: flex;
                         flex-direction: column;
-                        gap: var(--spacer-quarter);
+                        gap: var(--sp-1);
                     }
         
                     .hero-data-label {
@@ -145,8 +145,8 @@
                     .hero-video {
                         display: flex;
                         flex-direction: column;
-                        gap: var(--spacer-one);
-                        padding-top: clamp(var(--spacer-oneandhalf), 2vw, var(--spacer-two));
+                        gap: var(--sp-4);
+                        padding-top: clamp(var(--sp-6), 2vw, var(--sp-8));
                     }
         
                     .hero-label {
@@ -173,7 +173,7 @@
 
         // Desktop: named-line grid
         @include media(small) {
-            padding: var(--spacer-two) 0 0 0;
+            padding: var(--sp-8) 0 0 0;
             grid-template-columns: [full-start] 1fr [wide-start] 1fr [main] clamp(620px, 40vw, 720px) 1fr [wide-end] 1fr [full-end] ;
             >* {
                 grid-column: main;
@@ -187,8 +187,8 @@
             @include media(medium) {
                 display: block;
                 position: fixed;
-                top: var(--spacer-three);
-                left: var(--spacer-two);
+                top: var(--sp-12);
+                left: var(--sp-8);
                 width: 15vw;
                 font-family: var(--editorial-font-primary);
                 font-size: 0.9rem;
@@ -212,7 +212,7 @@
             }
 
             li {
-                padding: var(--spacer-quarter) var(--spacer-one);
+                padding: var(--sp-1) var(--sp-4);
                 font-size: inherit;
             }
 
@@ -241,7 +241,7 @@
         .divider {
             border: none;
             border-top: 1px solid var(--color-gray-100);
-            margin: 0 0 var(--spacer-two) 0;
+            margin: 0 0 var(--sp-8) 0;
         }
 
         // ── Headings ──
@@ -251,7 +251,7 @@
             font-weight: 600;
             line-height: 1.3;
             letter-spacing: -0.02em;
-            margin: var(--spacer-two) 0 var(--spacer-one) 0;
+            margin: var(--sp-8) 0 var(--sp-4) 0;
             color: var(--color-black);
         }
 
@@ -259,7 +259,7 @@
             font-family: var(--editorial-font-primary);
             font-size: 1.25rem;
             font-weight: 600;
-            margin: var(--spacer-twoandquarter) 0 var(--spacer-one) 0;
+            margin: var(--sp-9) 0 var(--sp-4) 0;
             color: var(--color-black);
             letter-spacing: -0.01em;
         }
@@ -267,10 +267,10 @@
         // ── Body copy ──
         p {
             font-family: var(--editorial-font-tertiary);
-            font-size: clamp(1rem, 1.5vw, var(--spacer-oneandquarter));
+            font-size: clamp(1rem, 1.5vw, var(--sp-5));
             line-height: 1.8;
             color: var(--color-gray-950);
-            margin: 0 0 var(--spacer-oneandhalf) 0;
+            margin: 0 0 var(--sp-6) 0;
         }
 
         p > a {
@@ -278,7 +278,7 @@
         }
 
         p+ol {
-            margin-top: calc(var(--spacer-half) * -1);
+            margin-top: calc(var(--sp-2) * -1);
         }
 
         ol {
@@ -287,7 +287,7 @@
                 font-size: clamp(1rem, 1.5vw, 1.1rem);
                 line-height: 1.8;
                 color: var(--color-gray-950);
-                margin-bottom: var(--spacer-half);
+                margin-bottom: var(--sp-2);
             }
         }
 
@@ -298,8 +298,8 @@
             }
 
             border-left: 3px solid var(--color-mint-700);
-            margin: var(--spacer-two) 0;
-            padding: var(--spacer-one) var(--spacer-oneandhalf);
+            margin: var(--sp-8) 0;
+            padding: var(--sp-4) var(--sp-6);
             background: var(--color-indigo-100);
             font-family: var(--editorial-font-tertiary);
             font-size: clamp(1.1rem, 2vw, 1.35rem);
@@ -310,7 +310,7 @@
 
         // ── Standard figure ──
         figure {
-            margin: var(--spacer-two) 0;
+            margin: var(--sp-8) 0;
 
             img {
                 width: 100%;
@@ -322,7 +322,7 @@
                 font-family: var(--editorial-font-primary);
                 font-size: 0.8rem;
                 color: var(--color-gray-600);
-                margin-top: var(--spacer-half);
+                margin-top: var(--sp-2);
                 line-height: 1.5;
                 text-align: center;
             }
@@ -342,7 +342,7 @@
             }
 
             figcaption {
-                padding: 0 var(--spacer-two);
+                padding: 0 var(--sp-8);
             }
         }
 
@@ -354,9 +354,9 @@
 
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--spacer-one);
-            margin-top: var(--spacer-two);
-            margin-bottom: var(--spacer-two);
+            gap: var(--sp-4);
+            margin-top: var(--sp-8);
+            margin-bottom: var(--sp-8);
 
             figure {
                 margin: 0;

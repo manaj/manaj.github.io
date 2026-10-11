@@ -44,10 +44,10 @@ figure {
         color: var(--color-brown-200);
         display: block;
         background-color: var(--color-brown-800);
-        padding: var(--spacer-one);
+        padding: var(--sp-4);
         line-height: 1;
         margin: 0;
-        font-size: var(--spacer-one);
+        font-size: var(--sp-4);
     }
 }
 
@@ -55,18 +55,18 @@ header {
     background-color: var(--color-brown-800);
     box-sizing: border-box;
     margin: 0;
-    padding: var(--spacer-oneandhalf);
+    padding: var(--sp-6);
     
     @include media(medium) {
-        padding: var(--spacer-two) var(--spacer-three);
+        padding: var(--sp-8) var(--sp-12);
     }
 
     @include media(big) {
-        padding: var(--spacer-twoandhalf) var(--spacer-threeandhalf);
+        padding: var(--sp-10) var(--sp-14);
     }
 
     @include media(bigger) {
-        padding: var(--spacer-three) var(--spacer-four);
+        padding: var(--sp-12) var(--sp-16);
     }
 
     h1, .subheading, figcaption {
@@ -79,7 +79,7 @@ header {
         @include media(medium) {
             display: grid;
             grid-template-columns: 3fr 2fr;
-            gap: var(--spacer-three);
+            gap: var(--sp-12);
         }
     }
 
@@ -91,54 +91,54 @@ header {
     }
 
     h1 {
-        font-size: var(--spacer-two);
+        font-size: var(--sp-8);
         line-height: 1.2;
         font-weight: 400;
-        margin: var(--spacer-one) 0;
+        margin: var(--sp-4) 0;
 
         @include media(small) {
-            margin: var(--spacer-one) 0 var(--spacer-one) 0;
-            font-size: var(--spacer-two);
+            margin: var(--sp-4) 0 var(--sp-4) 0;
+            font-size: var(--sp-8);
         }
 
         @include media(medium) {
-            font-size: var(--spacer-twoandhalf);
+            font-size: var(--sp-10);
         }
 
         @include media(big) {
-            font-size: var(--spacer-threeandquarter);
-            margin-bottom: var(--spacer-two);
+            font-size: var(--sp-13);
+            margin-bottom: var(--sp-8);
         }
 
         @include media(bigger) {
-            font-size: var(--spacer-four);
-            margin-bottom: var(--spacer-three);
+            font-size: var(--sp-16);
+            margin-bottom: var(--sp-12);
         }
 
         @include media(biggest) {
-            font-size: var(--spacer-five);
+            font-size: var(--sp-20);
         }
     }
 
     h2 {
         font-family: var(--pe-body);
-        font-size: var(--spacer-oneandquarter);
+        font-size: var(--sp-5);
         font-weight: 300;
         line-height: 1.5;
-        margin: var(--spacer-twoandquarter) 0 var(--spacer-twoandquarter) 0;
+        margin: var(--sp-9) 0 var(--sp-9) 0;
 
         @include media(medium) {
-            font-size: var(--spacer-one);
+            font-size: var(--sp-4);
             margin: 0;
         }
 
         @include media(big) {
-            font-size: var(--spacer-oneandhalf);
+            font-size: var(--sp-6);
             margin: 0;
         }
 
         @include media(biggest) {
-            font-size: var(--spacer-two);
+            font-size: var(--sp-8);
         }
     }
 }
@@ -146,55 +146,55 @@ header {
 article {
     box-sizing: border-box;
     margin: 0;
-    padding: var(--spacer-oneandhalf);
+    padding: var(--sp-6);
     padding-top: 0;
     position: relative;
     
     @include media(medium) {
-        padding: var(--spacer-two) var(--spacer-three);
+        padding: var(--sp-8) var(--sp-12);
         padding-top: 0;
     }
 
     @include media(big) {
-        padding: var(--spacer-twoandhalf) var(--spacer-threeandhalf);
+        padding: var(--sp-10) var(--sp-14);
         padding-top: 0;
     }
 
     @include media(bigger) {
-        padding: var(--spacer-three) var(--spacer-four);
+        padding: var(--sp-12) var(--sp-16);
         padding-top: 0;
     }
 
     h3 {
-        font-size: var(--spacer-oneandthreequarter);
-        margin: var(--spacer-oneandthreequarter) 0;
+        font-size: var(--sp-7);
+        margin: var(--sp-7) 0;
         letter-spacing: var(--fonts-letter-spacing-4);
         
 
         @include media(medium) {
-            font-size: var(--spacer-two);
+            font-size: var(--sp-8);
         }
     
         @include media(big) {
-            font-size: var(--spacer-twoandhalf);
+            font-size: var(--sp-10);
         }
     
         @include media(bigger) {
-            font-size: var(--spacer-threeandhalf);
+            font-size: var(--sp-14);
         }
     
         @include media(biggest) {
-            font-size: var(--spacer-four);
+            font-size: var(--sp-16);
         }
     }
 
     p {
-        font-size: var(--spacer-one);
+        font-size: var(--sp-4);
         line-height: 1.5;
-        margin: var(--spacer-one) 0;
+        margin: var(--sp-4) 0;
 
         @include media(medium) {
-            font-size: var(--spacer-one);
+            font-size: var(--sp-4);
         }
     
         @include media(bigger) {
@@ -202,7 +202,7 @@ article {
         }
     
         @include media(biggest) {
-            font-size: var(--spacer-oneandquarter);
+            font-size: var(--sp-5);
         }
     }
 
@@ -221,7 +221,7 @@ article {
 
         @include media(medium) {
             width: 72%;
-            padding: var(--spacer-four) 0 var(--spacer-two) 0;
+            padding: var(--sp-16) 0 var(--sp-8) 0;
             border-bottom: 1px solid var(--color-brown-800);
 
             &:last-of-type {
@@ -249,12 +249,12 @@ article {
         
         @include media(medium) {
             column-count: 3;
-            column-gap: var(--spacer-twoandhalf);
+            column-gap: var(--sp-10);
         }
     
         @include media(biggest) {
             column-count: 4;
-            column-gap: var(--spacer-three);
+            column-gap: var(--sp-12);
         }
 
         :first-child {
@@ -265,7 +265,7 @@ article {
     ol {
         
         li {
-            padding: var(--spacer-half) 0;
+            padding: var(--sp-2) 0;
         }
     }
 }
@@ -303,7 +303,7 @@ footer {
     }
 
     li {
-        padding: var(--spacer-one);
+        padding: var(--sp-4);
         font-size: 1rem;
         font-weight: 300;
         text-overflow: ellipsis;

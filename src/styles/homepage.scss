@@ -14,7 +14,7 @@
     .hero {
         .intro {
             grid-column: span 12;
-            padding: var(--spacer-four) 0 var(--spacer-three) 0;
+            padding: var(--sp-16) 0 var(--sp-12) 0;
 
             @include media(medium) {
                 grid-column: 1 / 13;
@@ -28,7 +28,7 @@
         }
 
         h1 {
-            font-size: var(--spacer-twoandhalf);
+            font-size: var(--sp-10);
             font-family: var(--font-primary);
             line-height: 1.38;
             font-weight: var(--font-medium);
@@ -37,19 +37,19 @@
             letter-spacing: var(--font-letter-spacing-8);
 
             @include media(medium) {
-                font-size: var(--spacer-twoandthreequarter);
+                font-size: var(--sp-11);
             }
 
             @include media(bigger) {
-                font-size: var(--spacer-twoandthreequarter);
+                font-size: var(--sp-11);
             }
 
             @include media(biggest) {
-                font-size: var(--spacer-three);
+                font-size: var(--sp-12);
             }
 
             @include media(bigass) {
-                font-size: var(--spacer-three);
+                font-size: var(--sp-12);
             }
         }
     }
@@ -58,7 +58,7 @@
         h2 {
             border-bottom: 2px solid var(--color-gray-950);
             margin: 0;
-            padding-bottom: var(--spacer-half);
+            padding-bottom: var(--sp-2);
             letter-spacing: var(--font-letter-spacing-8);
             font-weight: var(--font-medium);
             color: var(--color-gray-900);
@@ -66,7 +66,7 @@
         }
 
         li {
-            padding: var(--spacer-two) 0;
+            padding: var(--sp-8) 0;
             border-bottom: 1px solid var(--color-gray-900);
 
             &:last-child {
@@ -90,9 +90,9 @@
         }
 
         h4 {
-            font-size: var(--spacer-oneandhalf);
+            font-size: var(--sp-6);
             letter-spacing: var(--font-letter-spacing-4);
-            line-height: var(--spacer-two);
+            line-height: var(--sp-8);
         }
 
         h4>a {
@@ -100,7 +100,7 @@
         }
 
         p {
-            font-size: var(--spacer-one);
+            font-size: var(--sp-4);
             line-height: 2;
             margin-top: 3px;
         }
@@ -127,6 +127,6 @@
     
 
     .page-404 {
-        padding: var(--spacer-three) 0;
+        padding: var(--sp-12) 0;
     }
 }

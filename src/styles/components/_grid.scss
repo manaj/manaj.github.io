@@ -31,11 +31,11 @@ img {
 .grid-holder {
     @extend .grid;
     grid-template-columns: 1;
-    gap: var(--spacer-one);
+    gap: var(--sp-4);
 
     @include media(medium) {
         grid-template-columns: repeat(12, 1fr);
-        gap: var(--spacer-gridgap);
+        gap: var(--gridgap);
     }
 }
 

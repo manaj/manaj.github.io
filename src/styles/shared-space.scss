@@ -34,12 +34,12 @@ body {
         @include media(small) {
             display: grid;
             grid: auto-flow / 1fr 3fr;
-            margin: var(--spacer-two) auto 0 auto;
+            margin: var(--sp-8) auto 0 auto;
         }
     }
 
     h3.first-overview {
-        margin-top: var(--spacer-two);
+        margin-top: var(--sp-8);
     }
 
     figcaption{
@@ -62,18 +62,18 @@ body {
             display: block;
             position: relative;
             font-weight: 500;
-            margin-right: var(--spacer-oneandhalf);
-            margin-top: var(--spacer-one);
+            margin-right: var(--sp-6);
+            margin-top: var(--sp-4);
         }
 
         
         li {
-            padding: var(--spacer-half) 0;
+            padding: var(--sp-2) 0;
         }
 
         ul {
             position: sticky;
-            top: var(--spacer-five);
+            top: var(--sp-20);
         }
         
 

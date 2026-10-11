@@ -32,32 +32,6 @@ $colors: (
     )!default;
     
 $spacer: 1rem;
-$spacers: (
-    "zero" : 0,
-    "quarter": $spacer * .25,
-    "half": $spacer * .5,
-    "threequarter": $spacer * .75,
-    "one": $spacer,
-    "oneandquarter": $spacer * 1.25,
-    "oneandhalf": $spacer * 1.5,
-    "oneandthreequarter": $spacer * 1.75,
-    "two": $spacer * 2,
-    "twoandquarter": $spacer * 2.25,
-    "twoandhalf": $spacer * 2.5,
-    "twoandthreequarter": $spacer * 2.75,
-    "three": $spacer * 3,
-    "threeandquarter": $spacer * 3.2,
-    "threeandhalf": $spacer * 3.5,
-    "threeandthreequarter": $spacer * 3.75,
-    "four": $spacer * 4,
-    "five": $spacer * 5,
-    "six": $spacer * 6,
-    "seven": $spacer * 7,
-    "eight": $spacer * 8,
-    "nine": $spacer * 9,
-    "ten": $spacer * 10,
-    "gridgap": $spacer * 3
-) !default;
 
 $breakpoints: (
     small: 767px,
