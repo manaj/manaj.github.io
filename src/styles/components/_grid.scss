@@ -70,3 +70,7 @@ img {
 .col-12 {
     grid-column: span 12;
 }
+
+.subgrid {
+    grid-template-columns: subgrid;
+}

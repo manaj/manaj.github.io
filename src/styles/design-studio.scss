@@ -269,7 +269,7 @@
             font-family: var(--editorial-font-tertiary);
             font-size: clamp(1rem, 1.5vw, var(--sp-5));
             line-height: 1.8;
-            color: var(--color-gray-950);
+            color: var(--color-gray-900);
             margin: 0 0 var(--sp-6) 0;
         }
 
@@ -286,7 +286,7 @@
                 font-family: var(--editorial-font-secondary);
                 font-size: clamp(1rem, 1.5vw, 1.1rem);
                 line-height: 1.8;
-                color: var(--color-gray-950);
+                color: var(--color-gray-900);
                 margin-bottom: var(--sp-2);
             }
         }
@@ -305,7 +305,7 @@
             font-size: clamp(1.1rem, 2vw, 1.35rem);
             font-style: italic;
             line-height: 1.6;
-            color: var(--color-gray-980);
+            color: var(--color-black);
         }
 
         // ── Standard figure ──

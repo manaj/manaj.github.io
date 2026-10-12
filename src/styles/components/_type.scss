@@ -121,7 +121,7 @@ a {
    font-size: var(--sp-4);
    font-family: var(--font-primary);
    font-weight: 300;
-   color: var(--color-gray-900);
+   color: var(--color-gray-800);
  }
  
  p {
@@ -145,7 +145,7 @@ article {
       font-weight: 300;
       line-height: 1.5;
       margin: var(--sp-4) 0 ;
-      color: var(--color-gray-900);
+      color: var(--color-gray-800);
 
       @include media(small) {
           font-size: var(--sp-5);

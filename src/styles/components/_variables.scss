@@ -1,7 +1,8 @@
 $font: (
-    "primary": "'DM Sans', Helvetica, Calibri, Arial, sans-serif;",
-    "secondary": "'Nunito', Century Gothic, Helvetica, system-ui;",
-    "letter-spacing-8": "-0.06rem;",
+    "primary": "'Inter Tight', Helvetica, Calibri, Arial, sans-serif;",
+    "secondary": "'Lora', serif;",
+    "mono": "'Inconsolata',monospace;",
+    "letter-spacing-8": "-0.076rem;",
     "letter-spacing-4": "-0.04rem;",
     "letter-spacing-3": "-0.03rem;",
     "medium": "500",
@@ -12,23 +13,20 @@ $font: (
 $colors: (
     "yellow-700": "#FFD000",
     "yellow-450": "#FFE100",
-    "yellow-100": "#FFE700",
-    "yellow-200": "#FFF122",
+    "yellow-200": "#FFE700",
+    "yellow-100": "#FFF122",
     "mint-100": "#E4F3F1",
     "mint-450": "#32E2C3",
     "mint-700": "#0D7264",
     "black": "#171921",
-    "brown-200":"#CFC8C4",
-    "brown-800":"#1D1B19",
     "white": "#ffffff",
-    "gray-100":'#F4F4F2',
-    "gray-120": '#F7F9FC',
-    "gray-200":'#909090',
+    "gray-900":'#3A3636',
+    "gray-800":'#515151',
     "gray-600":'#767575',
-    "gray-900":'#515151',
-    "gray-950":'#3A3636',
-    "gray-980":'#171717',
-    "green-300": "#39F600"
+    "gray-400":"#CFC8C4",
+    "gray-100":'#F4F4F2',
+    "green-300": "#39F600",
+    "red-450": "#FF2F2F"
     )!default;
     
 $spacer: 1rem;

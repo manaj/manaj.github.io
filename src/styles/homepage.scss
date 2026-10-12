@@ -5,7 +5,7 @@
 @use "components/mixins" as *;
 @use "components/root";
 @use "components/type";
-@use "components/grid";
+@use "components/grid" as grid;
 @use "components/utility";
 @use "components/header";
 @use "components/footer";
@@ -28,7 +28,7 @@
         }
 
         h1 {
-            font-size: var(--sp-10);
+            font-size: var(--sp-8);
             font-family: var(--font-primary);
             line-height: 1.38;
             font-weight: var(--font-medium);
@@ -37,62 +37,126 @@
             letter-spacing: var(--font-letter-spacing-8);
 
             @include media(medium) {
-                font-size: var(--sp-11);
+                font-size: var(--sp-7);
             }
 
             @include media(bigger) {
-                font-size: var(--sp-11);
+                font-size: var(--sp-8);
             }
 
             @include media(biggest) {
-                font-size: var(--sp-12);
+                font-size: var(--sp-9);
             }
 
             @include media(bigass) {
-                font-size: var(--sp-12);
+                font-size: var(--sp-10);
             }
         }
     }
 
-    .recent-works {
+    .works {
         h2 {
-            border-bottom: 2px solid var(--color-gray-950);
+            border-bottom: 2px solid var(--color-gray-900);
             margin: 0;
             padding-bottom: var(--sp-2);
             letter-spacing: var(--font-letter-spacing-8);
             font-weight: var(--font-medium);
-            color: var(--color-gray-900);
+            color: var(--color-black);
+            font-size: var(--sp-6);
             
         }
 
-        li {
-            padding: var(--sp-8) 0;
-            border-bottom: 1px solid var(--color-gray-900);
+        ul {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0 0;
 
-            &:last-child {
-                border: 0
+            @include media(small) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            >li {
+                border-bottom: 2px solid var(--color-black);
+            }
+            
+            .single {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: var(--sp-2);
+                margin: var(--sp-8) 0;
+                
+                @include media(small) {
+                    grid-template-columns: repeat(12, 1fr);
+                    gap: var(--sp-4);
+                    border-right: 2px solid var(--color-black);
+                    padding: 0 var(--sp-8);
+                }
+            }
+
+            >li.full {
+                grid-column: 1 / -1;
+                
+                .single {
+                    padding: 0;
+                    
+                    border: 0;
+                }
+            }
+
+            >li:nth-child(odd){
+                .single {
+                    padding-left: 0;
+                }
+            }
+            >li:nth-child(even) {
+                .single {
+                    padding-right: 0;
+                    border-right: 0;
+                }
+            }
+
+            >li:last-child {
+                border: 0                
+            }
+
+            li.full:first-child>.single {
+                @include media(medium) {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    
+                    .title {
+                        grid-column: 1;
+                        grid-row: 1;
+                    }
+
+                    .image {
+                        grid-column: 2 / span 2; // starts at column 2, spans two columns
+                        grid-row: 1;
+                    }
+            
+                }
             }
         }
 
-        .single {
-            @extend .grid-holder;
-        }
-
-        h4,
-        .text,
+        .title,
         .image {
-            @extend .col-4;
+            grid-column: 1 / -1;
         }
 
+        
         h4,
         p {
-            margin-top: 0;
+            margin: 0;
+            padding: 0;
         }
 
         h4 {
-            font-size: var(--sp-6);
-            letter-spacing: var(--font-letter-spacing-4);
+            font-size: var(--sp-5);
+            letter-spacing: var(--font-letter-spacing-3);
             line-height: var(--sp-8);
+            font-family: var(--font-secondary);
+            color: var(--color-gray-900);
+            font-weight: 500;
         }
 
         h4>a {
