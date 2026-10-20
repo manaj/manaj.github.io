@@ -31,12 +31,11 @@
     }
 
     #logo {
-        width: 90%;
-        display: block;
+        width: 50%;
         background: var(--color-red-450);
 
         @include media(medium) {
-            width: 20%;
+            width: 18%;
         }
     }
 }

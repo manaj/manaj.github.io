@@ -1,7 +1,7 @@
 @use "mixins" as *;
 
 footer.footer {
-    background-color: var(--color-black);
+    background: linear-gradient(135deg, var(--color-black) 20%, var(--color-gray-900) 70%, var(--color-black) 100%);
     padding: var(--sp-16) 0;
     color: var(--color-white);
     
@@ -106,7 +106,7 @@ footer.footer {
             padding: var(--sp-5) var(--sp-8);
             color: black;
             line-height: 1;
-            font-family: var(--font-serif);
+            font-family: var(--font-primary);
             text-decoration: none;
             transition: background-color 0.4s ease, color 0.4s ease;
 
@@ -155,12 +155,12 @@ footer.footer {
             font-weight: 400;
             color: var(--color-gray-400);
             padding: 0;
-            font-family: var(--font-serif);
+            font-family: var(--font-primary);
         }
 
         a {
             font-size: var(--sp-5);
-            font-family: var(--font-mono);
+            font-family: var(--font-primary);
             text-align: left;
             padding: 0;
             text-decoration: underline;
@@ -185,7 +185,7 @@ footer.footer {
         padding: var(--sp-8) 0;
 
         p {
-            font-family: var(--font-serif);
+            font-family: var(--font-primary);
             font-size: var(--sp-4);
             color: var(--color-gray-100);
         }

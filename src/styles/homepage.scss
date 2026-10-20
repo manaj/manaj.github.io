@@ -14,7 +14,7 @@
     .hero {
         .intro {
             grid-column: span 12;
-            padding: var(--sp-16) 0 var(--sp-12) 0;
+            padding: var(--sp-12) 0 var(--sp-12) 0;
 
             @include media(medium) {
                 grid-column: 1 / 13;
@@ -55,6 +55,9 @@
     }
 
     .works {
+
+        padding-bottom: var(--sp-16);
+
         h2 {
             border-bottom: 2px solid var(--color-gray-900);
             margin: 0;
@@ -115,7 +118,7 @@
                 }
             }
 
-            >li:last-child {
+            >li:last-child, li:nth-last-child(2):nth-child(odd)  {
                 border: 0                
             }
 
@@ -176,6 +179,42 @@
                 }
             p {
                 color: var(--color-black);
+            }
+        }
+
+        .image {
+            position: relative;
+            display: block;
+            overflow: hidden; // clips the image when it moves
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transform: scale(1.02); 
+                transition: transform 0.6s ease;
+            }
+
+            // the transparent color layer
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: color-mix(in srgb, var(--color-red-450) 00%, transparent);
+                transition: opacity 0.6s ease;
+                pointer-events: none;
+            }
+
+            &:hover,
+            &:focus-visible {
+                img {
+                    transform: scale(1.03) translate(0, 0); 
+                }
+
+                &::after {
+                    opacity: 0; // overlay fades away on hover
+                }
             }
         }
         
