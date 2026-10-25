@@ -1,121 +1,122 @@
 ---
-import PageLayout from "../../layouts/default.astro";
+import PageLayout from "../../layouts/innerpage-common.astro";
 const title =
 	"Optimizely product recommendation redesign - Portfolio of Manaj Chakrobarti";
 const bodyClass = "works";
 import "../../styles/workspages.scss";
+import Comparison from "../../layouts/components/comparison.astro";
 ---
 
 <PageLayout title={title} bodyClass={bodyClass}>
 	<main class="box workspage">
 		<header class="inner section-header">
-			<img
-				src="/images/works/opti-product-recommendation-suite/self_service_widget.png"
-				alt="Optimizely product recommendation redesign"
-			/>
+			<h1>
+				Redesigning Self-Service Widgets for Product Recommendations
+			</h1>
+			<article class="project-information">
+				<div class="contributions">
+					<h2>My Contributions</h2>
+					<ul class="no-list">
+						<li>UX/UI Design</li>
+						<li>Design System</li>
+						<li>Research & Testing</li>
+						<li>Heuristic Evaluation</li>
+					</ul>
+				</div>
+
+				<section class="details">
+					<div class="challange">
+						<h2>Challenge</h2>
+						<p>
+							Optimizely Recommendation was part of their
+							personalization offering and was acquired from
+							Peerius in 2016. The software had an outdated design
+							and was primarily a managed solution. The goal was
+							to improve its UX and usability to transition it
+							into a self-service platform.
+						</p>
+					</div>
+
+					<div class="team">
+						<h2>Team</h2>
+						<p>
+							I worked as the lead product designer based in
+							Dhaka, collaborating with our PM in the USA and the
+							development team in Vietnam.
+						</p>
+					</div>
+
+					<div class="discover">
+						<h2>Approch</h2>
+						<p>
+							I started with a heuristic evaluation, then met with
+							two product veterans to learn about the software,
+							its terminology, functionality, and mapped existing
+							user flows.
+						</p>
+						<p>
+							Together with the PM, I defined the scope for
+							redesigning widget management, a core part of the
+							app that manages recommendation algorithms. We
+							planned user validation and a prototype aligned with
+							the Optimizely design system, which was new to me at
+							the time.
+						</p>
+						<p>
+							Then I collaborated with the research team to
+							recruit participants and conducted unmoderated
+							usability testing. I used the positive feedback and
+							suggestions for improvement to inform the next
+							iteration.
+						</p>
+					</div>
+
+					<div class="solution">
+						<h2>Solution</h2>
+						<p>
+							Refined the design based on previous testing and
+							issues found during development. I also created a
+							clickable prototype to guide implementation.
+						</p>
+					</div>
+
+					<div class="outcome">
+						<h2>Outcome</h2>
+						<p>
+							The redesigned widget management experience moved
+							into development for the Alpha release. User testing
+							provided positive feedback and identified
+							opportunities for improvement. My iterative
+							prototypes and detailed design specifications helped
+							align the experience with user needs and support
+							implementation by the development team.
+						</p>
+
+						<h2>Learning</h2>
+						<p>
+							I learned that users often prefer familiar, reliable
+							software, while companies look for modern solutions.
+							It also taught me to consider the entire system, not
+							just individual parts.
+						</p>
+					</div>
+				</section>
+			</article>
 		</header>
+
+		<section class="inner before-after">
+			<h2>The Redesign</h2>
+			<Comparison
+				before="/images/works/opti-product-recommendation-suite/self-service-widget-before.png"
+				after="/images/works/opti-product-recommendation-suite/self_service_widget.png"
+				beforeAlt="Previous design of optimizely widgets page"
+				afterAlt="Optimizely product recommendation redesign"
+			/>
+		</section>
+
 		<section class="inner">
-			<nav class="article-navigation">
-				<ul class="no-list">
-					<li><a href="#overview">Overview</a></li>
-					<li><a href="#team">Team</a></li>
-					<li><a href="#discover">Discover & Define</a></li>
-					<li><a href="#design">Design & Testing</a></li>
-				</ul>
-			</nav>
-
-			<article class="article">
-				<h1>Product Recommendation suite - Self service widgets</h1>
-				<h2 class="subheading">
-					The challenge was to modernize the outdated Optimizely
-					Recommendation software by improving its UX and usability to
-					transition it from a managed solution to a self-service
-					platform, beginning with its widget management.
-				</h2>
-				<h3 id="overview">Overview</h3>
-				<p>
-					Optimizely Recommendation is a product, a part of its
-					personalization offering. This software was brought back in
-					2016 when Optimizely acquired Peerius.
-				</p>
-				<p>
-					Problem was the software looked a bit old and it had never
-					been updated and mostly was a managed solution. We wanted to
-					fix the UX and usability problems of the software so it no
-					longer needed to be managed and become self service.
-				</p>
-				<p>
-					We started with a small but important part of the app, its
-					widget management.
-				</p>
-				<figure>
-					<img
-						src="/images/works/opti-product-recommendation-suite/self-service-widget-before.png"
-						alt="Previous design of optimizely widgets page"
-					/>
-					<figcaption>
-						Previous version of Product recommendation widgets page
-					</figcaption>
-				</figure>
-
-				<h3 id="#team">Team</h3>
-				<p>
-					Our product recommendation team is multinational and
-					geographically diverse, with me as the product designer
-					based in Dhaka, our PM in the USA, and the development team
-					in Vietnam.
-				</p>
-
-				<h3 id="discover">Discover & Define</h3>
-				<p>
-					My work starts with knowing all about the ability of the
-					software, which requires hours of meetings with the PM and
-					the two veterans of the product who know a lot about this
-					product. Familiarizing myself with the terms, knowledge of
-					how it works and creating a user flow of the app.
-				</p>
-				<p>
-					My PM and I have made a plan to update the design of the
-					widget management system, which is the core of the app and
-					involves managing algorithms that drive the widgets. We will
-					test the solution with some users and I will provide a
-					prototype to the developers based on the Optimizely design
-					system.
-				</p>
-				<p>
-					However this was new to me as well since I joined as a part
-					of the accusation of the Welcome company, I’ve never worked
-					on this design system hands on.
-				</p>
-				<h3 id="design">Design & Testing</h3>
-				<p>
-					Throughout this process, I created three versions of
-					prototypes. After developing the first prototype, I
-					presented it to the larger team to gather usability and
-					design system feedback from more experienced designers in
-					the company, which informed my second iteration.
-				</p>
-				<p>
-					For the second iteration, we aimed to conduct unmoderated
-					tests. I collaborated with our research team to recruit
-					users for feedback, which was the most challenging part.
-					Eventually, we found participants and ran the tests. The
-					overall feedback was positive, with some suggestions for
-					improvement.
-				</p>
-				<p>
-					While we waited for the test results, our developers
-					continued working on the backend and some frontend
-					components. During this time, we identified some issues,
-					leading me to design the third version with minor changes
-					and additional detailed designs for the developers.
-				</p>
-
-				<p>
-					Finally, we began building from the design for the Alpha
-					release. Here is the Figma animation of the solution.
-				</p>
-
+			<h2>The Experience in Action</h2>
+			<article>
 				<figure>
 					<video controls width="250">
 						<source
@@ -129,5 +130,6 @@ import "../../styles/workspages.scss";
 				</figure>
 			</article>
 		</section>
+		<a href="/" id="back"><i class="fa-solid fa-arrow-left"></i></a>
 	</main>
 </PageLayout>

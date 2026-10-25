@@ -45,3 +45,20 @@ figure {
 .no-bottom-space {
     margin-bottom: 0;
 }
+
+#back {
+    display: block;
+    color: var(--color-white);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sp-12);
+    height: var(--sp-12);
+    overflow: hidden;
+    font-size: var(--sp-8);
+    background-color: var(--color-red-450);
+    ;
+    padding: 8px;
+    box-sizing: border-box;
+    line-height: 1;
+}

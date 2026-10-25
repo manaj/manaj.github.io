@@ -1,0 +1,200 @@
+---
+interface Props {
+    before: string;
+    after: string;
+    beforeAlt?: string;
+    afterAlt?: string;
+    beforeLabel?: string;
+    afterLabel?: string;
+}
+
+const {
+    before,
+    after,
+    beforeAlt = "Previous solution",
+    afterAlt = "New solution",
+    beforeLabel = "Before",
+    afterLabel = "After",
+} = Astro.props;
+---
+
+<figure class="compare" data-compare>
+    <div class="compare__pane compare__pane--before">
+        <img src={before} alt={beforeAlt} loading="lazy" />
+        <figcaption>{beforeLabel}</figcaption>
+    </div>
+
+    <div class="compare__pane compare__pane--after">
+        <img src={after} alt={afterAlt} loading="lazy" />
+        <figcaption>{afterLabel}</figcaption>
+    </div>
+
+    <div class="compare__handle" aria-hidden="true"><span></span></div>
+
+    <input
+        class="compare__range"
+        type="range"
+        min="0"
+        max="100"
+        value="50"
+        aria-label="Drag to compare the previous and new solution"
+    />
+</figure>
+
+<style>
+    /* Default (no JS): two images side by side */
+    .compare {
+        --pos: 50%;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px;
+    }
+
+    .compare__pane {
+        position: relative;
+        margin: 0;
+    }
+
+    .compare img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    figcaption {
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .compare__handle,
+    .compare__range {
+        display: none;
+    }
+
+    /* Enhanced (JS running): overlay slider */
+    .compare.is-enhanced {
+        position: relative;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+        overflow: hidden;
+        user-select: none;
+        touch-action: pan-y;
+    }
+
+    .compare.is-enhanced .compare__pane {
+        grid-area: 1 / 1; /* stack both images in the same cell */
+    }
+
+    /* New solution on the right: hide everything left of the bar */
+    .compare.is-enhanced .compare__pane--after {
+        clip-path: inset(0 0 0 var(--pos));
+    }
+
+    .compare.is-enhanced figcaption {
+        position: absolute;
+        top: 47%;
+        margin: 0;
+        padding: var(--sp-3) var(--sp-4);
+        background: var(--color-gray-900);
+        color: #fff;
+        font-family: var(--font-primary);
+        font-size: var(--sp-5);
+        font-weight: 600;
+        letter-spacing: var(--font-letter-spacing-4);
+    }
+    .compare.is-enhanced .compare__pane--before figcaption {
+        left: 0;
+    }
+    .compare.is-enhanced .compare__pane--after figcaption {
+        right: 0;
+    }
+
+    .compare.is-enhanced .compare__handle {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: var(--pos);
+        width: 4px;
+        background: var(--color-black);
+        transform: translateX(-50%);
+        pointer-events: none;
+        box-shadow: 0 2px 3px rgb(0 0 0 / 0.3);
+    }
+
+    .compare__handle span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 40px;
+        height: 40px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background: var(--color-black);
+        box-shadow: 0 2px 3px rgb(0 0 0 / 0.3);
+    }
+
+    /* simple arrows inside the knob */
+    .compare__handle span::before,
+    .compare__handle span::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 8px;
+        height: 8px;
+        border: solid var(--color-white);
+        border-width: 0 0 3px 3px;
+    }
+    .compare__handle span::before {
+        left: 10px;
+        transform: translateY(-50%) rotate(45deg);
+    }
+    .compare__handle span::after {
+        right: 10px;
+        transform: translateY(-50%) rotate(-135deg);
+    }
+
+    /* Invisible native range on top: gives mouse, touch and keyboard support */
+    .compare.is-enhanced .compare__range {
+        display: block;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        opacity: 0;
+        cursor: ew-resize;
+        appearance: none;
+        -webkit-appearance: none;
+        background: transparent;
+    }
+
+    /* thin thumb so the pointer position matches the bar position */
+    .compare__range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 2px;
+        height: 100vh;
+    }
+    .compare__range::-moz-range-thumb {
+        width: 2px;
+        height: 100vh;
+        border: 0;
+    }
+
+    .compare.is-enhanced:focus-within .compare__handle span {
+    }
+</style>
+
+<script>
+    document.querySelectorAll<HTMLElement>("[data-compare]").forEach((el) => {
+        const range = el.querySelector<HTMLInputElement>(".compare__range");
+        if (!range) return;
+
+        const update = () => el.style.setProperty("--pos", `${range.value}%`);
+
+        el.classList.add("is-enhanced");
+        range.addEventListener("input", update);
+        update();
+    });
+</script>

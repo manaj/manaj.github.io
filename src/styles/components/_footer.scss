@@ -1,7 +1,7 @@
 @use "mixins" as *;
 
 footer.footer {
-    background: linear-gradient(135deg, var(--color-black) 20%, var(--color-gray-900) 70%, var(--color-black) 100%);
+    background: linear-gradient(135deg, var(--color-black) 30%, var(--color-gray-900) 80%, var(--color-gray-800) 100%);
     padding: var(--sp-16) 0;
     color: var(--color-white);
     
@@ -16,19 +16,22 @@ footer.footer {
         grid-template-columns: 224px 1fr;
         gap: var(--sp-8);
         padding-bottom: var(--sp-8);
-        border-bottom: 1px solid var(--color-gray-600)
+        border-bottom: 1px solid var(--color-gray-600);
+
+        p {
+                color: var(--color-white);
+                line-height: 1.8;
+                font-size: var(--sp-4);
+                font-weight: 300;
+                padding: var(--sp-4) var(--sp-20) var(--sp-4) 0;
+                margin: 0 0 var(--sp-2) 0;
+                font-family: var(--font-sans);
+                columns: 2;
+                gap: var(--sp-8);
+            }
     }
 
-    h2 {
-        color: var(--color-white);
-        line-height: 1.8;
-        font-size: var(--sp-5);
-        font-weight: 300;
-        letter-spacing: 0;
-        padding: var(--sp-4) var(--sp-20) var(--sp-8) 0;
-        margin: 0;
-        font-family: var(--font-serif);
-    }
+    
 
     .contact {
         display: flex;

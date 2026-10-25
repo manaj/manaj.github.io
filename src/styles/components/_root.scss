@@ -13,6 +13,7 @@
         --sp-#{$i}: #{$spacer * .25 * $i};
     }
     --gridgap: var(--sp-12);
+    --smalltext: 0.875rem;
     //Example output of the for loop 
     // --sp-1: 0.25rem;
     // --sp-2: 0.5rem;
