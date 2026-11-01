@@ -6,7 +6,7 @@
 :root {
     --editorial-font-primary: 'Libre Bodoni', serif;
     --editorial-font-secondary: 'Rubik', Helvetica, Arial, sans-serif;
-    --editorial-font-tertiary: "Google Sans Flex",sans-serif;
+    --editorial-font-tertiary: "Google Sans Flex", sans-serif;
 }
 
 @import "css/reset";
@@ -31,13 +31,18 @@ figure.is-visible img {
     transform: scale(1);
 }
 
+
 .editorial-page {
     --gutter: clamp(1rem, 2.5vw, 2rem);
 
     // Shared by the hero and the article so their text edges line up
     --hero-split: 38%; // width of the image column
-    --hero-pad: clamp(1.5rem, 3vw, 3rem); // left padding of the hero text
-    --hero-pad-right: clamp(2rem, 8vw, 8rem); // right padding of the hero text
+    --hero-pad: clamp(2rem, 4vw, 4rem); // left padding of the hero text
+    --hero-pad-right: clamp(3rem, 10vw, 10rem); // right padding of the hero text and article
+
+    // Hero text selection color
+    --selection-bg: #3ddc84;
+    --selection-text: #1a1a1a;
 
     // Space the fixed sidenav occupies: its left offset + its width + a gap.
     // Wide images never enter this zone. Keep in sync with .article-navigation.
@@ -58,6 +63,17 @@ figure.is-visible img {
         background: #1a1a1a;
         color: #fff;
 
+        // Green text selection inside the hero
+        ::selection {
+            background: var(--color-flu-green);
+            color: var(--selection-text);
+        }
+
+        ::-moz-selection {
+            background: var(--color-flu-green);
+            color: var(--selection-text);
+        }
+
         // Global type styles set their own colors, so force inheritance
         h1,
         p,
@@ -77,9 +93,32 @@ figure.is-visible img {
             }
         }
 
+        .hero-image {
+            position: relative; // lets the credit sit on top of the image
+
+            .hero-image-credit {
+                position: absolute;
+                left: var(--hero-pad);
+                bottom: 1rem;
+                z-index: 1;
+                font-family: var(--editorial-font-secondary);
+                font-size: 0.75rem;
+                font-weight: 300;
+                line-height: 1.4;
+                color: #000;
+                text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); // keeps it readable on bright sky
+
+                a {
+                    color: inherit;
+                    text-decoration: underline;
+                    text-underline-offset: 2px;
+                }
+            }
+        }
+
         // Content column
         .content {
-            padding: clamp(2rem, 4vw, 4rem) var(--hero-pad);
+            padding: clamp(3rem, 6vw, 4rem) var(--hero-pad);
         }
 
         p {
@@ -89,11 +128,15 @@ figure.is-visible img {
 
         .hero-title {
             font-family: var(--editorial-font-primary);
-            font-size: clamp(3rem, 6vw, 5rem);
+            font-size: clamp(3rem, 6vw, 4rem);
             font-weight: 600;
             line-height: 1;
             letter-spacing: -0.02em;
             margin: 0 0 1.25rem;
+
+            span {
+                color: red;
+            }
         }
 
         .subhead {
@@ -102,6 +145,7 @@ figure.is-visible img {
             font-weight: 300;
             line-height: 1.3;
             font-family: var(--editorial-font-tertiary);
+            color: var(--color-gray-600);
         }
 
         // Paragraphs flow into columns automatically
@@ -140,6 +184,7 @@ figure.is-visible img {
         .hero-data-value {
             font-weight: 400;
             font-family: var(--editorial-font-secondary);
+            color: var(--color-gray-100);
         }
 
         // Desktop: hero is exactly one screen tall
@@ -171,15 +216,18 @@ figure.is-visible img {
 
             .hero-meta {
                 column-count: 2;
+                column-gap: 4rem;
 
                 p {
-                    font-size: clamp(1rem, 1.5vw, 1.1rem);
-                    line-height: 1.6;
+                    font-size: clamp(1rem, 1.5vw, 1.05rem);
+                    line-height: 1.5;
+                    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
                 }
             }
 
             .hero-data {
                 grid-template-columns: 1fr 1fr;
+                gap: 1.5rem 4rem;
                 margin-top: 2rem;
             }
         }
@@ -212,9 +260,10 @@ figure.is-visible img {
         // Desktop: text starts where the hero text starts.
         // Column 1 is the nav zone (off limits), column 2 is the wide zone
         // to the left of the text, then the text, then the wide zone to the right.
+        // The last column keeps the same right space as the hero text.
         @include media(medium) {
             grid-template-columns:
-                [full-start] var(--nav-zone) [wide-start] max(0px, calc(var(--hero-split) + var(--hero-pad) - var(--nav-zone))) [main-start] clamp(560px, 40vw, 720px) [main-end] 1fr [wide-end] var(--gutter) [full-end];
+                [full-start] var(--nav-zone) [wide-start] max(0px, calc(var(--hero-split) + var(--hero-pad) - var(--nav-zone))) [main-start] clamp(560px, 40vw, 720px) [main-end] 1fr [wide-end] var(--hero-pad-right) [full-end];
         }
 
         // Sidenav: fixed, fades in when the hero leaves the viewport
@@ -239,10 +288,6 @@ figure.is-visible img {
                 &.is-visible {
                     opacity: 1;
                     pointer-events: auto;
-                }
-
-                a {
-                    font-family: var(--editorial-font-secondary);
                 }
             }
 
@@ -287,7 +332,7 @@ figure.is-visible img {
         // Headings
         h2 {
             font-family: var(--editorial-font-primary);
-            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
             font-weight: 600;
             line-height: 1.3;
             letter-spacing: -0.02em;
@@ -307,20 +352,21 @@ figure.is-visible img {
         // Body copy
         p {
             font-family: var(--editorial-font-secondary);
-                font-size: clamp(1rem, 1.5vw, 1.2rem);
-                line-height: 1.8;
-                color: var(--color-black);
-                margin-bottom: var(--spacer-half);
-                font-weight: 300;
-                letter-spacing: 0;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            line-height: 1.8;
+            color: var(--color-black);
+            margin-bottom: var(--spacer-half);
+            font-weight: 300;
+            letter-spacing: 0;
         }
 
         p>a {
             text-decoration: underline;
         }
 
+        // Lists sit directly under their paragraph
         p+ol {
-            margin-top: calc(var(--spacer-half) * -1);
+            margin-top: 0;
         }
 
         ol {
@@ -328,7 +374,7 @@ figure.is-visible img {
                 font-family: var(--editorial-font-secondary);
                 font-size: clamp(1rem, 1.5vw, 1.1rem);
                 line-height: 1.8;
-                color: var(--color-gray-950);
+                color: var(--color-black);
                 margin-bottom: var(--spacer-half);
                 font-weight: 300;
             }
@@ -371,6 +417,28 @@ figure.is-visible img {
                 text-align: center;
             }
         }
+
+figure.small {
+    max-width: 60%;
+
+    @include media(medium) {
+        max-width: 50%;
+    }
+
+    figcaption {
+        text-align: left;
+    }
+}
+
+// Optional: centered variant
+figure.small.center {
+    margin-left: auto;
+    margin-right: auto;
+
+    figcaption {
+        text-align: center;
+    }
+}
 
         // Wide figure: goes beyond the text block, never over the nav zone
         figure.wide {
