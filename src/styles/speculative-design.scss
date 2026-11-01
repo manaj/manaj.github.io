@@ -1,0 +1,410 @@
+@charset "utf-8";
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@1..144,1..1000&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --editorial-font-primary: 'Libre Bodoni', serif;
+    --editorial-font-secondary: 'Rubik', Helvetica, Arial, sans-serif;
+    --editorial-font-tertiary: "Google Sans Flex",sans-serif;
+}
+
+@import "css/reset";
+@import "components/fonts",
+"components/variables",
+"components/mixins",
+"components/root",
+"components/type",
+"components/grid",
+"components/utility",
+"components/header",
+"components/footer";
+
+figure img {
+    opacity: 0;
+    transform: scale(1.03);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+figure.is-visible img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.editorial-page {
+    --gutter: clamp(1rem, 2.5vw, 2rem);
+
+    // Shared by the hero and the article so their text edges line up
+    --hero-split: 38%; // width of the image column
+    --hero-pad: clamp(1.5rem, 3vw, 3rem); // left padding of the hero text
+    --hero-pad-right: clamp(2rem, 8vw, 8rem); // right padding of the hero text
+
+    // Space the fixed sidenav occupies: its left offset + its width + a gap.
+    // Wide images never enter this zone. Keep in sync with .article-navigation.
+    --nav-zone: calc(var(--spacer-two) + 15vw + var(--spacer-one));
+
+    min-height: 100vh;
+
+    @include media(medium) {
+        display: block;
+    }
+
+    // ───────────────────────────────────────────
+    // Hero: mobile first, desktop overrides at medium
+    // ───────────────────────────────────────────
+    .hero {
+        display: grid;
+        grid-template-columns: 1fr;
+        background: #1a1a1a;
+        color: #fff;
+
+        // Global type styles set their own colors, so force inheritance
+        h1,
+        p,
+        span {
+            color: inherit;
+        }
+
+        .hero-image {
+            height: 60vw;
+            min-height: 0;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        // Content column
+        .content {
+            padding: clamp(2rem, 4vw, 4rem) var(--hero-pad);
+        }
+
+        p {
+            font-family: var(--editorial-font-secondary);
+            font-weight: 300;
+        }
+
+        .hero-title {
+            font-family: var(--editorial-font-primary);
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 600;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin: 0 0 1.25rem;
+        }
+
+        .subhead {
+            margin: 0 0 2.5rem;
+            font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+            font-weight: 300;
+            line-height: 1.3;
+            font-family: var(--editorial-font-tertiary);
+        }
+
+        // Paragraphs flow into columns automatically
+        .hero-meta {
+            column-count: 1;
+            column-gap: 3rem;
+            font-size: 1rem;
+            line-height: 1.55;
+
+            p {
+                margin: 0 0 1.1rem;
+            }
+        }
+
+        // Data grid
+        .hero-data {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem 3rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .hero-data-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-data-label {
+            font-weight: 300;
+            color: #afafaf;
+            font-family: var(--editorial-font-secondary);
+        }
+
+        .hero-data-value {
+            font-weight: 400;
+            font-family: var(--editorial-font-secondary);
+        }
+
+        // Desktop: hero is exactly one screen tall
+        @include media(medium) {
+            grid-template-columns: var(--hero-split) 1fr;
+            grid-template-rows: minmax(0, 1fr); // row can shrink below its content
+            height: 100vh;
+            height: 100svh; // accounts for mobile browser bars
+            overflow: hidden;
+
+            .hero-image {
+                position: relative;
+                height: auto; // the grid row sets the height
+                overflow: hidden;
+
+                img {
+                    position: absolute; // image cannot stretch the row
+                    inset: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .content {
+                padding-right: var(--hero-pad-right);
+                overflow-y: auto; // scrolls only if text does not fit
+            }
+
+            .hero-meta {
+                column-count: 2;
+
+                p {
+                    font-size: clamp(1rem, 1.5vw, 1.1rem);
+                    line-height: 1.6;
+                }
+            }
+
+            .hero-data {
+                grid-template-columns: 1fr 1fr;
+                margin-top: 2rem;
+            }
+        }
+    }
+
+    // ───────────────────────────────────────────
+    // Article
+    // ───────────────────────────────────────────
+    .article {
+        display: grid;
+
+        // Mobile: same side padding as the hero text
+        grid-template-columns: var(--hero-pad) 1fr var(--hero-pad);
+
+        >* {
+            grid-column: 2;
+        }
+
+        // Tablet: centered column (the hero is still stacked here)
+        @include media(small) {
+            padding: var(--spacer-two) 0 0 0;
+            grid-template-columns:
+                [full-start] 1fr [wide-start] 1fr [main-start] clamp(620px, 40vw, 720px) [main-end] 1fr [wide-end] 1fr [full-end];
+
+            >* {
+                grid-column: main;
+            }
+        }
+
+        // Desktop: text starts where the hero text starts.
+        // Column 1 is the nav zone (off limits), column 2 is the wide zone
+        // to the left of the text, then the text, then the wide zone to the right.
+        @include media(medium) {
+            grid-template-columns:
+                [full-start] var(--nav-zone) [wide-start] max(0px, calc(var(--hero-split) + var(--hero-pad) - var(--nav-zone))) [main-start] clamp(560px, 40vw, 720px) [main-end] 1fr [wide-end] var(--gutter) [full-end];
+        }
+
+        // Sidenav: fixed, fades in when the hero leaves the viewport
+        .article-navigation {
+            display: none;
+
+            @include media(medium) {
+                display: block;
+                position: fixed;
+                top: var(--spacer-three);
+                left: var(--spacer-two);
+                width: 15vw;
+                font-family: var(--editorial-font-secondary);
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: var(--color-gray-600);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s ease;
+                border-left: 2px solid var(--color-gray-100);
+
+                &.is-visible {
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+
+                a {
+                    font-family: var(--editorial-font-secondary);
+                }
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            li {
+                padding: var(--spacer-quarter) var(--spacer-one);
+                font-size: inherit;
+            }
+
+            .no-top-space {
+                padding-top: 0;
+            }
+
+            .no-bottom-space {
+                padding-bottom: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: var(--color-gray-600);
+                transition: color 0.2s ease;
+                display: block;
+                line-height: 1.4;
+
+                &:hover {
+                    color: var(--color-black);
+                }
+            }
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid var(--color-gray-100);
+            margin: 0 0 var(--spacer-two) 0;
+        }
+
+        // Headings
+        h2 {
+            font-family: var(--editorial-font-primary);
+            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+            margin: var(--spacer-two) 0 var(--spacer-one) 0;
+            color: var(--color-black);
+        }
+
+        h3 {
+            font-family: var(--editorial-font-primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: var(--spacer-twoandquarter) 0 var(--spacer-one) 0;
+            color: var(--color-black);
+            letter-spacing: -0.01em;
+        }
+
+        // Body copy
+        p {
+            font-family: var(--editorial-font-secondary);
+                font-size: clamp(1rem, 1.5vw, 1.2rem);
+                line-height: 1.8;
+                color: var(--color-black);
+                margin-bottom: var(--spacer-half);
+                font-weight: 300;
+                letter-spacing: 0;
+        }
+
+        p>a {
+            text-decoration: underline;
+        }
+
+        p+ol {
+            margin-top: calc(var(--spacer-half) * -1);
+        }
+
+        ol {
+            li {
+                font-family: var(--editorial-font-secondary);
+                font-size: clamp(1rem, 1.5vw, 1.1rem);
+                line-height: 1.8;
+                color: var(--color-gray-950);
+                margin-bottom: var(--spacer-half);
+                font-weight: 300;
+            }
+        }
+
+        // Pull quote: spans the wide zone
+        blockquote {
+            @include media(medium) {
+                grid-column: wide-start / wide-end;
+            }
+
+            border-left: 3px solid var(--color-turquoise-dark);
+            margin: var(--spacer-two) 0;
+            padding: var(--spacer-one) var(--spacer-oneandhalf);
+            background: var(--color-indigo);
+            font-family: var(--editorial-font-primary);
+            font-weight: 400;
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--color-gray-980);
+        }
+
+        // Standard figure: fills the text block
+        figure {
+            margin: var(--spacer-two) 0;
+
+            img {
+                width: 100%;
+                display: block;
+                border-radius: 3px;
+            }
+
+            figcaption {
+                font-family: var(--editorial-font-secondary);
+                font-size: .9rem;
+                color: var(--color-gray-600);
+                margin-top: var(--spacer-half);
+                line-height: 1.5;
+                text-align: center;
+            }
+        }
+
+        // Wide figure: goes beyond the text block, never over the nav zone
+        figure.wide {
+            @include media(medium) {
+                grid-column: wide-start / wide-end;
+            }
+        }
+
+        // Full-bleed figure: spans the full zone
+        figure.full-bleed {
+            @include media(medium) {
+                grid-column: full-start / full-end;
+            }
+
+            figcaption {
+                padding: 0 var(--spacer-two);
+            }
+        }
+
+        // Two images side by side: spans the wide zone
+        .image-pair {
+            @include media(medium) {
+                grid-column: wide-start / wide-end;
+            }
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacer-one);
+            margin-top: var(--spacer-two);
+            margin-bottom: var(--spacer-two);
+
+            figure {
+                margin: 0;
+            }
+        }
+    }
+}
