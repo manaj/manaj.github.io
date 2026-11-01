@@ -1,0 +1,582 @@
+---
+import PageLayout from "../../layouts/default-no-header.astro";
+const title =
+	"Speculative Design | Halmstad Z | Portfolio of Manaj Chakrobarti";
+const bodyClass = "works editorial";
+import "../../styles/speculative-design.scss";
+---
+
+<PageLayout title={title} bodyClass={bodyClass}>
+	<main class="editorial-page">
+		<!-- Full bleed hero: image left, dark panel right -->
+		<div class="hero">
+			<div class="hero-image">
+				<img
+					src="/images/works/speculative-design/featured.jpg"
+					alt="Halmstad Z card game"
+				/>
+				<span class="hero-image-credit">
+					Photo by <span>Jay</span>
+				</span>
+			</div>
+
+			<div class="content">
+				<h1 class="hero-title">Halmstad <span>Z</span></h1>
+				<p class="subhead">
+					A fun card game where players work together to save the
+					station city of Halmstad from a zombie attack.
+				</p>
+
+				<div class="hero-meta">
+					<p>
+						My teammate and I developed a cooperative card game. It
+						is for a speculative design project situated in
+						Stations­staden, “the station city” of Halmstad,
+						motivated by a participatory economic world.         						     
+						<a href="https://participatoryeconomy.org/"
+							> Participatory economy</a
+						>, or parecon, is an economic model developed by
+						economists Michael Albert and Robin Hahnel.
+						Participatory planning is a part of Parecon and is used
+						to allocate resources between consumers and workers.
+					</p>
+					<p>
+						We created this game as a design artifact, interpreting
+						participatory planning as play mechanics. The players
+						collectively negotiate and prioritize missions in an
+						alternative economic setting. While keeping in mind that
+						each mission will affect three of the four core needs of
+						the game. Each decision can affect needs both positively
+						and negatively, and they have to keep those needs in
+						balance.
+					</p>
+					<p>
+						We also intended this game as a facilitation tool for
+						budgeting, while keeping social values in mind. However,
+						we haven’t explored those versions yet. We will work on
+						that in the future.
+					</p>
+					<p>
+						Finally, it uses a zombie-attack scenario in
+						Stationsstaden to remove money and market-based
+						incentives from the gameplay and add a fun mechanism.
+					</p>
+				</div>
+
+				<div class="hero-data">
+					<div class="hero-data-item">
+						<span class="hero-data-label">Target audience</span>
+						<span class="hero-data-value">Adults</span>
+					</div>
+
+					<div class="hero-data-item">
+						<span class="hero-data-label">Design goals</span>
+						<span class="hero-data-value">
+							Collaborative, fun, and engaging.
+						</span>
+					</div>
+
+					<div class="hero-data-item">
+						<span class="hero-data-label">Design focus</span>
+						<span class="hero-data-value">
+							Game Design, Speculative Design, Participatory
+							economy
+						</span>
+					</div>
+
+					<div class="hero-data-item">
+						<span class="hero-data-label">Team</span>
+						<span class="hero-data-value">Manaj, Dylan</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Article content: sits in the main column -->
+		<article class="article">
+			<!-- Sticky sidenav: sits in the left wide zone -->
+			<nav class="article-navigation">
+				<ul class="no-list">
+					<li class="no-top-space"><a href="#">Back to top</a></li>
+					<li>
+						<a href="#research">Research</a>
+					</li>
+					<li>
+						<a href="#process">Design Process</a>
+					</li>
+					<li>
+						<a href="#thegame">The Game</a>
+					</li>
+					<li>
+						<a href="#connection">Connection to Parecon</a>
+					</li>
+					<li>
+						<a href="#reflection">Reflection</a>
+					</li>
+				</ul>
+			</nav>
+
+			<h2 id="research">Research</h2>
+			<p>
+				Our research includes interviewing current passengers at the
+				stations to better understand the problems they face. Observing
+				in the Stationsstaden area to list the facilities. Using Google
+				reviews to collect reviews on this and other nearby stations,
+				and finally going through the planning documents of
+				Stationsstaden.
+			</p>
+			<p>
+				In our interviews in the station area, we found that people's
+				needs are basic, such as better food options, free toilets,
+				another overbridge, and a closer connection to the bus. Someone
+				told us during the interview that they missed the train because
+				there was no overbridge linked to the platform. So later I
+				created a mission card to build an overbridge from the bus
+				terminal to the platform.
+			</p>
+
+			<figure class="small center">
+				<img
+					src="/images/works/speculative-design/research-card.png"
+					alt="One card related to research"
+				/>
+				<figcaption>
+					Research findings helped create the mission cards.
+				</figcaption>
+			</figure>
+
+			<p>
+				We found similar issues in Google reviews. The passengers want
+				the waiting room to be kept open during cold nights, want more
+				food options, and some people think this is enough. But in
+				general, it was always basic needs in the station.
+			</p>
+			<div class="image-pair">
+				<figure>
+					<img
+						src="/images/works/speculative-design/review-negative.png"
+						alt="Nagative Review"
+					/>
+					<figcaption>From Google Reviews</figcaption>
+				</figure>
+				<figure>
+					<img
+						src="/images/works/speculative-design/review-positive.png"
+						alt="Positive Review"
+					/>
+					<figcaption>From Google Reviews</figcaption>
+				</figure>
+			</div>
+
+			<p>
+				We used the data we gathered from reviews, observations we made
+				at the station, and the Stationsstaden planning website to
+				create the game missions. Like “Fix the bicycle path around the
+				wall in the station”. We thought about a zombie attack scenario
+				and how it would affect day-to-day activities, and we narrated
+				accordingly.
+			</p>
+
+			<p>
+				These data also led us to the basic needs. After trying
+				different values across a couple of versions of the game, we
+				extracted values from some missions. Because these values
+				overlapped, choosing a negative one was difficult. We did this
+				three times, and every time we found it hard to use negative
+				values. That's why, in the end, we decided to use <a
+					target="_blank"
+					href="https://www.ucl.ac.uk/bartlett/sites/bartlett/files/universal_basic_services_-_the_institute_for_global_prosperity_.pdf"
+					>universal basic needs
+				</a>
+				as a base for needs. These are Health care, Education, Legal and democracy,
+				Shelter, Food, Transport, and information. We merged them into 4,
+				as per the following table.
+			</p>
+			<figure>
+				<img
+					src="/images/works/speculative-design/table.png"
+					alt="UCL values and our values"
+				/>
+				<figcaption>UCL values and our values</figcaption>
+			</figure>
+
+			<h2 id="process">Design Process</h2>
+
+			<h3 id="iterations">Iterations</h3>
+
+			<p>
+				We have iterated on the game quite a couple of times, including
+				3 major versions. Because at first we wanted to work with the
+				value Justice. So we decided to choose between an individual
+				train seat and a station upgrade. But in that version, when we
+				tested with other people, we found that they always preferred
+				helping a group over helping an individual. Because this way
+				they can help more people in the game.
+			</p>
+			<figure>
+				<img
+					src="/images/works/speculative-design/first_version.JPG"
+					alt="First version of the game"
+				/>
+				<figcaption>First version of the game</figcaption>
+			</figure>
+
+			<p>
+				We also had another version that wasn't based on a zombie
+				attack. It was just about choosing an upgrade for the station.
+				This narrative didn’t have the urgency in the storytelling or
+				life threats to act fast. It was just an upgrade-a-station game.
+				Back then, we didn’t have the meeples to make the gameplay
+				strong, so the game was only updating the scoreboard, which was
+				boring in my opinion.
+			</p>
+			<figure>
+				<img
+					src="/images/works/speculative-design/second_version.JPG"
+					alt="Second version of the game"
+				/>
+				<figcaption>Second version of the game</figcaption>
+			</figure>
+
+			<h3 id="testing">Testing</h3>
+
+			<p>
+				We tested three major versions of the game with people from
+				other teams in the class.
+			</p>
+			<p>
+				The first version didn’t work because it had two different types
+				of choices, as I mentioned in the iterations section. But there
+				were some helpful cards that explained the scenario, which
+				didn’t always align with the choices. We kept those scenarios,
+				and later used them as to-dos.
+			</p>
+			<p>
+				The second version also had many smaller versions, but
+				essentially it had a scoreboard to maintain the balance. And the
+				task/mission had values on the back side, like this version.
+				This was well received among peers, but we received feedback
+				that a budget might help make this a facilitation tool for city
+				planners. We tried to add budget to this version, using money
+				and space as budget items. We failed. But we succeeded with
+				using people as budget. Like a monetary budget, the number of
+				people decreased. And later, we added the zombie narrative from
+				one of our very early versions.
+			</p>
+
+			<h3 id="studies">Speculative design studies</h3>
+			<p>
+				Speculative design studies include an understanding of
+				speculative and critical design. Each student found some sample
+				artifacts online, and we discussed them as a group. During this
+				process, I came to understand that the purpose of critical
+				design is to engage audiences and prompt them to reflect on the
+				design's subject. This also led us to look into creating
+				artifacts rather than a game as a speculative design project. We
+				kept trying that for some weeks, and during the game-making
+				process as a prototype, we realized that a game could be an
+				artifact as well.
+			</p>
+
+			<h3>Role Play in Participatory Economy Value Fiction</h3>
+			<p>
+				We participated in a role-play seminar, where all of us in our
+				class participated in a fictional play. We played different
+				roles in a parecon society, where there are no paying clients,
+				economic life is some form of collective, and every proposal
+				disclosed its benefits and resource use. Then we played through
+				different scenarios. Like a station waiting room, or shared
+				mobility desk. This taught us to think about a differently
+				valued society and how it may work. Also, it helped us give the
+				role of council to the players.
+			</p>
+
+			<h3>Game making as prototype</h3>
+			<p>
+				We made the game a speculative design artifact because a game
+				invites people to play and reflect on the situation without
+				discussing it. They can continue thinking about future scenarios
+				and communicate and solve problems together in a non-capitalist
+				society. Without the game, the shift in thinking is hard to
+				create.
+			</p>
+
+			<p>
+				Games give us the option to narrate a worldview we want players
+				to inhabit. We let them figure out the problem rather than us
+				designers solving it for them.
+			</p>
+
+			<p>
+				Also, it gives us a way to show the conflict without putting
+				them in real danger, in this instance, in a zombie environment.
+				While they are safe, the game's outcomes can vary from player to
+				player. It could be an outcome we never expected.
+			</p>
+
+			<h3>Impact Vision and Design Fiction</h3>
+			<p>
+				We also participated in two design workshops, where we wrote
+				stories about scenarios. Later, we all participated in a model
+				world-making activity in which our scenarios came to life.
+			</p>
+			<figure class="wide">
+				<img
+					src="/images/works/speculative-design/impact.png"
+					alt="Impact vision "
+				/>
+				<figcaption>Impact vision</figcaption>
+			</figure>
+			<p>
+				Later, we created design fiction, in which we were given a
+				future story and had to think it through and identify frictions
+				and missing parts in the design.
+			</p>
+			<p>
+				These two exercises taught me that people find unexpected things
+				during testing. We found that in our test as well, people found
+				problems with the old version. There were many questions about
+				the gameplay. Because we haven’t written it yet.
+			</p>
+
+			<h2 id="thegame">The Game</h2>
+			<p>
+				The game is set in a future timeline when zombies attacked the
+				city of Halmstad. All of its people fled, except for a few who
+				took refuge in Stationsstaden and are trying to survive.
+				Players, as council members, must prioritize missions that help
+				these people survive while zombies roam outside the station. In
+				the game, these people are represented by the meeples, and each
+				game starts with 10 Meeples.
+			</p>
+			<p>
+				Any number of players can play the game. The game starts with
+				someone shuffling the mission cards and placing the top three
+				cards face up on the game board. The group considers how each
+				mission could affect their needs, and selects one mission.
+			</p>
+			<figure class="wide">
+				<img
+					src="/images/works/speculative-design/gameboard.png"
+					alt="game board"
+				/>
+				<figcaption>Game Board</figcaption>
+			</figure>
+			<p>
+				Once the group selects a mission to continue, they turn to the
+				other side of the card, where there are two positive values and
+				one negative value. The group then adjusts the scoreboard by
+				moving the buttons to the right or left. The scoreboard is a
+				7-column board, where points could range from -3 to +3. Each row
+				represents a need, and there are 4 needs in total (Health,
+				Information, Shelter, and Transport). A big part of the game is
+				keeping these needs in balance, which means staying between -3
+				and +3.
+			</p>
+			<figure class="wide">
+				<img
+					src="/images/works/speculative-design/scoreboard.png"
+					alt="scoreboard"
+				/>
+				<figcaption>Scoreboard</figcaption>
+			</figure>
+
+			<p>
+				Sometimes the selected mission card has a special instruction on
+				the back. After updating the scoreboard, the group updates
+				those, e.g., moves meeples or keeps the card next to the
+				scoreboard and waits for any event, like scoring the lowest.
+				Then that card might save them and keep the game going.
+			</p>
+
+			<figure>
+				<img
+					src="/images/works/speculative-design/special.png"
+					alt="Special Cards"
+				/>
+				<figcaption>Special Cards</figcaption>
+			</figure>
+
+			<p>
+				After a couple of rounds, if selecting cards makes them go all
+				the way to +3 in any specific category, for example, health,
+				then the group receives the special card. It normally adds a
+				bonus, and sometimes it can help to lose as well. For example,
+				since they are doing very well in terms of health, 4 new people
+				came here for medical purposes, which would increase the number
+				of people at the station, which might not be so good. Anyway,
+				once the group does what the card says, the button resets to 0
+				on the scoreboard.
+			</p>
+
+			<p>
+				The game loosely follows Parecon's planning meeting, where
+				council and worker members decide on production priorities for
+				the following year. But in gameplay, the group decides on
+				missions monthly, so we can have 12 rounds over the year. Each
+				game also finishes in 12 rounds. This totals 36 mission cards.
+				The game also includes 16 special cards, with 4 for each need.
+			</p>
+			<figure>
+				<img
+					src="/images/works/speculative-design/cards.JPG"
+					alt=" Cards"
+				/>
+				<figcaption>Cards</figcaption>
+			</figure>
+
+			<p>
+				The game ends if a counter moves to the leftmost square labeled
+				"game over," outside the balanced need. Another way to lose is
+				if the game's population falls below 4 or exceeds 12
+				(represented by meeples). Because then it's not sustainable in
+				the station.
+			</p>
+
+			<p>
+				And winning is surviving for twelve rounds, keeping the needs in
+				balance.
+			</p>
+
+			<h2 id="connection">Connection to Participatory Economy</h2>
+			<p>
+				As we already know, the gameplay is inspired by the
+				participatory planning process described on the parecon website:
+				“Before the start of every new year, every workplace, household
+				and federation council participate in an annual planning
+				procedure...”. And the planning procedure occurs over a series
+				of rounds. We were inspired by this, and it sets up our twelve
+				rounds in the game. We just chose yearly planning to support our
+				game. A shorter timeframe invites conversations among the
+				players.
+			</p>
+
+			<p>
+				We also chose a value to uphold, as Parecon is based on 6
+				values. We chose efficiency among those. According to the
+				Parecon website, efficiency is “To use our scarce resources and
+				human talents wherever they return the greatest increase in
+				human well-being.” We were motivated by the scarce-resource
+				aspect, which is why the players have to choose one mission from
+				three based on the scoreboard's needs: Health, Information,
+				Shelter, and Transport. Otherwise, if resources were available,
+				they could choose all the missions.
+			</p>
+
+			<p>
+				However, we haven’t specified in our backstory that the game
+				world's society is a participatory economy. But we made it so
+				that when prioritizing missions, players don’t have to think
+				about capitalist concepts like return on investment and mission
+				costs. While we cannot think of any scenario in which we don't
+				think about money, removing this capitalist view and that way of
+				thinking would bring it closer to Parecon.
+			</p>
+
+			<p>
+				So, finally, we can argue that using ideas from participatory
+				planning, keeping resources in balance, removing the need for
+				capital, and introducing a zombie-attack scenario makes it a
+				speculative design project that uses Stationsstaden as a base.
+			</p>
+
+			<h2 id="reflection">Reflection</h2>
+
+			<p>
+				This project changed my view on speculative design. My
+				understanding was that speculative design involves creating
+				designs for the future or other critical designs that invite
+				conversation. But after going through this project, my view of
+				the artifact changed. Because a game can provide a way to create
+				an alternative universe that I never thought of before.
+			</p>
+
+			<p>
+				We wanted to make it a facilitation tool because working in
+				corporate made me think of games as mostly a facilitation tool.
+				However, to become a speculative project, this was not
+				important. Also, to make it a successful facilitation tool, it
+				needs more work. We will have to create systems that would let
+				people make their own version of the game, which we had in mind
+				but never managed to build.
+			</p>
+
+			<p>
+				There was a breakthrough moment when I finished writing all the
+				missions myself. Before that, we were talking a lot about game
+				mechanics and how they weren't fitting, but the moment we had
+				the narration, the mechanics fit right into place. Understanding
+				that narration and creating stories are an important part of
+				game development, which we read about, but seeing this in
+				practice for the first time.
+			</p>
+
+			<p>
+				The project management aspect was also not very good. There were
+				three weeks when we kept circling back to the same discussion.
+				We changed the topic, the story, and the values. But any values
+				should work with this game, which we didn’t understand back
+				then. We underestimated the power of narration in the gameplay.
+			</p>
+
+			<p>
+				One thing that bothers me is that the project is not inside a
+				participatory economy. We could easily make it into one. We
+				haven’t gone that route because none of us are economists, and
+				without one on the team, it's not a good idea to make a game. At
+				least that's what I got from Reddit game discussion boards. We
+				used some features of that economy mainly to prioritize and keep
+				needs in balance. But we should’ve used more.
+			</p>
+
+			<p>
+				While we were happy to find out from testing with different
+				people that the game is fun and enjoyable, and I saw them decide
+				collaboratively, there is still room for improvement, like the
+				number: should we do 4 to 12, because this range is too small
+				for a place like Stationsstaden. Maybe we can make it 40-120 in
+				that case. And each meeple on the board will represent 10
+				people. So we will keep working on these issues and keep
+				updating the game.
+			</p>
+			<hr class="divider" />
+			<p>Thank you for reading.</p>
+		</article>
+	</main>
+</PageLayout>
+
+<script>
+	// Show the sidenav once the hero leaves the viewport
+	const nav = document.querySelector(".article-navigation");
+	const hero = document.querySelector(".hero");
+
+	if (nav && hero) {
+		const navObserver = new IntersectionObserver(
+			([entry]) => {
+				nav.classList.toggle("is-visible", !entry.isIntersecting);
+			},
+			{ threshold: 0 },
+		);
+
+		navObserver.observe(hero);
+	}
+</script>
+
+<script>
+	// Fade figures in as they scroll into view
+	const figures = document.querySelectorAll(".article figure");
+
+	const figureObserver = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("is-visible");
+					figureObserver.unobserve(entry.target);
+				}
+			});
+		},
+		{ threshold: 0.1 },
+	);
+
+	figures.forEach((el) => figureObserver.observe(el));
+</script>
