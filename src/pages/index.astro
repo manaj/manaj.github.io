@@ -141,4 +141,21 @@ import "../styles/homepage.scss";
 			</div>
 		</section>
 	</main>
+	<script>
+		const figures = document.querySelectorAll(".image");
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("is-visible");
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.1 },
+		);
+
+		figures.forEach((el) => observer.observe(el));
+	</script>
 </PageLayout>
