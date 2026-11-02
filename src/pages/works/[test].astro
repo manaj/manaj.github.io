@@ -1,0 +1,233 @@
+---
+import PageLayout from "../../layouts/innerpage-common.astro";
+const title =
+	"Optimizely product recommendation redesign - Portfolio of Manaj Chakrobarti";
+const bodyClass = "works";
+import "../../styles/workspages.scss";
+import Comparison from "../../layouts/components/comparison.astro";
+
+export function getStaticPaths() {
+	// Page exists only in `npm run dev`, never in `npm run build`
+	return import.meta.env.DEV ? [{ params: { test: "test" } }] : [];
+}
+---
+
+<PageLayout title={title} bodyClass={bodyClass}>
+	<main class="box workspage">
+		<header class="inner section-header">
+			<h1>This is a test page to check the design of this page</h1>
+
+			<article class="project-information">
+				<div class="contributions">
+					<h2>My Contributions</h2>
+					<ul class="no-list">
+						<li>Product Design</li>
+						<li>UX/UI Design</li>
+						<li>Research & Testing</li>
+						<li>Mobile design</li>
+					</ul>
+				</div>
+
+				<section class="details">
+					<div class="challange">
+						<h2>Challenge</h2>
+						<p>
+							As the number of DAM users grew, finding and
+							navigating assets became increasingly difficult. The
+							homepage displayed assets in a flat structure,
+							sorted by creation date, making folders harder to
+							find as more content was added.
+						</p>
+					</div>
+
+					<div class="team">
+						<h2>Team</h2>
+						<p>
+							We collaborated closely throughout the process, with
+							weekly design discussions and regular meetings
+							between product managers and designers to review new
+							features and dependencies.
+						</p>
+					</div>
+
+					<div class="discover">
+						<h2>Approch</h2>
+						<p>
+							We explored competitor products and B2C applications
+							to understand different approaches to asset
+							discovery and navigation.
+						</p>
+						<p>
+							More importantly, we gathered feedback from existing
+							users through interviews and worked with account
+							managers and the product manager to understand their
+							needs.
+						</p>
+					</div>
+
+					<div class="solution">
+						<h2>Solution</h2>
+						<p>
+							Based on the feedback, we designed a category-based
+							homepage with improved asset presentation and
+							multiple viewing options.
+						</p>
+						<p>
+							We tested different folder views, search results,
+							and asset card designs. Interestingly, users
+							preferred the folder-preview approach we initially
+							considered outdated. We followed their preference
+							and incorporated it into the final design.
+						</p>
+					</div>
+
+					<div class="outcome">
+						<h2>Outcome</h2>
+						<p>
+							The redesigned homepage provided a more intuitive
+							way to discover and navigate assets. User feedback
+							helped validate our design decisions and prioritize
+							features for the MVP.
+						</p>
+
+						<h2>Learning</h2>
+						<p>
+							I learned the importance of validating design
+							assumptions rather than relying on personal
+							preferences or industry conventions. Sometimes users
+							value familiar patterns more than newer design
+							approaches.
+						</p>
+					</div>
+				</section>
+			</article>
+		</header>
+
+		<section class="inner default">
+			<h2>Final Home Page Design</h2>
+			<figure>
+				<img
+					src="/images/works/opti-dam/final-design.png"
+					alt="Image of DAM home page final design"
+				/>
+				<figcaption>Final Design - Home View</figcaption>
+			</figure>
+		</section>
+
+		<section class="inner before-after">
+			<h2>Compare old grid view and new one</h2>
+			<Comparison
+				before="/images/works/opti-dam/old-home-page.png"
+				after="/images/works/opti-dam/final-design-grid.png"
+				beforeAlt="Image of old home page"
+				afterAlt="Image of DAM home page final design"
+			/>
+		</section>
+
+		
+		<section class="inner">
+			<h2>Final Home Page Design</h2>
+			<figure>
+				<img
+					src="/images/works/opti-dam/final-design.png"
+					alt="Image of DAM home page final design"
+				/>
+				<figcaption>Final Design - Home View</figcaption>
+			</figure>
+		</section>
+
+		<section class="inner">
+			<figure>
+				<img
+					src="/images/works/opti-dam/dam-rendition.png"
+					alt="Showing the final version of rendition design"
+				/>
+				<figcaption>DAM Rendition</figcaption>
+			</figure>
+		</section>
+
+		<section class="inner before-after">
+			<h2>Compare asset details page</h2>
+			<Comparison
+				before="/images/works/opti-dam/current-inner-page.png"
+				after="/images/works/opti-dam/new-inner-page-design.png"
+				beforeAlt="Old Inner Page"
+				afterAlt="New Inner Page "
+			/>
+		</section>
+
+		<section class="inner">
+			<article class="article">
+				<h2>More inner pages</h2>
+				<figure>
+					<img
+						src="/images/works/opti-dam/inner-page-related.png"
+						alt="Innerpage - Related Assets"
+					/>
+					<figcaption>Related Assets</figcaption>
+				</figure>
+
+				<figure>
+					<img
+						src="/images/works/opti-dam/inner-page-versions.png"
+						alt="Innerpage - Versions"
+					/>
+					<figcaption>Asset Versioning</figcaption>
+				</figure>
+
+				<figure>
+					<img
+						src="/images/works/opti-dam/inner-page-analytics.png"
+						alt="Innerpage - Asset Analytics"
+					/>
+					<figcaption>Asset Analytics</figcaption>
+				</figure>
+
+				<figure>
+					<img
+						src="/images/works/opti-dam/inner-page-comment.png"
+						alt="Innerpage - Asset Comments"
+					/>
+					<figcaption>Asset Comments</figcaption>
+				</figure>
+			</article>
+		</section>
+		<section class="inner">
+			<h2>Mobile version</h2>
+			<figure>
+				<img
+					src="/images/works/opti-dam/mobile.png"
+					alt="NewsCred DAM Mobile Design"
+				/>
+				<figcaption>DAM Mobile Design</figcaption>
+			</figure>
+		</section>
+
+		<section class="inner">
+			<h2>Testing and Reporting about the design</h2>
+
+			<figure>
+				<img src="/images/works/opti-dam/pendo.png" alt="Pendo" />
+				<figcaption>Screenshot from Pendo</figcaption>
+			</figure>
+
+			<figure>
+				<img
+					src="/images/works/opti-dam/lyssna.png"
+					alt="Image of the screenshot of usabilityhub.com tests"
+				/>
+				<figcaption>Screenshot of Lyssna tests</figcaption>
+			</figure>
+
+			<figure>
+				<img
+					src="/images/works/opti-dam/preference-test-in-software.png"
+					alt="Image of Folder Preference Test in our website via Gainsight"
+				/>
+				<figcaption>
+					Folder Preference Test in our website via Gainsight
+				</figcaption>
+			</figure>
+		</section>
+	</main>
+</PageLayout>

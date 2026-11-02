@@ -118,10 +118,11 @@ a {
  figcaption {
    margin: var(--sp-4) 0;
    text-align: left;
-   font-size: var(--sp-4);
-   font-family: var(--font-primary);
-   font-weight: 300;
+   font-size: var(--smalltext);
+   font-family: var(--font-sans);
+   font-weight: 400;
    color: var(--color-gray-800);
+   
  }
  
  p {
