@@ -268,7 +268,7 @@ figure.is-visible img {
             @include media(medium) {
                 display: block;
                 position: fixed;
-                top: var(--sp-12);
+                top: 50%;
                 left: var(--sp-8);
                 width: 15vw;
                 font-family: var(--editorial-font-secondary);
@@ -279,6 +279,7 @@ figure.is-visible img {
                 pointer-events: none;
                 transition: opacity 0.3s ease;
                 border-left: 2px solid var(--color-gray-100);
+                translate: 0 -80%;
 
                 &.is-visible {
                     opacity: 1;
