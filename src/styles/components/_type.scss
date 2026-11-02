@@ -1,7 +1,7 @@
 @use "mixins" as *;
 
 body, p, h1 {
-  font-family: var(--font-secondary);
+  font-family: var(--font-serif);
   color: var(--color-black);
 }
 
@@ -129,7 +129,7 @@ a {
   font-size: var(--sp-5);
   line-height: 1.5;
   font-weight: var(--font-light);
-  font-family: var(--font-secondary);
+  font-family: var(--font-serif);
   margin: var(--sp-4) 0 var(--sp-4) 0;
   
   @include media(medium) {

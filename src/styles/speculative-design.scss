@@ -12,8 +12,8 @@
 
 :root {
     --editorial-font-primary: 'Libre Bodoni', serif;
-    --editorial-font-secondary: 'Rubik', Helvetica, Arial, sans-serif;
-    --editorial-font-tertiary: "Google Sans Flex", sans-serif;
+    --editorial-font-secondary: var(--font-secondary);
+    --editorial-font-tertiary: var(--font-secondary);
 }
 
 figure img {
@@ -237,6 +237,12 @@ figure.is-visible img {
             grid-column: 2;
         }
 
+        ul {
+            > li {
+                font-family: var(--editorial-font-secondary);
+            }
+        }
+
         // Tablet: centered column (the hero is still stacked here)
         @include media(small) {
             padding: var(--sp-8) 0 0 0;
@@ -347,7 +353,7 @@ figure.is-visible img {
 
         // Body copy
         p {
-            font-family: var(--editorial-font-secondary);
+            font-family: var(--font-secondary);
             font-size: clamp(1rem, 1.5vw, 1.2rem);
             line-height: 1.8;
             color: var(--color-black);
