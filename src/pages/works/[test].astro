@@ -232,4 +232,56 @@ export function getStaticPaths() {
 			</figure>
 		</section>
 	</main>
+	<script>
+		const img =
+			document.querySelector<HTMLImageElement>("[data-bg-source]") ||
+			document.querySelector<HTMLImageElement>("main img");
+
+		function applyColor() {
+			if (!img) return;
+
+			const canvas = document.createElement("canvas");
+			const size = 32; // small sample is fast and good enough
+			canvas.width = canvas.height = size;
+			const ctx = canvas.getContext("2d", { willReadFrequently: true });
+			if (!ctx) return;
+
+			try {
+				ctx.drawImage(img, 0, 0, size, size);
+				const data = ctx.getImageData(0, 0, size, size).data;
+
+				let r = 0,
+					g = 0,
+					b = 0,
+					count = 0;
+				for (let i = 0; i < data.length; i += 4) {
+					if (data[i + 3] < 128) continue; // skip transparent pixels
+					r += data[i];
+					g += data[i + 1];
+					b += data[i + 2];
+					count++;
+				}
+				if (!count) return;
+				r = Math.round(r / count);
+				g = Math.round(g / count);
+				b = Math.round(b / count);
+
+				// Pick readable text color from the background brightness
+				const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+				const root = document.documentElement;
+				root.style.setProperty("--page-bg", `rgb(${r}, ${g}, ${b})`);
+				root.style.setProperty(
+					"--page-fg",
+					luminance > 0.55 ? "#111" : "#fff",
+				);
+			} catch {
+				// Canvas is blocked if the image is from another domain without CORS
+			}
+		}
+
+		if (img) {
+			if (img.complete) applyColor();
+			else img.addEventListener("load", applyColor);
+		}
+	</script>
 </PageLayout>

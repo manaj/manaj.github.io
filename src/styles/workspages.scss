@@ -13,6 +13,7 @@
 .workspage {
     padding-top: var(--sp-12);
 
+    
     h1 {
         font-family: var(--font-primary);
         padding: 0 0 var(--sp-4) 0;
@@ -32,18 +33,8 @@
         padding: 0;
         margin: 0 0 var(--sp-6) 0;
         color: var(--color-gray-900);
-
     }
 
-    h1,
-    h2,
-    p,
-    li {
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: antialiased !important;
-        -moz-font-smoothing: antialiased !important;
-        text-rendering: optimizelegibility !important;
-    }
 
     ul {
         margin-bottom: var(--sp-4);
