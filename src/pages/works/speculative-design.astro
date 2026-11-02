@@ -3,10 +3,12 @@ import PageLayout from "../../layouts/default-no-header.astro";
 const title =
 	"Speculative Design | Halmstad Z | Portfolio of Manaj Chakrobarti";
 const bodyClass = "works editorial";
+const fontURL =
+	"https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@1..144,1..1000&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap')";
 import "../../styles/speculative-design.scss";
 ---
 
-<PageLayout title={title} bodyClass={bodyClass}>
+<PageLayout title={title} bodyClass={bodyClass} fontURL={fontURL}>
 	<main class="editorial-page">
 		<!-- Full bleed hero: image left, dark panel right -->
 		<div class="hero">
@@ -32,9 +34,10 @@ import "../../styles/speculative-design.scss";
 						My teammate and I developed a cooperative card game. It
 						is for a speculative design project situated in
 						Stations­staden, “the station city” of Halmstad,
-						motivated by a participatory economic world.         						     
-						<a href="https://participatoryeconomy.org/"
-							> Participatory economy</a
+						motivated by a participatory economic world.
+
+						<a href="https://participatoryeconomy.org/">
+							Participatory economy</a
 						>, or parecon, is an economic model developed by
 						economists Michael Albert and Robin Hahnel.
 						Participatory planning is a part of Parecon and is used

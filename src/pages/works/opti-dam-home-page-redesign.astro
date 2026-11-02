@@ -1,246 +1,246 @@
 ---
-import PageLayout from "../../layouts/default.astro";
+import PageLayout from "../../layouts/innerpage-common.astro";
 const title =
-	"Digital asset management home page redesign - Portfolio of Manaj Chakrobarti";
+	"Optimizely product recommendation redesign - Portfolio of Manaj Chakrobarti";
 const bodyClass = "works";
 import "../../styles/workspages.scss";
+import Comparison from "../../layouts/components/comparison.astro";
 ---
 
 <PageLayout title={title} bodyClass={bodyClass}>
 	<main class="box workspage">
 		<header class="inner section-header">
-			<img
-				src="/images/works/opti-dam-home-page-redesign/home-page-redesign.png"
-				alt="Home page design"
-			/>
+			<h1>
+				Redesiging Optimizely's digital asset management (DAM) system
+			</h1>
+			<article class="project-information">
+				<div class="contributions">
+					<h2>My Contributions</h2>
+					<ul class="no-list">
+						<li>Product Design</li>
+						<li>UX/UI Design</li>
+						<li>Design System</li>
+						<li>Research & Testing</li>
+						<li>Mobile version</li>
+					</ul>
+				</div>
+
+				<section class="details">
+					<div class="challange">
+						<h2>Challenge</h2>
+						<p>
+							As the number of DAM users grew, finding and
+							navigating assets became increasingly difficult. The
+							homepage displayed assets in a flat structure,
+							sorted by creation date, making folders harder to
+							find as more content was added.
+						</p><p>
+							Users also wanted to preview folder contents without
+							opening them and have a better way to discover and
+							reuse assets. We wanted to create a more polished
+							experience while keeping the interface familiar and
+							building a foundation for future improvements.
+						</p>
+					</div>
+
+					<div class="team">
+						<h2>Team</h2>
+						<p>
+							I led the design effort for the DAM team, working
+							with an agile team of 4–5 developers, 1 product
+							manager, and 1 designer.
+						</p><p>
+							We collaborated closely throughout the process, with
+							weekly design discussions and regular meetings
+							between product managers and designers to review new
+							features and dependencies.
+						</p>
+					</div>
+
+					<div class="discover">
+						<h2>Approch</h2>
+						<p>
+							We explored competitor products and B2C applications
+							to understand different approaches to asset
+							discovery and navigation.
+						</p>
+						<p>
+							More importantly, we gathered feedback from existing
+							users through interviews and worked with account
+							managers and the product manager to understand their
+							needs.
+						</p>
+						<p>
+							I developed several design hypotheses around folder
+							previews, asset cards, image presentation, and
+							navigation. We used preference testing through
+							Lyssna (formerly UsabilityHub) to validate
+							individual design decisions.
+						</p>
+						<p>
+							For the complete experience, we adapted our
+							in-product NPS survey using Gainsight PX to collect
+							feedback directly from our users without requiring
+							them to use an external testing platform.
+						</p>
+					</div>
+
+					<div class="solution">
+						<h2>Solution</h2>
+						<p>
+							Based on the feedback, we designed a category-based
+							homepage with improved asset presentation and
+							multiple viewing options.
+						</p>
+						<p>
+							We tested different folder views, search results,
+							and asset card designs. Interestingly, users
+							preferred the folder-preview approach we initially
+							considered outdated. We followed their preference
+							and incorporated it into the final design.
+						</p>
+						<p>
+							The result was a redesigned homepage with Category,
+							Grid, and List views.
+						</p>
+					</div>
+
+					<div class="outcome">
+						<h2>Outcome</h2>
+						<p>
+							The redesigned homepage provided a more intuitive
+							way to discover and navigate assets. User feedback
+							helped validate our design decisions and prioritize
+							features for the MVP.
+						</p>
+						<p>
+							Following the redesign, DAM usage increased
+							significantly, as reflected in our product
+							analytics.
+						</p>
+
+						<h2>Learning</h2>
+						<p>
+							I learned the importance of validating design
+							assumptions rather than relying on personal
+							preferences or industry conventions. Sometimes users
+							value familiar patterns more than newer design
+							approaches.
+						</p><p>
+							It also reinforced how involving users early can
+							help shape a better product.
+						</p>
+					</div>
+				</section>
+			</article>
 		</header>
+
+		<section class="inner before-after">
+			<h2>Compare old grid view and new one</h2>
+			<Comparison
+				before="/images/works/opti-dam/old-home-page.png"
+				after="/images/works/opti-dam/final-design-grid.png"
+				beforeAlt="Image of old home page"
+				afterAlt="Image of DAM home page final design"
+			/>
+		</section>
+
+		<section class="inner before-after">
+			<h2>Compare List View</h2>
+			<Comparison
+				before="/images/works/opti-dam/nc-dam-list-view-old.png"
+				after="/images/works/opti-dam/opti-dam-list-view.png"
+				beforeAlt="Old List View"
+				afterAlt="New List View"
+			/>
+		</section>
+
 		<section class="inner">
-			<nav class="article-navigation">
-				<ul class="no-list">
-					<li><a href="#overview">Overview</a></li>
-					<li><a href="#roles-and-process">Role & process</a></li>
-					<li><a href="#research">Research</a></li>
-					<li><a href="#solution">Solution</a></li>
-					<li><a href="#measure">Measure</a></li>
-				</ul>
-			</nav>
-
 			<article class="article">
-				<h1>Digital asset management home page redesign</h1>
-				<h2 class="subheading">
-					We wanted to design a fresh new home page where people can
-					find the content they need more easily, visually it should
-					be more polished yet the page should look familiar.
-					Additionally, create a solid foundation for future
-					improvements.
-				</h2>
-				<h3 id="overview">Overview</h3>
-				<p>
-					Users struggle to easily find the assets they want to use,
-					moreover they want to see the folder’s content without
-					opening it. Sometimes they want to search and find assets to
-					use on and off platform.
-				</p>
+				<h2>Final Designs</h2>
 				<figure>
 					<img
-						src="/images/works/opti-dam-home-page-redesign/old-home-page.png"
-						alt="Image of old home page"
+						src="/images/works/opti-dam/final-design.png"
+						alt="Image of DAM home page final design"
 					/>
-					<figcaption>
-						Old home page, which is a flat view of assets uploded
-					</figcaption>
+					<figcaption>Final Design - Home View</figcaption>
 				</figure>
-				<p>
-					Our DAM (Digital Assets Management) users are increasing,
-					navigating through folders become a pain point for them
-					because we were showing a flat structure and default sorting
-					was based on creation date. More people making assets force
-					the folder to go deep in the page.
-				</p>
-				<figure>
-					<img
-						src="/images/works/opti-dam-list-view/nc-dam-list-view-old.png"
-						alt="Image of old home page"
-					/>
-					<figcaption>Old home page, List View</figcaption>
-				</figure>
-				<p>
-					Finally, we needed a wow factor for the marketing team’s
-					demos, and pave the way for future improvements of the
-					product.
-				</p>
 
-				<h3 id="roles-and-process">Roles & Process</h3>
-				<p>
-					Like previous work, I lead the design effort for the DAM
-					team. We are an agile team consisting of 4/5 developers, one
-					product manager, and one designer.
-				</p>
-				<p>
-					In our organization, all designers meet weekly to discuss
-					design problems. We have a couple of small teams for each
-					product area, all product manager and designer meet weekly
-					to discuss dependency or review of new features.
-				</p>
-				<h3 id="research">Research</h3>
-				<p>
-					We looked into the various competitor’s products, and some
-					B2C applications. Most importantly we interviewed some of
-					our users about how they want to see the product in the
-					future. Most of these meetings were conducted by an account
-					manager along with a product manager, and in some cases
-					included myself.
-				</p>
 				<figure>
 					<img
-						src="/images/works/opti-dam-home-page-redesign/research.png"
-						alt="Image of old home page"
+						src="/images/works/opti-dam/final.png"
+						alt="Showing the final version of rendition design"
 					/>
-					<figcaption>Some welknown DAM home pages</figcaption>
+					<figcaption>DAM Rendition</figcaption>
 				</figure>
-				<p>
-					Some of the features e.g. folder preview were long-wanted.
-					Additionally our assets cards were old and we needed a way
-					to make those better.
-				</p>
-				<h3 id="solution">Solution</h3>
-				<p>
-					Our hypothesis was to create a category based home page
-					along with a bigger display for images. We wanted to test
-					it. Since it was a B2B software there weren't enough users
-					to run A/B tests and most of the users are busy executives,
-					so we wanted to test the hypothesis without disturbing them.
-				</p>
 
-				<p>
-					We tried a preference test. It has some drawbacks compared
-					to an A/B test, but we chose it because we needed early
-					feedback. For preference tests, we used a web-based tool
-					called Lyssna [formally UsabilityHub]. It lets you hire
-					people for tests based on different demographics. We tested
-					following items
-				</p>
-				<ul>
-					<li>Folder view</li>
-					<li>Card hover between two designs</li>
-					<li>Image display</li>
-					<li>Badge Style</li>
-					<li>Badge or Logo</li>
-				</ul>
 				<figure>
 					<img
-						src="/images/works/opti-dam-home-page-redesign/lyssna.png"
+						src="/images/works/opti-dam/related.png"
+						alt="Innerpage - Related Assets"
+					/>
+					<figcaption>Related Assets</figcaption>
+				</figure>
+
+				<figure>
+					<img
+						src="/images/works/opti-dam/versions.png"
+						alt="Innerpage - Versions"
+					/>
+					<figcaption>Asset Versioning</figcaption>
+				</figure>
+
+				<figure>
+					<img
+						src="/images/works/opti-dam/analytics.png"
+						alt="Innerpage - Asset Analytics"
+					/>
+					<figcaption>Asset Analytics</figcaption>
+				</figure>
+
+				<figure>
+					<img
+						src="/images/works/opti-dam/comment.png"
+						alt="Innerpage - Asset Comments"
+					/>
+					<figcaption>Asset Comments</figcaption>
+				</figure>
+
+				<figure>
+					<img
+						src="/images/works/opti-dam/mobile.png"
+						alt="NewsCred DAM Mobile Design"
+					/>
+					<figcaption>DAM Mobile Design</figcaption>
+				</figure>
+
+				<h2>Result of redesign</h2>
+				<figure>
+					<img
+						src="/images/works/opti-dam/pendo.png"
+						alt="Pendo"
+					/>
+					<figcaption>Screenshot from Pendo</figcaption>
+				</figure>
+
+				<h2>Testing before finalize</h2>
+
+				<figure>
+					<img
+						src="/images/works/opti-dam/lyssna.png"
 						alt="Image of the screenshot of usabilityhub.com tests"
 					/>
 					<figcaption>Screenshot of Lyssna tests</figcaption>
 				</figure>
-				<p>
-					Furthermore, we had the page designs ready. We added the
-					necessary parts for the test and kept everything else the
-					same to make sure our data stayed clean.
-				</p>
 
-				<p>
-					We tried a preference test. It has some drawbacks compared
-					to an A/B test, but we chose it because we needed early
-					feedback. For preference tests, we use a web-based tool
-					called UsabilityHub. It's a service that provides a panel of
-					different demographics to quickly validate our design. We
-					tested all our small hypotheses, like card style and badge
-					positioning.
-				</p>
-
-				<p>
-					Now we needed to test the full page design. We chose a
-					preference test again. Since it's hard for our users to go
-					to UsabilityHub, we needed a way to do it in our software.
-					Luckily, we found a way. We used a web app called Gainsight
-					PX for the NPS survey. We decided to use the platform and
-					modify the survey to fit our test.
-				</p>
 				<figure>
 					<img
-						src="/images/works/opti-dam-home-page-redesign/preference-test-in-software.png"
+						src="/images/works/opti-dam/preference-test-in-software.png"
 						alt="Image of Folder Preference Test in our website via Gainsight"
 					/>
 					<figcaption>
 						Folder Preference Test in our website via Gainsight
 					</figcaption>
-				</figure>
-
-				<p>
-					We were delighted when we saw users are jumping to answer
-					our questions, they commented about their selection, they
-					asked us to implement features we are showing here, as soon
-					as possible. I think this was the biggest win in this whole
-					process to let our users know that we are thinking about
-					making their life a bit better.
-				</p>
-
-				<p>
-					The test had three parts.
-					<ul>
-						<li>Testing different folder view</li>
-						<li>Test search result page</li>
-						<li>Finally tested asset card designs</li>
-					</ul>
-				</p>
-				<figure>
-					<img
-						src="/images/works/opti-dam-home-page-redesign/preference-test-Gainsight-analytics.png"
-						alt="Image of Engaement performance data"
-					/>
-					<figcaption>Engaement performance data</figcaption>
-				</figure>
-
-				<p>
-					When we get back results we were surprised to find out one
-					answer. It’s about folder preview, the one we felt is old
-					school, not industry-standard that one got the most votes so
-					we obeyed their choice and implement that.
-				</p>
-				<p>
-					Between the other two, one was expected. And another proved
-					our previous assumption via usabilityhub.But we felt good to
-					get feedback from our users.
-				</p>
-
-				<p>Finally we have a design for MVP.</p>
-				<figure>
-					<img
-						src="/images/works/opti-dam-home-page-redesign/final-design.png"
-						alt="Image of DAM home page final design"
-					/>
-					<figcaption>Final Design - Category View</figcaption>
-				</figure>
-
-				<figure>
-					<img
-						src="/images/works/opti-dam-home-page-redesign/final-design-grid.png"
-						alt="Image of DAM home page final design"
-					/>
-					<figcaption>Final Design - Grid View</figcaption>
-				</figure>
-
-				<figure>
-					<img
-						src="/images/works/opti-dam-list-view/opti-dam-list-view.png"
-						alt="Image of DAM home page final design"
-					/>
-					<figcaption>Final Design - List View</figcaption>
-				</figure>
-
-				<h3 id="measure">Measure</h3>
-				<p>
-					Our users use of the DAM raise significantly, here is a
-					screenshot of the measure from our analytics software Pendo
-				</p>
-				<figure>
-					<img
-						src="/images/works/opti-dam-home-page-redesign/pendo.png"
-						alt="Pendo"
-					/>
-					<figcaption>Screenshot from Pendo</figcaption>
 				</figure>
 			</article>
 		</section>

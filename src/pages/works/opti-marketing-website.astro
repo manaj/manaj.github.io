@@ -1,259 +1,171 @@
 ---
-import PageLayout from "../../layouts/default.astro";
+import PageLayout from "../../layouts/default-no-header.astro";
 const title = "Optimizely CMS Marketing website redesign exploration ";
 const bodyClass = "works";
 import "../../styles/workspages.scss";
+import Comparison from "../../layouts/components/comparison.astro";
 ---
 
 <PageLayout title={title} bodyClass={bodyClass}>
 	<main class="box workspage">
 		<header class="inner section-header">
-			<img
-				src="/images/works/opti-marketing-website/new_design_1.png"
-				alt="Proposed marketing website of the Optimizely CMS "
-			/>
+			<h1>
+				Redesigning self-service widgets for product recommendations
+			</h1>
+			<article class="project-information">
+				<div class="contributions">
+					<h2>My Contributions</h2>
+					<ul class="no-list">
+						<li>UX/UI Design</li>
+						<li>Design System</li>
+						<li>Research & Testing</li>
+						<li>Heuristic Evaluation</li>
+					</ul>
+				</div>
+
+				<section class="details">
+					<div class="challange">
+						<h2>Challenge</h2>
+						<p>
+							The Optimizely CMS marketing website needed a
+							redesign. I wanted to explore different visual
+							directions and improve how the product's
+							capabilities were presented.
+						</p><p>
+							Although my primary focus was product design, I took
+							on this project as an opportunity to apply my skills
+							to a marketing website and experiment with different
+							approaches to visual storytelling and content
+							presentation.
+						</p>
+					</div>
+
+					<div class="team">
+						<h2>Team</h2>
+						<p>
+							This was a personal design exploration, so I worked
+							independently without a dedicated project team.
+						</p>
+					</div>
+
+					<div class="discover">
+						<h2>Approch</h2>
+						<p>
+							I followed a lightweight design process to explore
+							possible improvements:
+						</p>
+						<ul class="no-list">
+							<li>
+								<b>Heuristic evaluation:</b> Reviewed the existing
+								website to identify UX and visual design issues.
+							</li>
+							<li>
+								<b>Competitor research:</b> Explored similar products,
+								including Contentful and Adobe Experience Manager,
+								using Gartner to understand industry patterns and
+								design approaches.
+							</li>
+							<li>
+								<b>Design exploration:</b> Developed four different
+								page concepts based on my findings.
+							</li>
+							<li>
+								<b>Peer review:</b> Planned to present the concepts
+								to peers for feedback and refinement.
+							</li>
+							<li>
+								<b>A/B testing:</b> Considered how the designs could
+								be validated through A/B testing after implementation.
+							</li>
+						</ul>
+					</div>
+					<div class="research">
+						<h2>Research</h2>
+						<p>
+							I reviewed the existing website and documented my
+							heuristic evaluation, including potential
+							improvements, in a spreadsheet.
+						</p>
+						<p>
+							For competitor research, I explored websites of key
+							players in the CMS industry, including Contentful
+							and Adobe Experience Manager. I captured screenshots
+							and compared how they presented their products.
+						</p>
+						<p>Some interesting findings included:</p>
+						<ul class="no-list">
+							<li>
+								Capabilities and benefits sections varied
+								between long lists, columns, accordions, and
+								tabs.
+							</li>
+							<li>
+								Several websites used brand-colored text to
+								highlight important information.
+							</li>
+							<li>
+								Background choices varied, with most competitors
+								using white, while others used black or blue.
+							</li>
+						</ul>
+					</div>
+					<div class="solution">
+						<h2>Solution</h2>
+						<p>
+							I developed four design directions, exploring
+							different hero layouts, visual styles, and ways to
+							present the Capabilities section using columns,
+							tabs, accordions, and video.
+						</p>
+					</div>
+
+					<div class="learning">
+						<h2>Learning</h2>
+						<p>
+							This project helped me explore how visual design and
+							content presentation can shape the way a product is
+							communicated.
+						</p>
+					</div>
+				</section>
+			</article>
 		</header>
+
+		<section class="inner before-after">
+			<h2>The Redesign</h2>
+			<Comparison
+				before="/images/works/opti-marketing-website/old-marketing-website.png"
+				after="/images/works/opti-marketing-website/design3.png"
+				beforeAlt="Previous design of optimizely marketing website"
+				afterAlt="Proposed design 3"
+			/>
+		</section>
+
 		<section class="inner">
-			<nav class="article-navigation">
-				<ul class="no-list">
-					<li><a href="#overview">Overview</a></li>
-					<li><a href="#process">Process</a></li>
-					<li><a href="#design">New Design</a></li>
-				</ul>
-			</nav>
-
 			<article class="article">
-				<h1>Optimizely CMS marketing website redesign</h1>
-				<h2 class="subheading">
-					The CMS marketing website required a redesign, so I explored
-					various design options for the page. While my primary focus
-					is on product design, I took on this project as an
-					experiment to apply my skills to a marketing website.
-				</h2>
-				<h5 id="current">Previous Design</h5>
 				<figure>
-					<img
-						src="/images/works/opti-marketing-website/old-marketing-website.png"
-						alt="Old marketing website of the Optimizely CMS "
+					<img src="/images/works/opti-marketing-website/design1.png"
+						alt="Design option 1"
 					/>
-					<figcaption>
-						Old marketing website of the Optimizely CMS
-					</figcaption>
+					<figcaption>Design option 1</figcaption>
 				</figure>
 
-				<h3 id="process">Process</h3>
-				<p>
-					Since this was a personal project, I couldn't follow a
-					full-fledged design process. However, I adhered to a
-					fundamental design methodology:
-				</p>
-				<dl>
-					<dt>Heuristic Evaluation</dt>
-					<dd>
-						I conducted a quick review of the existing website to
-						identify UX and design issues.
-					</dd>
-					<dt>Competitor Research</dt>
-					<dd>
-						Using Gartner, I analyzed similar competitors, such as
-						Contentful and Adobe Experience Manager, to gather
-						design inspiration and best practices.
-					</dd>
-
-					<dt>Page Designs</dt>
-					<dd>
-						I created multiple design options for the webpage,
-						preparing them for potential peer review.
-					</dd>
-					<dt>Peer Review</dt>
-					<dd>
-						Typically, I would present the designs to my peers for
-						feedback and refinement. However, this step was optional
-						for this project.
-					</dd>
-					<dt>A/B test</dt>
-					<dd>
-						In a real-world scenario, once the development phase is
-						complete, A/B testing would be conducted to determine
-						which design performs best.
-					</dd>
-				</dl>
-
-				<h5>Heuristics evaluation</h5>
-				<p>
-					I reviewed the previous website and documented my
-					evaluations and recommendations in a spreadsheet.
-				</p>
 				<figure>
 					<img
-						src="/images/works/opti-marketing-website/heuristic_evaulation.png"
-						alt="heuristic evaulation of the previous site"
+						src="/images/works/opti-marketing-website/design2.png"
+						alt="Design option 2"
 					/>
-					<figcaption>
-						Heuristic evaulation of the previous site
-					</figcaption>
+					<figcaption>Design option 2</figcaption>
 				</figure>
 
-				<h5>Competitor Research</h5>
-				<p>
-					For research, I explored competitor websites via Gartner. I
-					identified key players in the industry, such as Contentful
-					and Adobe Experience Manager, and took screenshots of their
-					designs to analyze trends. Some key findings included:
-				</p>
-				<ul>
-					<li>
-						"Capabilities" or "Benefits" sections vary in
-						presentation: some use long lists similar to ours, while
-						others incorporate columns, accordions, or tabs. One
-						competitor even uses scroll-jacking.
-					</li>
-					<li>
-						Several websites highlight key points by using
-						brand-colored text.
-					</li>
-					<li>
-						Background choices differ: five websites use white, two
-						use black, and one uses blue.
-					</li>
-				</ul>
 				<figure>
 					<img
-						src="/images/works/opti-marketing-website/research_websites.png"
-						alt="Research screenshot"
+						src="/images/works/opti-marketing-website/design4.png"
+						alt="Design option 4"
 					/>
-					<figcaption>
-						Screenshot of the researched document
-					</figcaption>
+					<figcaption>Design option 4</figcaption>
 				</figure>
-				<h5>Page Design Options</h5>
-				<p class="no-bottom-space">
-					Based on my research, I developed four distinct design
-					concepts:
-				</p>
-				<ul class="no-list horizontal-list">
-					<li>
-						<figure>
-							<a
-								target="_blank"
-								href="/images/works/opti-marketing-website/design1.png"
-							>
-								<img
-									src="/images/works/opti-marketing-website/design1_thumbnail.png"
-									alt="Design option 1"
-								/>
-							</a>
-							<figcaption>Design option 1</figcaption>
-						</figure>
-						<ul>
-							<li>
-								Introduced navy blue, a brand color, to create a
-								more professional feel compared to the current
-								black theme.
-							</li>
-							<li>Used a single hero image for clarity.</li>
-							<li>
-								Designed the "Capabilities" section with a
-								three-column layout.
-							</li>
-						</ul>
-					</li>
-
-					<li>
-						<figure>
-							<a
-								target="_blank"
-								href="/images/works/opti-marketing-website/design2.png"
-							>
-								<img
-									src="/images/works/opti-marketing-website/design2_thumbnail.png"
-									alt="Design option 2"
-								/>
-							</a>
-							<figcaption>Design option 2</figcaption>
-						</figure>
-						<ul>
-							<li>
-								Incorporated a hero video instead of a static
-								image.
-							</li>
-							<li>
-								Introduced a tabbed view for the "Capabilities"
-								section, allowing users to focus on one item at
-								a time.
-							</li>
-							<li>
-								Proposed a one-minute hero video explaining the
-								product in detail.
-							</li>
-						</ul>
-					</li>
-					<li>
-						<figure>
-							<a
-								target="_blank"
-								href="/images/works/opti-marketing-website/design3.png"
-							>
-								<img
-									src="/images/works/opti-marketing-website/design3_thumbnail.png"
-									alt="Design option 3"
-								/>
-							</a>
-							<figcaption>Design option 3</figcaption>
-						</figure>
-						<ul>
-							<li>
-								Used a gradient background with lighter tones
-								for a modern look.
-							</li>
-							<li>
-								Leveraged large fonts and a single-column layout
-								for the hero section.
-							</li>
-							<li>
-								Designed a vertical tab or accordion layout for
-								the "Capabilities" section, which could function
-								as an automatic slideshow.
-							</li>
-						</ul>
-					</li>
-					<li>
-						<figure>
-							<a
-								target="_blank"
-								href="/images/works/opti-marketing-website/design1.png"
-							>
-								<img
-									src="/images/works/opti-marketing-website/design4_thumbnail.png"
-									alt="Design option 4"
-								/></a
-							>
-							<figcaption>Design option 4</figcaption>
-						</figure>
-						<ul>
-							<li>
-								Maintained the existing design’s core structure
-								but refined it for a lighter feel.
-							</li>
-							<li>
-								Created a split-layout hero section with a video
-								positioned at the bottom.
-							</li>
-							<li>
-								Implemented a free-flowing list in the
-								"Capabilities" section for better adaptability.
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<h5>Other Steps</h5>
-				<p>
-					Since I was not going to push it to production I didn't have
-					to do the stems peer review and A/B testing. However in any
-					production site I would do those steps and then finalize
-					one.
-				</p>
 			</article>
 		</section>
-	</main>" >
+	</main>
 </PageLayout>

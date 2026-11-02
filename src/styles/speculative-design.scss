@@ -1,24 +1,20 @@
 @charset "utf-8";
-
-// Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@1..144,1..1000&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@use "css/reset";
+@use "components/fonts";
+@use "components/variables";
+@use "components/mixins" as *;
+@use "components/root";
+@use "components/type";
+@use "components/grid";
+@use "components/utility";
+@use "components/header";
+@use "components/footer";
 
 :root {
     --editorial-font-primary: 'Libre Bodoni', serif;
     --editorial-font-secondary: 'Rubik', Helvetica, Arial, sans-serif;
     --editorial-font-tertiary: "Google Sans Flex", sans-serif;
 }
-
-@import "css/reset";
-@import "components/fonts",
-"components/variables",
-"components/mixins",
-"components/root",
-"components/type",
-"components/grid",
-"components/utility",
-"components/header",
-"components/footer";
 
 figure img {
     opacity: 0;
@@ -31,7 +27,6 @@ figure.is-visible img {
     transform: scale(1);
 }
 
-
 .editorial-page {
     --gutter: clamp(1rem, 2.5vw, 2rem);
 
@@ -40,13 +35,16 @@ figure.is-visible img {
     --hero-pad: clamp(2rem, 4vw, 4rem); // left padding of the hero text
     --hero-pad-right: clamp(3rem, 10vw, 10rem); // right padding of the hero text and article
 
-    // Hero text selection color
+    // Hero text selection
     --selection-bg: #3ddc84;
     --selection-text: #1a1a1a;
 
     // Space the fixed sidenav occupies: its left offset + its width + a gap.
     // Wide images never enter this zone. Keep in sync with .article-navigation.
-    --nav-zone: calc(var(--spacer-two) + 15vw + var(--spacer-one));
+    --nav-zone: calc(var(--sp-8) + 15vw + var(--sp-4));
+
+    // Width of the wide zone to the left of the text on desktop
+    --wide-left: max(0px, calc(var(--hero-split) + var(--hero-pad) - var(--nav-zone)));
 
     min-height: 100vh;
 
@@ -65,12 +63,12 @@ figure.is-visible img {
 
         // Green text selection inside the hero
         ::selection {
-            background: var(--color-flu-green);
+            background: var(--selection-bg);
             color: var(--selection-text);
         }
 
         ::-moz-selection {
-            background: var(--color-flu-green);
+            background: var(--selection-bg);
             color: var(--selection-text);
         }
 
@@ -82,6 +80,7 @@ figure.is-visible img {
         }
 
         .hero-image {
+            position: relative; // lets the credit sit on top of the image
             height: 60vw;
             min-height: 0;
 
@@ -91,10 +90,6 @@ figure.is-visible img {
                 height: 100%;
                 object-fit: cover;
             }
-        }
-
-        .hero-image {
-            position: relative; // lets the credit sit on top of the image
 
             .hero-image-credit {
                 position: absolute;
@@ -105,8 +100,8 @@ figure.is-visible img {
                 font-size: 0.75rem;
                 font-weight: 300;
                 line-height: 1.4;
-                color: #000;
-                text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); // keeps it readable on bright sky
+                color: #fff;
+                text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); // keeps it readable on bright areas
 
                 a {
                     color: inherit;
@@ -133,10 +128,6 @@ figure.is-visible img {
             line-height: 1;
             letter-spacing: -0.02em;
             margin: 0 0 1.25rem;
-
-            span {
-                color: red;
-            }
         }
 
         .subhead {
@@ -145,7 +136,7 @@ figure.is-visible img {
             font-weight: 300;
             line-height: 1.3;
             font-family: var(--editorial-font-tertiary);
-            color: var(--color-gray-600);
+            color: #afafaf;
         }
 
         // Paragraphs flow into columns automatically
@@ -196,7 +187,6 @@ figure.is-visible img {
             overflow: hidden;
 
             .hero-image {
-                position: relative;
                 height: auto; // the grid row sets the height
                 overflow: hidden;
 
@@ -210,8 +200,10 @@ figure.is-visible img {
             }
 
             .content {
+                padding-top: clamp(2rem, 5vh, 4rem);
+                padding-bottom: clamp(2rem, 5vh, 4rem);
                 padding-right: var(--hero-pad-right);
-                overflow-y: auto; // scrolls only if text does not fit
+                overflow: hidden; // no scrolling inside the hero
             }
 
             .hero-meta {
@@ -221,7 +213,6 @@ figure.is-visible img {
                 p {
                     font-size: clamp(1rem, 1.5vw, 1.05rem);
                     line-height: 1.5;
-                    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
                 }
             }
 
@@ -248,7 +239,7 @@ figure.is-visible img {
 
         // Tablet: centered column (the hero is still stacked here)
         @include media(small) {
-            padding: var(--spacer-two) 0 0 0;
+            padding: var(--sp-8) 0 0 0;
             grid-template-columns:
                 [full-start] 1fr [wide-start] 1fr [main-start] clamp(620px, 40vw, 720px) [main-end] 1fr [wide-end] 1fr [full-end];
 
@@ -260,10 +251,14 @@ figure.is-visible img {
         // Desktop: text starts where the hero text starts.
         // Column 1 is the nav zone (off limits), column 2 is the wide zone
         // to the left of the text, then the text, then the wide zone to the right.
-        // The last column keeps the same right space as the hero text.
         @include media(medium) {
             grid-template-columns:
-                [full-start] var(--nav-zone) [wide-start] max(0px, calc(var(--hero-split) + var(--hero-pad) - var(--nav-zone))) [main-start] clamp(560px, 40vw, 720px) [main-end] 1fr [wide-end] var(--hero-pad-right) [full-end];
+                [full-start] var(--nav-zone) [wide-start] var(--wide-left) [main-start] minmax(0, clamp(560px, 40vw, 720px)) [main-end] minmax(0, 1fr) [wide-end] var(--hero-pad-right) [full-end];
+
+            // Lets wide images and pairs shrink instead of forcing the grid wider
+            >* {
+                min-width: 0;
+            }
         }
 
         // Sidenav: fixed, fades in when the hero leaves the viewport
@@ -273,8 +268,8 @@ figure.is-visible img {
             @include media(medium) {
                 display: block;
                 position: fixed;
-                top: var(--spacer-three);
-                left: var(--spacer-two);
+                top: var(--sp-12);
+                left: var(--sp-8);
                 width: 15vw;
                 font-family: var(--editorial-font-secondary);
                 font-size: 0.9rem;
@@ -298,7 +293,7 @@ figure.is-visible img {
             }
 
             li {
-                padding: var(--spacer-quarter) var(--spacer-one);
+                padding: var(--sp-1) var(--sp-4);
                 font-size: inherit;
             }
 
@@ -326,7 +321,7 @@ figure.is-visible img {
         .divider {
             border: none;
             border-top: 1px solid var(--color-gray-100);
-            margin: 0 0 var(--spacer-two) 0;
+            margin: 0 0 var(--sp-8) 0;
         }
 
         // Headings
@@ -336,7 +331,7 @@ figure.is-visible img {
             font-weight: 600;
             line-height: 1.3;
             letter-spacing: -0.02em;
-            margin: var(--spacer-two) 0 var(--spacer-one) 0;
+            margin: var(--sp-8) 0 var(--sp-4) 0;
             color: var(--color-black);
         }
 
@@ -344,7 +339,7 @@ figure.is-visible img {
             font-family: var(--editorial-font-primary);
             font-size: 1.25rem;
             font-weight: 600;
-            margin: var(--spacer-twoandquarter) 0 var(--spacer-one) 0;
+            margin: var(--sp-9) 0 var(--sp-4) 0;
             color: var(--color-black);
             letter-spacing: -0.01em;
         }
@@ -355,7 +350,7 @@ figure.is-visible img {
             font-size: clamp(1rem, 1.5vw, 1.2rem);
             line-height: 1.8;
             color: var(--color-black);
-            margin-bottom: var(--spacer-half);
+            margin-bottom: var(--sp-2);
             font-weight: 300;
             letter-spacing: 0;
         }
@@ -375,7 +370,7 @@ figure.is-visible img {
                 font-size: clamp(1rem, 1.5vw, 1.1rem);
                 line-height: 1.8;
                 color: var(--color-black);
-                margin-bottom: var(--spacer-half);
+                margin-bottom: var(--sp-2);
                 font-weight: 300;
             }
         }
@@ -386,21 +381,21 @@ figure.is-visible img {
                 grid-column: wide-start / wide-end;
             }
 
-            border-left: 3px solid var(--color-turquoise-dark);
-            margin: var(--spacer-two) 0;
-            padding: var(--spacer-one) var(--spacer-oneandhalf);
-            background: var(--color-indigo);
+            border-left: 3px solid var(--color-mint-700);
+            margin: var(--sp-8) 0;
+            padding: var(--sp-4) var(--sp-6);
+            background: var(--color-indigo-100);
             font-family: var(--editorial-font-primary);
             font-weight: 400;
             font-size: clamp(1.1rem, 2vw, 1.35rem);
             font-style: italic;
             line-height: 1.6;
-            color: var(--color-gray-980);
+            color: var(--color-black);
         }
 
         // Standard figure: fills the text block
         figure {
-            margin: var(--spacer-two) 0;
+            margin: var(--sp-8) 0;
 
             img {
                 width: 100%;
@@ -412,33 +407,34 @@ figure.is-visible img {
                 font-family: var(--editorial-font-secondary);
                 font-size: .9rem;
                 color: var(--color-gray-600);
-                margin-top: var(--spacer-half);
+                margin-top: var(--sp-2);
                 line-height: 1.5;
                 text-align: center;
             }
         }
 
-figure.small {
-    max-width: 60%;
+        // Small figure: narrower than the text block, aligned to the text edge
+        figure.small {
+            max-width: 60%;
 
-    @include media(medium) {
-        max-width: 50%;
-    }
+            @include media(medium) {
+                max-width: 50%;
+            }
 
-    figcaption {
-        text-align: left;
-    }
-}
+            figcaption {
+                text-align: left;
+            }
+        }
 
-// Optional: centered variant
-figure.small.center {
-    margin-left: auto;
-    margin-right: auto;
+        // Centered variant of the small figure
+        figure.small.center {
+            margin-left: auto;
+            margin-right: auto;
 
-    figcaption {
-        text-align: center;
-    }
-}
+            figcaption {
+                text-align: center;
+            }
+        }
 
         // Wide figure: goes beyond the text block, never over the nav zone
         figure.wide {
@@ -454,7 +450,7 @@ figure.small.center {
             }
 
             figcaption {
-                padding: 0 var(--spacer-two);
+                padding: 0 var(--sp-8);
             }
         }
 
@@ -466,9 +462,9 @@ figure.small.center {
 
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--spacer-one);
-            margin-top: var(--spacer-two);
-            margin-bottom: var(--spacer-two);
+            gap: var(--sp-4);
+            margin-top: var(--sp-8);
+            margin-bottom: var(--sp-8);
 
             figure {
                 margin: 0;
