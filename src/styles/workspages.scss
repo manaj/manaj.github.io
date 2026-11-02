@@ -67,23 +67,44 @@
         border-bottom: 2px solid var(--color-gray-800);
 
         h2 {
-            margin-bottom: 0;
+            margin-bottom: var(--sp-4);
+
+            @include media(small) {
+                margin-bottom: 0
+            }
         }
     }
 
     .project-information {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: var(--sp-8);
+        @include media(small) {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: var(--sp-8);
+        }
 
         .contributions {
-            position: sticky;
-            top: var(--sp-12);
-            height: 140px;
+            position: static;
+            margin-bottom: var(--sp-8);
+
+            @include media(small) {
+                position: sticky;
+                top: var(--sp-12);
+                height: 140px;
+                margin-bottom: 0;
+            }
+
+            ul {
+                display: flex;
+                align-items: baseline;
+
+                @include media(small) {
+                    display: block;
+                }
+            }
 
             li {
                 display: block;
-                margin: var(--sp-2) 0 var(--sp-2);
+                margin: 0 var(--sp-2) 0 0;
                 font-family: var(--font-sans);
                 font-size: var(--smalltext);
                 line-height: 1;
@@ -91,16 +112,25 @@
                 color: var(--color-gray-800);
                 letter-spacing: var(--font-letter-spacing-2);
 
-                &:first-child {
-                    margin-top: var(--sp-4);
+                @include media(small) {
+                    margin: var(--sp-2) 0 var(--sp-2);
+
+                    &:first-child {
+                            margin-top: var(--sp-4);
+                        }
                 }
             }
         }
 
         .details {
-            grid-column: span 2;
-            columns: 2;
-            gap: var(--sp-8);
+            
+            display: block;
+
+            @include media(small) { 
+                grid-column: span 2;
+                columns: 2;
+                gap: var(--sp-8);
+            }
         }
     }
 
@@ -113,9 +143,7 @@
             border: 0;
         }
 
-        @include media(small) {
-
-        }
+        
     }
 
 
