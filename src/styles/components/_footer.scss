@@ -1,8 +1,12 @@
 @use "mixins" as *;
 
 footer.footer {
-    background: linear-gradient(135deg, var(--color-black) 30%, var(--color-gray-900) 80%, var(--color-gray-800) 100%);
-    padding: var(--sp-16) 0;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+
+
+
+
+padding: var(--sp-16) 0;
     color: var(--color-white);
 
 
@@ -19,7 +23,7 @@ footer.footer {
         @include media(small) {
             grid-template-columns: 224px 1fr;
             gap: var(--sp-8);
-            text-align: LEFT;
+            text-align: left;
         }
 
         p {
